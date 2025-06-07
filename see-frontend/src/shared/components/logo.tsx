@@ -1,0 +1,17 @@
+import { CommandIcon } from "lucide-react";
+import Link from "next/link";
+import { ROUTES } from "../constants/routes";
+
+export function Logo() {
+  return (
+    <Link
+      href={ROUTES.CABINET_HOME}
+      className="inline-flex items-center gap-2 hover:bg-sidebar-accent p-1 rounded-md transition-colors"
+    >
+      <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-5 items-center justify-center rounded-md">
+        <CommandIcon className="size-3" />
+      </div>
+      <span className="truncate font-medium">SEE</span>
+    </Link>
+  );
+}

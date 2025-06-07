@@ -1,0 +1,95 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma"
+}
+
+model User {
+    id String @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    name String
+    email String @unique
+    password String
+    role Role
+
+    notifications Notification[]
+    subjectTimeSlots SubjectTimeSlot[]
+}
+
+enum Role {
+    Student
+    Teacher
+    Admin
+}
+
+model Notification {
+    id String @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    title String
+    message String
+    
+    user User @relation(fields: [userId], references: [id])
+    userId String
+}
+
+model Faculty {
+    id String @id @default(uuid())
+
+    name String @unique
+
+    specialties Specialty[]
+}
+
+model Specialty {
+    id String @id @default(uuid())
+
+    code Int @unique
+    name String @unique
+ 
+    faculty Faculty @relation(fields: [facultyId], references: [id])
+    facultyId String
+
+    groups Group[]
+}
+
+model Group {
+    id String @id @default(uuid())
+
+    name String @unique
+
+    specialty Specialty @relation(fields: [specialtyId], references: [id])
+    specialtyId String
+
+    subjectTimeSlots SubjectTimeSlot[]
+}
+
+model Subject {
+    id String @id @default(uuid())
+
+    name String
+
+    subjectTimeSlots SubjectTimeSlot[]
+}
+
+model SubjectTimeSlot {
+    id String @id @default(uuid())
+
+    subject Subject @relation(fields: [subjectId], references: [id])
+    subjectId String
+
+    group Group @relation(fields: [groupId], references: [id])
+    groupId String
+    
+    subgroupNumber Int
+
+    teacher User @relation(fields: [teacherId], references: [id])
+    teacherId String
+}
