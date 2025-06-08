@@ -5,6 +5,7 @@ import {
   SidebarProvider,
 } from "@/shared/components/ui-kit/sidebar";
 import { Header } from "./header";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Student Cabinet",
@@ -17,12 +18,14 @@ export default function StudentCabinetLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <Header />
-        <main>{children}</main>
-      </SidebarInset>
-    </SidebarProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarInset className="flex flex-col">
+          <Header />
+          {children}
+        </SidebarInset>
+      </SidebarProvider>
+    </ThemeProvider>
   );
 }

@@ -1,4 +1,4 @@
-import { NavActions } from "@/features/sidebar";
+import { ThemeToggleButton } from "@/shared/components/theme/theme-toggle-button";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -21,14 +21,14 @@ export function Header() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbPage className="line-clamp-1">
-                Project Management & Task Tracking
+                Student education ecosystem
               </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>
       <div className="ml-auto px-3">
-        <NavActions />
+        <ThemeToggleButton />
       </div>
     </header>
   );
