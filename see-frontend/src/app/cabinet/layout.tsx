@@ -18,7 +18,12 @@ export default function StudentCabinetLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset className="flex flex-col">

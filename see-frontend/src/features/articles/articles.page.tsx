@@ -1,3 +1,27 @@
+import { ArticlesCard } from "./articles-card";
+
 export function ArticlesPage() {
-  return <div>Articles</div>;
+  return (
+    <div className="max-w-[870px] w-full mx-auto p-4">
+      <h1 className="mb-4">Статті</h1>
+      <div className="space-y-2">
+        <ArticlesCard
+          title="Назва статті"
+          description="Опис статті"
+          date="2021-01-01"
+        />
+        <ArticlesCard
+          title="Назва статті"
+          description="Опис статті"
+          date="2021-01-01"
+        />
+        <ArticlesCard
+          title="Назва статті"
+          description="Опис статті"
+          date="2021-01-01"
+          isLast
+        />
+      </div>
+    </div>
+  );
 }
