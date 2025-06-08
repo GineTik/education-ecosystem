@@ -1,10 +1,10 @@
 import Image from "next/image";
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/shared/components/ui-kit/card";
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+} from "@/shared/components/ui-kit/table";
 
 interface StudentInformationItem {
   label: string;
@@ -30,15 +30,15 @@ export function StudentProfilePage({
     <div className="max-w-[800px] mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Профіль студента</h1>
 
-      <div className="bg-white rounded-lg mx-auto">
-        <div className="flex flex-col items-center md:flex-row md:items-start">
+      <div className="flex gap-4 bg-white rounded-lg mx-auto space-y-4">
+        <div className="items-center md:items-start">
           {photoUrl && (
-            <div className="size-32 md:size-48 rounded-lg bg-muted overflow-hidden mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+            <div className="size-32 md:size-48 rounded-lg mb-3 md:mb-0 md:mr-6 flex-shrink-0">
               <Image
                 src={photoUrl}
                 alt={`${name || "Student"}'s photo`}
-                width={192} // Corresponds to md:w-48 (48 * 4px base)
-                height={192} // Corresponds to md:h-48
+                width={192}
+                height={192}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -65,32 +65,22 @@ export function StudentProfilePage({
         {otherInformation &&
           otherInformation.filter((item) => item.value !== undefined).length >
             0 && (
-            <Card className="mt-6">
-              <CardHeader>
-                <CardTitle className="text-lg font-semibold mb-3">
-                  Інформація про студента
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="">
-                <ul className="space-y-2">
-                  {otherInformation.map((item) =>
-                    item.value !== undefined ? (
-                      <li
-                        key={item.label}
-                        className="flex flex-col sm:flex-row sm:justify-between py-1"
-                      >
-                        <span className="font-medium text-gray-600">
-                          {item.label}:
-                        </span>
-                        <span className="text-gray-800 sm:text-right">
-                          {item.value}
-                        </span>
-                      </li>
-                    ) : null
-                  )}
-                </ul>
-              </CardContent>
-            </Card>
+            <Table>
+              <TableBody>
+                {otherInformation.map((item) =>
+                  item.value !== undefined ? (
+                    <TableRow key={item.label} className="">
+                      <TableCell className="p-1 font-medium text-gray-600 w-1/2">
+                        {item.label}
+                      </TableCell>
+                      <TableCell className="p-1 text-gray-800 ">
+                        {item.value}
+                      </TableCell>
+                    </TableRow>
+                  ) : null
+                )}
+              </TableBody>
+            </Table>
           )}
 
         {!photoUrl &&

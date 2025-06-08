@@ -1,0 +1,95 @@
+/* see-frontend/src/features/schedule/calendar.module.css */
+.calendarWrapper {
+  height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.calendarWrapper .rbc-calendar {
+  border: 1px solid #dddddd;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.calendarWrapper .rbc-toolbar {
+  margin-bottom: 20px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.calendarWrapper .rbc-header {
+  background-color: transparent;
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  text-align: center;
+  font-weight: normal;
+  color: #666;
+}
+
+.calendarWrapper .rbc-day-bg {
+  border-left: 1px solid #dddddd;
+}
+
+.calendarWrapper .rbc-time-gutter {
+  background-color: #f7f7f7;
+}
+
+.calendarWrapper .rbc-time-slot {
+  border-top: 1px solid #dddddd;
+}
+
+.calendarWrapper .rbc-event {
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+}
+
+/* Custom event colors - Light Theme */
+.project-epam {
+  background-color: #d1f7c4;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.project-epic7 {
+  background-color: #f8d7da;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+.project-meeting {
+  background-color: #e1bee7;
+  color: #6a1b9a;
+  border: 1px solid #6a1b9a;
+}
+
+.project-backend {
+  background-color: #ffecb3;
+  color: #ad4f0a;
+  border: 1px solid #ad4f0a;
+}
+
+.project-frontend {
+  background-color: #ffecb3;
+  color: #ad4f0a;
+  border: 1px solid #ad4f0a;
+}
+
+.project-busya {
+  background-color: #b2ebf2;
+  color: #00838f;
+  border: 1px solid #00838f;
+}
+
+.project-megastom {
+  background-color: #ffccbc;
+  color: #d84315;
+  border: 1px solid #d84315;
+}
+
+.project-describe {
+  background-color: #d7ccc8;
+  color: #4e342e;
+  border: 1px solid #4e342e;
+}

@@ -1,4 +1,4 @@
-import { NavActions } from "@/features/sidebar/ui/nav/nav-actions";
+import { NavActions } from "@/features/sidebar";
 import {
   Breadcrumb,
   BreadcrumbList,

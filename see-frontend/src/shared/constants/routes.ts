@@ -5,15 +5,9 @@ class Routes {
   STUDENT_SCHEDULE = "/cabinet/group/schedule";
   STUDENT_SETTINGS = "/cabinet/student/settings";
   STUDENT_PROFILE = "/cabinet/student/profile";
-  UNIVERSITY_COMMUNITIES(universityId: number) {
-    return `/cabinet/university/${universityId}/communities`;
-  }
-  UNIVERSITY_PAGES(universityId: number) {
-    return `/cabinet/university/${universityId}/pages`;
-  }
-  STUDENT_UNIVERSITY(universityId: number) {
-    return `/cabinet/university/${universityId}`;
-  }
+  STUDENT_INSTITUTION = "/cabinet/institution";
+  UNIVERSITY_COMMUNITIES = `/cabinet/institution/communities`;
+  UNIVERSITY_ARTICLES = `/cabinet/institution/articles`;
 }
 
 export const ROUTES = new Routes();

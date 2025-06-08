@@ -18,17 +18,17 @@ export const useMenu = () => {
     universityMenu: [
       {
         title: "Профіль університету",
-        href: ROUTES.STUDENT_UNIVERSITY(1),
+        href: ROUTES.STUDENT_INSTITUTION,
         emoji: "🏫",
       },
       {
         title: "Спільноти",
-        href: ROUTES.UNIVERSITY_COMMUNITIES(1),
+        href: ROUTES.UNIVERSITY_COMMUNITIES,
         emoji: "🤝",
       },
       {
         title: "Сторінки",
-        href: ROUTES.UNIVERSITY_PAGES(1),
+        href: ROUTES.UNIVERSITY_ARTICLES,
         emoji: "📄",
       },
       {

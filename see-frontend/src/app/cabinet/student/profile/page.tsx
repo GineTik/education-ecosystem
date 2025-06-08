@@ -1,9 +1,8 @@
-import { StudentProfilePage } from "@/features/student";
+import { StudentProfilePage } from "@/features/students";
 
 export default function Page() {
   const studentData = {
-    photoUrl:
-      "https://cabinet.nau.edu.ua/students/student/get-student-image?educationId=12366252",
+    photoUrl: "https://api.dicebear.com/7.x/lorelei/svg?seed=6",
     name: "Alisa Kovalenko",
     year: 3,
     degree: "Bachelor of Software Engineering",
