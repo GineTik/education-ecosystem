@@ -5,6 +5,7 @@ import { CalendarEvent } from "../calendar.types";
 import EventPopup from "./event-popup";
 import dayjs from "dayjs";
 import { cn } from "@/shared/lib/utils";
+import { useTheme } from "next-themes";
 
 type EventCardProps = {
   event: CalendarEvent;
@@ -15,6 +16,7 @@ const HIDE_TIME_HEIGHT = 50;
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const eventRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (eventRef?.current) {
@@ -26,28 +28,41 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
     <EventPopup
       event={event}
       trigger={
-        <div
-          className={cn(
-            "bg-secondary text-secondary-foreground p-1 rounded-sm text-sm cursor-pointer truncate h-full flex flex-col",
-            event.data?.subjectColor && event.data?.subjectColor,
-            event.data?.subjectForegroundColor &&
-              event.data?.subjectForegroundColor
-          )}
-          ref={eventRef}
-        >
-          <span
+        <div className="bg-background h-full">
+          <div
             className={cn(
-              "text-xs text-muted-foreground",
-              height <= HIDE_TIME_HEIGHT && "hidden"
+              "bg-secondary p-1 rounded-sm text-sm cursor-pointer truncate h-full flex flex-col"
             )}
+            ref={eventRef}
+            style={{
+              backgroundColor: theme?.includes("dark")
+                ? event.data?.subjectDarkColor
+                : event.data?.subjectColor,
+            }}
           >
-            {dayjs(event.start).format("HH:mm")} -{" "}
-            {dayjs(event.end).format("HH:mm")}
-          </span>
-          <span className="font-medium">{event.title}</span>
-          {event.data?.subject && (
-            <span className={cn("text-xs")}>{event.data?.subject}</span>
-          )}
+            <span
+              className={cn(
+                "text-xs opacity-75",
+                height <= HIDE_TIME_HEIGHT && "hidden"
+              )}
+            >
+              {dayjs(event.start).format("HH:mm")} -{" "}
+              {dayjs(event.end).format("HH:mm")}
+            </span>
+            <span className="font-semibold">{event.title}</span>
+            {event.data?.subject && (
+              <span
+                className={cn("text-xs opacity-80 font-medium")}
+                style={{
+                  color: theme?.includes("dark")
+                    ? event.data?.subjectDarkForegroundColor
+                    : event.data?.subjectForegroundColor,
+                }}
+              >
+                {event.data?.subject}
+              </span>
+            )}
+          </div>
         </div>
       }
     />

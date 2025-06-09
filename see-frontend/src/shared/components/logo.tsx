@@ -1,11 +1,14 @@
 import { CommandIcon } from "lucide-react";
 import Link from "next/link";
-import { ROUTES } from "../constants/routes";
 
-export function Logo() {
+type LogoProps = {
+  href?: string;
+};
+
+export function Logo({ href }: LogoProps) {
   return (
     <Link
-      href={ROUTES.CABINET_HOME}
+      href={href ?? ""}
       className="inline-flex items-center gap-2 hover:bg-sidebar-accent p-1 rounded-md transition-colors"
     >
       <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-5 items-center justify-center rounded-sm">

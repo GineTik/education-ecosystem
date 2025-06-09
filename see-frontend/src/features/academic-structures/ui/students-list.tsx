@@ -66,9 +66,9 @@ export function StudentsList() {
       <Table>
         <TableHeader>
           <TableRow className="hover:bg-transparent">
-            <TableHead className="w-[80px]">Avatar</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Subgroup</TableHead>
+            <TableHead className="w-[80px]"></TableHead>
+            <TableHead>Ім&apos;я</TableHead>
+            <TableHead>Група</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

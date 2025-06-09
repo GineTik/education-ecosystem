@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = env("database_url")
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -18,7 +18,7 @@ model User {
   createdAt DateTime @default(now())
 
   emails    Email[]
-  passwordHash String
+  avatarUrl String?
 
   role Role @relation(fields: [roleId], references: [id])
   roleId String
@@ -49,10 +49,12 @@ model Permission {
 }
 
 model Email {
-  id        String   @id @default(uuid())
-  email     String   @unique
+  email     String   @unique @id
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  googleAccessToken String?
+  googleRefreshToken String?
 
   user User @relation(fields: [userId], references: [id])
   userId String
@@ -98,6 +100,8 @@ model InstitutionInstance {
 
   institutionName String
   institutionSlug String @unique
+  
+  validMailDomains String[]
 
   modules InstitutionInstanceModule[]
   User User[]

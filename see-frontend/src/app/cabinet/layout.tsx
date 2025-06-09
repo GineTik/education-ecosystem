@@ -1,16 +1,9 @@
-import type { Metadata } from "next";
-import { AppSidebar } from "@/features/sidebar";
+import { CabinetSidebar } from "@/features/sidebar";
 import {
   SidebarInset,
   SidebarProvider,
 } from "@/shared/components/ui-kit/sidebar";
-import { Header } from "./header";
-import { ThemeProvider } from "next-themes";
-
-export const metadata: Metadata = {
-  title: "Student Cabinet",
-  description: "Student Cabinet",
-};
+import { CabinetHeader } from "./header";
 
 export default function StudentCabinetLayout({
   children,
@@ -18,19 +11,12 @@ export default function StudentCabinetLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset className="flex flex-col">
-          <Header />
-          {children}
-        </SidebarInset>
-      </SidebarProvider>
-    </ThemeProvider>
+    <SidebarProvider>
+      <CabinetSidebar />
+      <SidebarInset className="flex flex-col">
+        <CabinetHeader />
+        {children}
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

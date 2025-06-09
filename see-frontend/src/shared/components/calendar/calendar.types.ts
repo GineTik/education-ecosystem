@@ -7,6 +7,8 @@ export type CalendarEvent = {
   data?: {
     subject?: string;
     subjectColor?: string;
+    subjectDarkColor?: string;
     subjectForegroundColor?: string;
+    subjectDarkForegroundColor?: string;
   };
 };

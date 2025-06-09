@@ -14,7 +14,7 @@ export function ArticlesCard({
   isLast,
 }: ArticlesCardProps) {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 cursor-pointer group">
       <div className="pb-2">
         <div className="w-[100px] h-[100px] rounded-md bg-muted"></div>
       </div>
@@ -25,7 +25,9 @@ export function ArticlesCard({
         )}
       >
         <div className="flex items-center gap-2">
-          <h3 className="text-lg font-semibold">{title}</h3>
+          <h3 className="text-lg font-semibold group-hover:underline">
+            {title}
+          </h3>
           <p className="text-sm text-muted-foreground">{date}</p>
         </div>
         <p className="text-sm text-muted-foreground">{description}</p>

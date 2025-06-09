@@ -8,6 +8,8 @@ class Routes {
   STUDENT_INSTITUTION = "/cabinet/institution";
   UNIVERSITY_COMMUNITIES = `/cabinet/institution/communities`;
   UNIVERSITY_ARTICLES = `/cabinet/institution/articles`;
+  HOME = "/";
+  LOGIN = "/login";
 }
 
 export const ROUTES = new Routes();

@@ -6,7 +6,7 @@ Table User {
   id String [pk]
   createdAt DateTime [default: `now()`, not null]
   emails Email [not null]
-  passwordHash String [not null]
+  avatarUrl String
   role Role [not null]
   roleId String [not null]
   instance InstitutionInstance
@@ -15,6 +15,7 @@ Table User {
 
 Table Role {
   id String [pk]
+  slug String [unique, not null]
   name String [not null]
   description String [not null]
   User User [not null]
@@ -23,16 +24,18 @@ Table Role {
 
 Table Permission {
   id String [pk]
+  slug String [unique, not null]
   name String [not null]
   description String [not null]
   roles Role [not null]
 }
 
 Table Email {
-  id String [pk]
-  email String [unique, not null]
+  email String [pk]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
+  googleAccessToken String
+  googleRefreshToken String
   user User [not null]
   userId String [not null]
 }
@@ -66,6 +69,7 @@ Table InstitutionInstance {
   updatedAt DateTime [not null]
   institutionName String [not null]
   institutionSlug String [unique, not null]
+  validMailDomains String[] [not null]
   modules InstitutionInstanceModule [not null]
   User User [not null]
   externalLinks ExternalLinks [not null]

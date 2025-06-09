@@ -1,3 +1,4 @@
+import { HOTKEYS } from "@/shared/constants/hotkeys";
 import { ROUTES } from "@/shared/constants/routes";
 import { BookOpenIcon, HomeIcon } from "lucide-react";
 
@@ -20,6 +21,7 @@ export const useMenu = () => {
         title: "Профіль університету",
         href: ROUTES.STUDENT_INSTITUTION,
         emoji: "🏫",
+        hotkeys: HOTKEYS.OPEN_INSTITUTION,
       },
       {
         title: "Спільноти",
@@ -43,11 +45,13 @@ export const useMenu = () => {
         title: "Профіль групи",
         href: ROUTES.STUDENT_GROUP,
         emoji: "👥",
+        hotkeys: HOTKEYS.OPEN_GROUP,
       },
       {
         title: "Розклад",
         href: ROUTES.STUDENT_SCHEDULE,
         emoji: "📅",
+        hotkeys: HOTKEYS.OPEN_SCHEDULE,
       },
       {
         title: "Група в телеграм",
@@ -61,6 +65,7 @@ export const useMenu = () => {
         title: "Профіль студента",
         href: ROUTES.STUDENT_PROFILE,
         emoji: "👤",
+        hotkeys: HOTKEYS.OPEN_PROFILE,
       },
       {
         title: "Налаштування",

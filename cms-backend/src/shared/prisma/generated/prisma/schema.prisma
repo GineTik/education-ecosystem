@@ -17,8 +17,8 @@ model User {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
 
-  emails       Email[]
-  passwordHash String
+  emails    Email[]
+  avatarUrl String?
 
   role   Role   @relation(fields: [roleId], references: [id])
   roleId String
@@ -28,7 +28,8 @@ model User {
 }
 
 model Role {
-  id String @id @default(uuid())
+  id   String @id @default(uuid())
+  slug String @unique
 
   name        String
   description String
@@ -38,7 +39,8 @@ model Role {
 }
 
 model Permission {
-  id String @id @default(uuid())
+  id   String @id @default(uuid())
+  slug String @unique
 
   name        String
   description String
@@ -47,10 +49,12 @@ model Permission {
 }
 
 model Email {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  email String @id @unique
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  googleAccessToken  String?
+  googleRefreshToken String?
 
   user   User   @relation(fields: [userId], references: [id])
   userId String
@@ -96,6 +100,8 @@ model InstitutionInstance {
 
   institutionName String
   institutionSlug String @unique
+
+  validMailDomains String[]
 
   modules       InstitutionInstanceModule[]
   User          User[]

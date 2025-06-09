@@ -1809,7 +1809,7 @@ export namespace Prisma {
   export type UserMinAggregateOutputType = {
     id: string | null
     createdAt: Date | null
-    passwordHash: string | null
+    avatarUrl: string | null
     roleId: string | null
     instanceId: string | null
   }
@@ -1817,7 +1817,7 @@ export namespace Prisma {
   export type UserMaxAggregateOutputType = {
     id: string | null
     createdAt: Date | null
-    passwordHash: string | null
+    avatarUrl: string | null
     roleId: string | null
     instanceId: string | null
   }
@@ -1825,7 +1825,7 @@ export namespace Prisma {
   export type UserCountAggregateOutputType = {
     id: number
     createdAt: number
-    passwordHash: number
+    avatarUrl: number
     roleId: number
     instanceId: number
     _all: number
@@ -1835,7 +1835,7 @@ export namespace Prisma {
   export type UserMinAggregateInputType = {
     id?: true
     createdAt?: true
-    passwordHash?: true
+    avatarUrl?: true
     roleId?: true
     instanceId?: true
   }
@@ -1843,7 +1843,7 @@ export namespace Prisma {
   export type UserMaxAggregateInputType = {
     id?: true
     createdAt?: true
-    passwordHash?: true
+    avatarUrl?: true
     roleId?: true
     instanceId?: true
   }
@@ -1851,7 +1851,7 @@ export namespace Prisma {
   export type UserCountAggregateInputType = {
     id?: true
     createdAt?: true
-    passwordHash?: true
+    avatarUrl?: true
     roleId?: true
     instanceId?: true
     _all?: true
@@ -1932,7 +1932,7 @@ export namespace Prisma {
   export type UserGroupByOutputType = {
     id: string
     createdAt: Date
-    passwordHash: string
+    avatarUrl: string | null
     roleId: string
     instanceId: string | null
     _count: UserCountAggregateOutputType | null
@@ -1957,7 +1957,7 @@ export namespace Prisma {
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     createdAt?: boolean
-    passwordHash?: boolean
+    avatarUrl?: boolean
     roleId?: boolean
     instanceId?: boolean
     emails?: boolean | User$emailsArgs<ExtArgs>
@@ -1969,7 +1969,7 @@ export namespace Prisma {
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     createdAt?: boolean
-    passwordHash?: boolean
+    avatarUrl?: boolean
     roleId?: boolean
     instanceId?: boolean
     role?: boolean | RoleDefaultArgs<ExtArgs>
@@ -1979,7 +1979,7 @@ export namespace Prisma {
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     createdAt?: boolean
-    passwordHash?: boolean
+    avatarUrl?: boolean
     roleId?: boolean
     instanceId?: boolean
     role?: boolean | RoleDefaultArgs<ExtArgs>
@@ -1989,12 +1989,12 @@ export namespace Prisma {
   export type UserSelectScalar = {
     id?: boolean
     createdAt?: boolean
-    passwordHash?: boolean
+    avatarUrl?: boolean
     roleId?: boolean
     instanceId?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "passwordHash" | "roleId" | "instanceId", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "avatarUrl" | "roleId" | "instanceId", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emails?: boolean | User$emailsArgs<ExtArgs>
     role?: boolean | RoleDefaultArgs<ExtArgs>
@@ -2020,7 +2020,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       createdAt: Date
-      passwordHash: string
+      avatarUrl: string | null
       roleId: string
       instanceId: string | null
     }, ExtArgs["result"]["user"]>
@@ -2451,7 +2451,7 @@ export namespace Prisma {
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly passwordHash: FieldRef<"User", 'String'>
+    readonly avatarUrl: FieldRef<"User", 'String'>
     readonly roleId: FieldRef<"User", 'String'>
     readonly instanceId: FieldRef<"User", 'String'>
   }
@@ -2923,18 +2923,21 @@ export namespace Prisma {
 
   export type RoleMinAggregateOutputType = {
     id: string | null
+    slug: string | null
     name: string | null
     description: string | null
   }
 
   export type RoleMaxAggregateOutputType = {
     id: string | null
+    slug: string | null
     name: string | null
     description: string | null
   }
 
   export type RoleCountAggregateOutputType = {
     id: number
+    slug: number
     name: number
     description: number
     _all: number
@@ -2943,18 +2946,21 @@ export namespace Prisma {
 
   export type RoleMinAggregateInputType = {
     id?: true
+    slug?: true
     name?: true
     description?: true
   }
 
   export type RoleMaxAggregateInputType = {
     id?: true
+    slug?: true
     name?: true
     description?: true
   }
 
   export type RoleCountAggregateInputType = {
     id?: true
+    slug?: true
     name?: true
     description?: true
     _all?: true
@@ -3034,6 +3040,7 @@ export namespace Prisma {
 
   export type RoleGroupByOutputType = {
     id: string
+    slug: string
     name: string
     description: string
     _count: RoleCountAggregateOutputType | null
@@ -3057,6 +3064,7 @@ export namespace Prisma {
 
   export type RoleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
     User?: boolean | Role$UserArgs<ExtArgs>
@@ -3066,23 +3074,26 @@ export namespace Prisma {
 
   export type RoleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["role"]>
 
   export type RoleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["role"]>
 
   export type RoleSelectScalar = {
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
   }
 
-  export type RoleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description", ExtArgs["result"]["role"]>
+  export type RoleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "name" | "description", ExtArgs["result"]["role"]>
   export type RoleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Role$UserArgs<ExtArgs>
     permissions?: boolean | Role$permissionsArgs<ExtArgs>
@@ -3099,6 +3110,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      slug: string
       name: string
       description: string
     }, ExtArgs["result"]["role"]>
@@ -3527,6 +3539,7 @@ export namespace Prisma {
    */
   interface RoleFieldRefs {
     readonly id: FieldRef<"Role", 'String'>
+    readonly slug: FieldRef<"Role", 'String'>
     readonly name: FieldRef<"Role", 'String'>
     readonly description: FieldRef<"Role", 'String'>
   }
@@ -3995,18 +4008,21 @@ export namespace Prisma {
 
   export type PermissionMinAggregateOutputType = {
     id: string | null
+    slug: string | null
     name: string | null
     description: string | null
   }
 
   export type PermissionMaxAggregateOutputType = {
     id: string | null
+    slug: string | null
     name: string | null
     description: string | null
   }
 
   export type PermissionCountAggregateOutputType = {
     id: number
+    slug: number
     name: number
     description: number
     _all: number
@@ -4015,18 +4031,21 @@ export namespace Prisma {
 
   export type PermissionMinAggregateInputType = {
     id?: true
+    slug?: true
     name?: true
     description?: true
   }
 
   export type PermissionMaxAggregateInputType = {
     id?: true
+    slug?: true
     name?: true
     description?: true
   }
 
   export type PermissionCountAggregateInputType = {
     id?: true
+    slug?: true
     name?: true
     description?: true
     _all?: true
@@ -4106,6 +4125,7 @@ export namespace Prisma {
 
   export type PermissionGroupByOutputType = {
     id: string
+    slug: string
     name: string
     description: string
     _count: PermissionCountAggregateOutputType | null
@@ -4129,6 +4149,7 @@ export namespace Prisma {
 
   export type PermissionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
     roles?: boolean | Permission$rolesArgs<ExtArgs>
@@ -4137,23 +4158,26 @@ export namespace Prisma {
 
   export type PermissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["permission"]>
 
   export type PermissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["permission"]>
 
   export type PermissionSelectScalar = {
     id?: boolean
+    slug?: boolean
     name?: boolean
     description?: boolean
   }
 
-  export type PermissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description", ExtArgs["result"]["permission"]>
+  export type PermissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "name" | "description", ExtArgs["result"]["permission"]>
   export type PermissionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     roles?: boolean | Permission$rolesArgs<ExtArgs>
     _count?: boolean | PermissionCountOutputTypeDefaultArgs<ExtArgs>
@@ -4168,6 +4192,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      slug: string
       name: string
       description: string
     }, ExtArgs["result"]["permission"]>
@@ -4595,6 +4620,7 @@ export namespace Prisma {
    */
   interface PermissionFieldRefs {
     readonly id: FieldRef<"Permission", 'String'>
+    readonly slug: FieldRef<"Permission", 'String'>
     readonly name: FieldRef<"Permission", 'String'>
     readonly description: FieldRef<"Permission", 'String'>
   }
@@ -5038,52 +5064,58 @@ export namespace Prisma {
   }
 
   export type EmailMinAggregateOutputType = {
-    id: string | null
     email: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    googleAccessToken: string | null
+    googleRefreshToken: string | null
     userId: string | null
   }
 
   export type EmailMaxAggregateOutputType = {
-    id: string | null
     email: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    googleAccessToken: string | null
+    googleRefreshToken: string | null
     userId: string | null
   }
 
   export type EmailCountAggregateOutputType = {
-    id: number
     email: number
     createdAt: number
     updatedAt: number
+    googleAccessToken: number
+    googleRefreshToken: number
     userId: number
     _all: number
   }
 
 
   export type EmailMinAggregateInputType = {
-    id?: true
     email?: true
     createdAt?: true
     updatedAt?: true
+    googleAccessToken?: true
+    googleRefreshToken?: true
     userId?: true
   }
 
   export type EmailMaxAggregateInputType = {
-    id?: true
     email?: true
     createdAt?: true
     updatedAt?: true
+    googleAccessToken?: true
+    googleRefreshToken?: true
     userId?: true
   }
 
   export type EmailCountAggregateInputType = {
-    id?: true
     email?: true
     createdAt?: true
     updatedAt?: true
+    googleAccessToken?: true
+    googleRefreshToken?: true
     userId?: true
     _all?: true
   }
@@ -5161,10 +5193,11 @@ export namespace Prisma {
   }
 
   export type EmailGroupByOutputType = {
-    id: string
     email: string
     createdAt: Date
     updatedAt: Date
+    googleAccessToken: string | null
+    googleRefreshToken: string | null
     userId: string
     _count: EmailCountAggregateOutputType | null
     _min: EmailMinAggregateOutputType | null
@@ -5186,41 +5219,45 @@ export namespace Prisma {
 
 
   export type EmailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    googleAccessToken?: boolean
+    googleRefreshToken?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["email"]>
 
   export type EmailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    googleAccessToken?: boolean
+    googleRefreshToken?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["email"]>
 
   export type EmailSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    googleAccessToken?: boolean
+    googleRefreshToken?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["email"]>
 
   export type EmailSelectScalar = {
-    id?: boolean
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    googleAccessToken?: boolean
+    googleRefreshToken?: boolean
     userId?: boolean
   }
 
-  export type EmailOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["email"]>
+  export type EmailOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"email" | "createdAt" | "updatedAt" | "googleAccessToken" | "googleRefreshToken" | "userId", ExtArgs["result"]["email"]>
   export type EmailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -5237,10 +5274,11 @@ export namespace Prisma {
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
       email: string
       createdAt: Date
       updatedAt: Date
+      googleAccessToken: string | null
+      googleRefreshToken: string | null
       userId: string
     }, ExtArgs["result"]["email"]>
     composites: {}
@@ -5325,8 +5363,8 @@ export namespace Prisma {
      * // Get first 10 Emails
      * const emails = await prisma.email.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const emailWithIdOnly = await prisma.email.findMany({ select: { id: true } })
+     * // Only select the `email`
+     * const emailWithEmailOnly = await prisma.email.findMany({ select: { email: true } })
      * 
      */
     findMany<T extends EmailFindManyArgs>(args?: SelectSubset<T, EmailFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -5370,9 +5408,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Emails and only return the `id`
-     * const emailWithIdOnly = await prisma.email.createManyAndReturn({
-     *   select: { id: true },
+     * // Create many Emails and only return the `email`
+     * const emailWithEmailOnly = await prisma.email.createManyAndReturn({
+     *   select: { email: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -5461,9 +5499,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Emails and only return the `id`
-     * const emailWithIdOnly = await prisma.email.updateManyAndReturn({
-     *   select: { id: true },
+     * // Update zero or more Emails and only return the `email`
+     * const emailWithEmailOnly = await prisma.email.updateManyAndReturn({
+     *   select: { email: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5666,10 +5704,11 @@ export namespace Prisma {
    * Fields of the Email model
    */
   interface EmailFieldRefs {
-    readonly id: FieldRef<"Email", 'String'>
     readonly email: FieldRef<"Email", 'String'>
     readonly createdAt: FieldRef<"Email", 'DateTime'>
     readonly updatedAt: FieldRef<"Email", 'DateTime'>
+    readonly googleAccessToken: FieldRef<"Email", 'String'>
+    readonly googleRefreshToken: FieldRef<"Email", 'String'>
     readonly userId: FieldRef<"Email", 'String'>
   }
     
@@ -8267,6 +8306,7 @@ export namespace Prisma {
     updatedAt: number
     institutionName: number
     institutionSlug: number
+    validMailDomains: number
     _all: number
   }
 
@@ -8293,6 +8333,7 @@ export namespace Prisma {
     updatedAt?: true
     institutionName?: true
     institutionSlug?: true
+    validMailDomains?: true
     _all?: true
   }
 
@@ -8374,6 +8415,7 @@ export namespace Prisma {
     updatedAt: Date
     institutionName: string
     institutionSlug: string
+    validMailDomains: string[]
     _count: InstitutionInstanceCountAggregateOutputType | null
     _min: InstitutionInstanceMinAggregateOutputType | null
     _max: InstitutionInstanceMaxAggregateOutputType | null
@@ -8399,6 +8441,7 @@ export namespace Prisma {
     updatedAt?: boolean
     institutionName?: boolean
     institutionSlug?: boolean
+    validMailDomains?: boolean
     modules?: boolean | InstitutionInstance$modulesArgs<ExtArgs>
     User?: boolean | InstitutionInstance$UserArgs<ExtArgs>
     externalLinks?: boolean | InstitutionInstance$externalLinksArgs<ExtArgs>
@@ -8411,6 +8454,7 @@ export namespace Prisma {
     updatedAt?: boolean
     institutionName?: boolean
     institutionSlug?: boolean
+    validMailDomains?: boolean
   }, ExtArgs["result"]["institutionInstance"]>
 
   export type InstitutionInstanceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8419,6 +8463,7 @@ export namespace Prisma {
     updatedAt?: boolean
     institutionName?: boolean
     institutionSlug?: boolean
+    validMailDomains?: boolean
   }, ExtArgs["result"]["institutionInstance"]>
 
   export type InstitutionInstanceSelectScalar = {
@@ -8427,9 +8472,10 @@ export namespace Prisma {
     updatedAt?: boolean
     institutionName?: boolean
     institutionSlug?: boolean
+    validMailDomains?: boolean
   }
 
-  export type InstitutionInstanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "institutionName" | "institutionSlug", ExtArgs["result"]["institutionInstance"]>
+  export type InstitutionInstanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "institutionName" | "institutionSlug" | "validMailDomains", ExtArgs["result"]["institutionInstance"]>
   export type InstitutionInstanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     modules?: boolean | InstitutionInstance$modulesArgs<ExtArgs>
     User?: boolean | InstitutionInstance$UserArgs<ExtArgs>
@@ -8452,6 +8498,7 @@ export namespace Prisma {
       updatedAt: Date
       institutionName: string
       institutionSlug: string
+      validMailDomains: string[]
     }, ExtArgs["result"]["institutionInstance"]>
     composites: {}
   }
@@ -8883,6 +8930,7 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"InstitutionInstance", 'DateTime'>
     readonly institutionName: FieldRef<"InstitutionInstance", 'String'>
     readonly institutionSlug: FieldRef<"InstitutionInstance", 'String'>
+    readonly validMailDomains: FieldRef<"InstitutionInstance", 'String[]'>
   }
     
 
@@ -11604,7 +11652,7 @@ export namespace Prisma {
   export const UserScalarFieldEnum: {
     id: 'id',
     createdAt: 'createdAt',
-    passwordHash: 'passwordHash',
+    avatarUrl: 'avatarUrl',
     roleId: 'roleId',
     instanceId: 'instanceId'
   };
@@ -11614,6 +11662,7 @@ export namespace Prisma {
 
   export const RoleScalarFieldEnum: {
     id: 'id',
+    slug: 'slug',
     name: 'name',
     description: 'description'
   };
@@ -11623,6 +11672,7 @@ export namespace Prisma {
 
   export const PermissionScalarFieldEnum: {
     id: 'id',
+    slug: 'slug',
     name: 'name',
     description: 'description'
   };
@@ -11631,10 +11681,11 @@ export namespace Prisma {
 
 
   export const EmailScalarFieldEnum: {
-    id: 'id',
     email: 'email',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
+    googleAccessToken: 'googleAccessToken',
+    googleRefreshToken: 'googleRefreshToken',
     userId: 'userId'
   };
 
@@ -11674,7 +11725,8 @@ export namespace Prisma {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     institutionName: 'institutionName',
-    institutionSlug: 'institutionSlug'
+    institutionSlug: 'institutionSlug',
+    validMailDomains: 'validMailDomains'
   };
 
   export type InstitutionInstanceScalarFieldEnum = (typeof InstitutionInstanceScalarFieldEnum)[keyof typeof InstitutionInstanceScalarFieldEnum]
@@ -11821,7 +11873,7 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     id?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
-    passwordHash?: StringFilter<"User"> | string
+    avatarUrl?: StringNullableFilter<"User"> | string | null
     roleId?: StringFilter<"User"> | string
     instanceId?: StringNullableFilter<"User"> | string | null
     emails?: EmailListRelationFilter
@@ -11832,7 +11884,7 @@ export namespace Prisma {
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     createdAt?: SortOrder
-    passwordHash?: SortOrder
+    avatarUrl?: SortOrderInput | SortOrder
     roleId?: SortOrder
     instanceId?: SortOrderInput | SortOrder
     emails?: EmailOrderByRelationAggregateInput
@@ -11846,7 +11898,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     createdAt?: DateTimeFilter<"User"> | Date | string
-    passwordHash?: StringFilter<"User"> | string
+    avatarUrl?: StringNullableFilter<"User"> | string | null
     roleId?: StringFilter<"User"> | string
     instanceId?: StringNullableFilter<"User"> | string | null
     emails?: EmailListRelationFilter
@@ -11857,7 +11909,7 @@ export namespace Prisma {
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     createdAt?: SortOrder
-    passwordHash?: SortOrder
+    avatarUrl?: SortOrderInput | SortOrder
     roleId?: SortOrder
     instanceId?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -11871,7 +11923,7 @@ export namespace Prisma {
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    passwordHash?: StringWithAggregatesFilter<"User"> | string
+    avatarUrl?: StringNullableWithAggregatesFilter<"User"> | string | null
     roleId?: StringWithAggregatesFilter<"User"> | string
     instanceId?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
@@ -11881,6 +11933,7 @@ export namespace Prisma {
     OR?: RoleWhereInput[]
     NOT?: RoleWhereInput | RoleWhereInput[]
     id?: StringFilter<"Role"> | string
+    slug?: StringFilter<"Role"> | string
     name?: StringFilter<"Role"> | string
     description?: StringFilter<"Role"> | string
     User?: UserListRelationFilter
@@ -11889,6 +11942,7 @@ export namespace Prisma {
 
   export type RoleOrderByWithRelationInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
     User?: UserOrderByRelationAggregateInput
@@ -11897,6 +11951,7 @@ export namespace Prisma {
 
   export type RoleWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    slug?: string
     AND?: RoleWhereInput | RoleWhereInput[]
     OR?: RoleWhereInput[]
     NOT?: RoleWhereInput | RoleWhereInput[]
@@ -11904,10 +11959,11 @@ export namespace Prisma {
     description?: StringFilter<"Role"> | string
     User?: UserListRelationFilter
     permissions?: PermissionListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type RoleOrderByWithAggregationInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
     _count?: RoleCountOrderByAggregateInput
@@ -11920,6 +11976,7 @@ export namespace Prisma {
     OR?: RoleScalarWhereWithAggregatesInput[]
     NOT?: RoleScalarWhereWithAggregatesInput | RoleScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Role"> | string
+    slug?: StringWithAggregatesFilter<"Role"> | string
     name?: StringWithAggregatesFilter<"Role"> | string
     description?: StringWithAggregatesFilter<"Role"> | string
   }
@@ -11929,6 +11986,7 @@ export namespace Prisma {
     OR?: PermissionWhereInput[]
     NOT?: PermissionWhereInput | PermissionWhereInput[]
     id?: StringFilter<"Permission"> | string
+    slug?: StringFilter<"Permission"> | string
     name?: StringFilter<"Permission"> | string
     description?: StringFilter<"Permission"> | string
     roles?: RoleListRelationFilter
@@ -11936,6 +11994,7 @@ export namespace Prisma {
 
   export type PermissionOrderByWithRelationInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
     roles?: RoleOrderByRelationAggregateInput
@@ -11943,16 +12002,18 @@ export namespace Prisma {
 
   export type PermissionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    slug?: string
     AND?: PermissionWhereInput | PermissionWhereInput[]
     OR?: PermissionWhereInput[]
     NOT?: PermissionWhereInput | PermissionWhereInput[]
     name?: StringFilter<"Permission"> | string
     description?: StringFilter<"Permission"> | string
     roles?: RoleListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type PermissionOrderByWithAggregationInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
     _count?: PermissionCountOrderByAggregateInput
@@ -11965,6 +12026,7 @@ export namespace Prisma {
     OR?: PermissionScalarWhereWithAggregatesInput[]
     NOT?: PermissionScalarWhereWithAggregatesInput | PermissionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Permission"> | string
+    slug?: StringWithAggregatesFilter<"Permission"> | string
     name?: StringWithAggregatesFilter<"Permission"> | string
     description?: StringWithAggregatesFilter<"Permission"> | string
   }
@@ -11973,40 +12035,44 @@ export namespace Prisma {
     AND?: EmailWhereInput | EmailWhereInput[]
     OR?: EmailWhereInput[]
     NOT?: EmailWhereInput | EmailWhereInput[]
-    id?: StringFilter<"Email"> | string
     email?: StringFilter<"Email"> | string
     createdAt?: DateTimeFilter<"Email"> | Date | string
     updatedAt?: DateTimeFilter<"Email"> | Date | string
+    googleAccessToken?: StringNullableFilter<"Email"> | string | null
+    googleRefreshToken?: StringNullableFilter<"Email"> | string | null
     userId?: StringFilter<"Email"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type EmailOrderByWithRelationInput = {
-    id?: SortOrder
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    googleAccessToken?: SortOrderInput | SortOrder
+    googleRefreshToken?: SortOrderInput | SortOrder
     userId?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
   export type EmailWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
     email?: string
     AND?: EmailWhereInput | EmailWhereInput[]
     OR?: EmailWhereInput[]
     NOT?: EmailWhereInput | EmailWhereInput[]
     createdAt?: DateTimeFilter<"Email"> | Date | string
     updatedAt?: DateTimeFilter<"Email"> | Date | string
+    googleAccessToken?: StringNullableFilter<"Email"> | string | null
+    googleRefreshToken?: StringNullableFilter<"Email"> | string | null
     userId?: StringFilter<"Email"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "email">
+  }, "email" | "email">
 
   export type EmailOrderByWithAggregationInput = {
-    id?: SortOrder
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    googleAccessToken?: SortOrderInput | SortOrder
+    googleRefreshToken?: SortOrderInput | SortOrder
     userId?: SortOrder
     _count?: EmailCountOrderByAggregateInput
     _max?: EmailMaxOrderByAggregateInput
@@ -12017,10 +12083,11 @@ export namespace Prisma {
     AND?: EmailScalarWhereWithAggregatesInput | EmailScalarWhereWithAggregatesInput[]
     OR?: EmailScalarWhereWithAggregatesInput[]
     NOT?: EmailScalarWhereWithAggregatesInput | EmailScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Email"> | string
     email?: StringWithAggregatesFilter<"Email"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Email"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Email"> | Date | string
+    googleAccessToken?: StringNullableWithAggregatesFilter<"Email"> | string | null
+    googleRefreshToken?: StringNullableWithAggregatesFilter<"Email"> | string | null
     userId?: StringWithAggregatesFilter<"Email"> | string
   }
 
@@ -12170,6 +12237,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"InstitutionInstance"> | Date | string
     institutionName?: StringFilter<"InstitutionInstance"> | string
     institutionSlug?: StringFilter<"InstitutionInstance"> | string
+    validMailDomains?: StringNullableListFilter<"InstitutionInstance">
     modules?: InstitutionInstanceModuleListRelationFilter
     User?: UserListRelationFilter
     externalLinks?: ExternalLinksListRelationFilter
@@ -12181,6 +12249,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     institutionName?: SortOrder
     institutionSlug?: SortOrder
+    validMailDomains?: SortOrder
     modules?: InstitutionInstanceModuleOrderByRelationAggregateInput
     User?: UserOrderByRelationAggregateInput
     externalLinks?: ExternalLinksOrderByRelationAggregateInput
@@ -12195,6 +12264,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"InstitutionInstance"> | Date | string
     updatedAt?: DateTimeFilter<"InstitutionInstance"> | Date | string
     institutionName?: StringFilter<"InstitutionInstance"> | string
+    validMailDomains?: StringNullableListFilter<"InstitutionInstance">
     modules?: InstitutionInstanceModuleListRelationFilter
     User?: UserListRelationFilter
     externalLinks?: ExternalLinksListRelationFilter
@@ -12206,6 +12276,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     institutionName?: SortOrder
     institutionSlug?: SortOrder
+    validMailDomains?: SortOrder
     _count?: InstitutionInstanceCountOrderByAggregateInput
     _max?: InstitutionInstanceMaxOrderByAggregateInput
     _min?: InstitutionInstanceMinOrderByAggregateInput
@@ -12220,6 +12291,7 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"InstitutionInstance"> | Date | string
     institutionName?: StringWithAggregatesFilter<"InstitutionInstance"> | string
     institutionSlug?: StringWithAggregatesFilter<"InstitutionInstance"> | string
+    validMailDomains?: StringNullableListFilter<"InstitutionInstance">
   }
 
   export type InstitutionInstanceModuleWhereInput = {
@@ -12361,7 +12433,7 @@ export namespace Prisma {
   export type UserCreateInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     emails?: EmailCreateNestedManyWithoutUserInput
     role: RoleCreateNestedOneWithoutUserInput
     instance?: InstitutionInstanceCreateNestedOneWithoutUserInput
@@ -12370,7 +12442,7 @@ export namespace Prisma {
   export type UserUncheckedCreateInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     roleId: string
     instanceId?: string | null
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
@@ -12379,7 +12451,7 @@ export namespace Prisma {
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emails?: EmailUpdateManyWithoutUserNestedInput
     role?: RoleUpdateOneRequiredWithoutUserNestedInput
     instance?: InstitutionInstanceUpdateOneWithoutUserNestedInput
@@ -12388,7 +12460,7 @@ export namespace Prisma {
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     roleId?: StringFieldUpdateOperationsInput | string
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
@@ -12397,7 +12469,7 @@ export namespace Prisma {
   export type UserCreateManyInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     roleId: string
     instanceId?: string | null
   }
@@ -12405,19 +12477,20 @@ export namespace Prisma {
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     roleId?: StringFieldUpdateOperationsInput | string
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RoleCreateInput = {
     id?: string
+    slug: string
     name: string
     description: string
     User?: UserCreateNestedManyWithoutRoleInput
@@ -12426,6 +12499,7 @@ export namespace Prisma {
 
   export type RoleUncheckedCreateInput = {
     id?: string
+    slug: string
     name: string
     description: string
     User?: UserUncheckedCreateNestedManyWithoutRoleInput
@@ -12434,6 +12508,7 @@ export namespace Prisma {
 
   export type RoleUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     User?: UserUpdateManyWithoutRoleNestedInput
@@ -12442,6 +12517,7 @@ export namespace Prisma {
 
   export type RoleUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     User?: UserUncheckedUpdateManyWithoutRoleNestedInput
@@ -12450,24 +12526,28 @@ export namespace Prisma {
 
   export type RoleCreateManyInput = {
     id?: string
+    slug: string
     name: string
     description: string
   }
 
   export type RoleUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type RoleUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionCreateInput = {
     id?: string
+    slug: string
     name: string
     description: string
     roles?: RoleCreateNestedManyWithoutPermissionsInput
@@ -12475,6 +12555,7 @@ export namespace Prisma {
 
   export type PermissionUncheckedCreateInput = {
     id?: string
+    slug: string
     name: string
     description: string
     roles?: RoleUncheckedCreateNestedManyWithoutPermissionsInput
@@ -12482,6 +12563,7 @@ export namespace Prisma {
 
   export type PermissionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     roles?: RoleUpdateManyWithoutPermissionsNestedInput
@@ -12489,6 +12571,7 @@ export namespace Prisma {
 
   export type PermissionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     roles?: RoleUncheckedUpdateManyWithoutPermissionsNestedInput
@@ -12496,74 +12579,84 @@ export namespace Prisma {
 
   export type PermissionCreateManyInput = {
     id?: string
+    slug: string
     name: string
     description: string
   }
 
   export type PermissionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type EmailCreateInput = {
-    id?: string
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    googleAccessToken?: string | null
+    googleRefreshToken?: string | null
     user: UserCreateNestedOneWithoutEmailsInput
   }
 
   export type EmailUncheckedCreateInput = {
-    id?: string
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    googleAccessToken?: string | null
+    googleRefreshToken?: string | null
     userId: string
   }
 
   export type EmailUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutEmailsNestedInput
   }
 
   export type EmailUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type EmailCreateManyInput = {
-    id?: string
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    googleAccessToken?: string | null
+    googleRefreshToken?: string | null
     userId: string
   }
 
   export type EmailUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmailUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -12726,6 +12819,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput
     User?: UserCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksCreateNestedManyWithoutInstitutionInstanceInput
@@ -12737,6 +12831,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutInstanceInput
     User?: UserUncheckedCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksUncheckedCreateNestedManyWithoutInstitutionInstanceInput
@@ -12748,6 +12843,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput
     User?: UserUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUpdateManyWithoutInstitutionInstanceNestedInput
@@ -12759,6 +12855,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceNestedInput
     User?: UserUncheckedUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUncheckedUpdateManyWithoutInstitutionInstanceNestedInput
@@ -12770,6 +12867,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
   }
 
   export type InstitutionInstanceUpdateManyMutationInput = {
@@ -12778,6 +12876,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
   }
 
   export type InstitutionInstanceUncheckedUpdateManyInput = {
@@ -12786,6 +12885,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
   }
 
   export type InstitutionInstanceModuleCreateInput = {
@@ -12999,7 +13099,7 @@ export namespace Prisma {
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
-    passwordHash?: SortOrder
+    avatarUrl?: SortOrder
     roleId?: SortOrder
     instanceId?: SortOrder
   }
@@ -13007,7 +13107,7 @@ export namespace Prisma {
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
-    passwordHash?: SortOrder
+    avatarUrl?: SortOrder
     roleId?: SortOrder
     instanceId?: SortOrder
   }
@@ -13015,7 +13115,7 @@ export namespace Prisma {
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
-    passwordHash?: SortOrder
+    avatarUrl?: SortOrder
     roleId?: SortOrder
     instanceId?: SortOrder
   }
@@ -13092,18 +13192,21 @@ export namespace Prisma {
 
   export type RoleCountOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
 
   export type RoleMaxOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
 
   export type RoleMinOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
@@ -13120,18 +13223,21 @@ export namespace Prisma {
 
   export type PermissionCountOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
 
   export type PermissionMaxOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
 
   export type PermissionMinOrderByAggregateInput = {
     id?: SortOrder
+    slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
@@ -13142,26 +13248,29 @@ export namespace Prisma {
   }
 
   export type EmailCountOrderByAggregateInput = {
-    id?: SortOrder
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    googleAccessToken?: SortOrder
+    googleRefreshToken?: SortOrder
     userId?: SortOrder
   }
 
   export type EmailMaxOrderByAggregateInput = {
-    id?: SortOrder
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    googleAccessToken?: SortOrder
+    googleRefreshToken?: SortOrder
     userId?: SortOrder
   }
 
   export type EmailMinOrderByAggregateInput = {
-    id?: SortOrder
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    googleAccessToken?: SortOrder
+    googleRefreshToken?: SortOrder
     userId?: SortOrder
   }
 
@@ -13286,6 +13395,14 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type InstitutionInstanceModuleListRelationFilter = {
     every?: InstitutionInstanceModuleWhereInput
     some?: InstitutionInstanceModuleWhereInput
@@ -13312,6 +13429,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     institutionName?: SortOrder
     institutionSlug?: SortOrder
+    validMailDomains?: SortOrder
   }
 
   export type InstitutionInstanceMaxOrderByAggregateInput = {
@@ -13476,6 +13594,10 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type EmailUpdateManyWithoutUserNestedInput = {
     create?: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput> | EmailCreateWithoutUserInput[] | EmailUncheckedCreateWithoutUserInput[]
     connectOrCreate?: EmailCreateOrConnectWithoutUserInput | EmailCreateOrConnectWithoutUserInput[]
@@ -13506,10 +13628,6 @@ export namespace Prisma {
     delete?: InstitutionInstanceWhereInput | boolean
     connect?: InstitutionInstanceWhereUniqueInput
     update?: XOR<XOR<InstitutionInstanceUpdateToOneWithWhereWithoutUserInput, InstitutionInstanceUpdateWithoutUserInput>, InstitutionInstanceUncheckedUpdateWithoutUserInput>
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type EmailUncheckedUpdateManyWithoutUserNestedInput = {
@@ -13686,6 +13804,10 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
+  export type InstitutionInstanceCreatevalidMailDomainsInput = {
+    set: string[]
+  }
+
   export type InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput = {
     create?: XOR<InstitutionInstanceModuleCreateWithoutInstanceInput, InstitutionInstanceModuleUncheckedCreateWithoutInstanceInput> | InstitutionInstanceModuleCreateWithoutInstanceInput[] | InstitutionInstanceModuleUncheckedCreateWithoutInstanceInput[]
     connectOrCreate?: InstitutionInstanceModuleCreateOrConnectWithoutInstanceInput | InstitutionInstanceModuleCreateOrConnectWithoutInstanceInput[]
@@ -13726,6 +13848,11 @@ export namespace Prisma {
     connectOrCreate?: ExternalLinksCreateOrConnectWithoutInstitutionInstanceInput | ExternalLinksCreateOrConnectWithoutInstitutionInstanceInput[]
     createMany?: ExternalLinksCreateManyInstitutionInstanceInputEnvelope
     connect?: ExternalLinksWhereUniqueInput | ExternalLinksWhereUniqueInput[]
+  }
+
+  export type InstitutionInstanceUpdatevalidMailDomainsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput = {
@@ -14082,17 +14209,19 @@ export namespace Prisma {
   }
 
   export type EmailCreateWithoutUserInput = {
-    id?: string
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    googleAccessToken?: string | null
+    googleRefreshToken?: string | null
   }
 
   export type EmailUncheckedCreateWithoutUserInput = {
-    id?: string
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    googleAccessToken?: string | null
+    googleRefreshToken?: string | null
   }
 
   export type EmailCreateOrConnectWithoutUserInput = {
@@ -14107,6 +14236,7 @@ export namespace Prisma {
 
   export type RoleCreateWithoutUserInput = {
     id?: string
+    slug: string
     name: string
     description: string
     permissions?: PermissionCreateNestedManyWithoutRolesInput
@@ -14114,6 +14244,7 @@ export namespace Prisma {
 
   export type RoleUncheckedCreateWithoutUserInput = {
     id?: string
+    slug: string
     name: string
     description: string
     permissions?: PermissionUncheckedCreateNestedManyWithoutRolesInput
@@ -14130,6 +14261,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksCreateNestedManyWithoutInstitutionInstanceInput
   }
@@ -14140,6 +14272,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksUncheckedCreateNestedManyWithoutInstitutionInstanceInput
   }
@@ -14169,10 +14302,11 @@ export namespace Prisma {
     AND?: EmailScalarWhereInput | EmailScalarWhereInput[]
     OR?: EmailScalarWhereInput[]
     NOT?: EmailScalarWhereInput | EmailScalarWhereInput[]
-    id?: StringFilter<"Email"> | string
     email?: StringFilter<"Email"> | string
     createdAt?: DateTimeFilter<"Email"> | Date | string
     updatedAt?: DateTimeFilter<"Email"> | Date | string
+    googleAccessToken?: StringNullableFilter<"Email"> | string | null
+    googleRefreshToken?: StringNullableFilter<"Email"> | string | null
     userId?: StringFilter<"Email"> | string
   }
 
@@ -14189,6 +14323,7 @@ export namespace Prisma {
 
   export type RoleUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     permissions?: PermissionUpdateManyWithoutRolesNestedInput
@@ -14196,6 +14331,7 @@ export namespace Prisma {
 
   export type RoleUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     permissions?: PermissionUncheckedUpdateManyWithoutRolesNestedInput
@@ -14218,6 +14354,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUpdateManyWithoutInstitutionInstanceNestedInput
   }
@@ -14228,6 +14365,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUncheckedUpdateManyWithoutInstitutionInstanceNestedInput
   }
@@ -14235,7 +14373,7 @@ export namespace Prisma {
   export type UserCreateWithoutRoleInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     emails?: EmailCreateNestedManyWithoutUserInput
     instance?: InstitutionInstanceCreateNestedOneWithoutUserInput
   }
@@ -14243,7 +14381,7 @@ export namespace Prisma {
   export type UserUncheckedCreateWithoutRoleInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     instanceId?: string | null
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
   }
@@ -14260,12 +14398,14 @@ export namespace Prisma {
 
   export type PermissionCreateWithoutRolesInput = {
     id?: string
+    slug: string
     name: string
     description: string
   }
 
   export type PermissionUncheckedCreateWithoutRolesInput = {
     id?: string
+    slug: string
     name: string
     description: string
   }
@@ -14297,7 +14437,7 @@ export namespace Prisma {
     NOT?: UserScalarWhereInput | UserScalarWhereInput[]
     id?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
-    passwordHash?: StringFilter<"User"> | string
+    avatarUrl?: StringNullableFilter<"User"> | string | null
     roleId?: StringFilter<"User"> | string
     instanceId?: StringNullableFilter<"User"> | string | null
   }
@@ -14323,12 +14463,14 @@ export namespace Prisma {
     OR?: PermissionScalarWhereInput[]
     NOT?: PermissionScalarWhereInput | PermissionScalarWhereInput[]
     id?: StringFilter<"Permission"> | string
+    slug?: StringFilter<"Permission"> | string
     name?: StringFilter<"Permission"> | string
     description?: StringFilter<"Permission"> | string
   }
 
   export type RoleCreateWithoutPermissionsInput = {
     id?: string
+    slug: string
     name: string
     description: string
     User?: UserCreateNestedManyWithoutRoleInput
@@ -14336,6 +14478,7 @@ export namespace Prisma {
 
   export type RoleUncheckedCreateWithoutPermissionsInput = {
     id?: string
+    slug: string
     name: string
     description: string
     User?: UserUncheckedCreateNestedManyWithoutRoleInput
@@ -14367,6 +14510,7 @@ export namespace Prisma {
     OR?: RoleScalarWhereInput[]
     NOT?: RoleScalarWhereInput | RoleScalarWhereInput[]
     id?: StringFilter<"Role"> | string
+    slug?: StringFilter<"Role"> | string
     name?: StringFilter<"Role"> | string
     description?: StringFilter<"Role"> | string
   }
@@ -14374,7 +14518,7 @@ export namespace Prisma {
   export type UserCreateWithoutEmailsInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     role: RoleCreateNestedOneWithoutUserInput
     instance?: InstitutionInstanceCreateNestedOneWithoutUserInput
   }
@@ -14382,7 +14526,7 @@ export namespace Prisma {
   export type UserUncheckedCreateWithoutEmailsInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     roleId: string
     instanceId?: string | null
   }
@@ -14406,7 +14550,7 @@ export namespace Prisma {
   export type UserUpdateWithoutEmailsInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: RoleUpdateOneRequiredWithoutUserNestedInput
     instance?: InstitutionInstanceUpdateOneWithoutUserNestedInput
   }
@@ -14414,7 +14558,7 @@ export namespace Prisma {
   export type UserUncheckedUpdateWithoutEmailsInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     roleId?: StringFieldUpdateOperationsInput | string
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -14425,6 +14569,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput
     User?: UserCreateNestedManyWithoutInstanceInput
   }
@@ -14435,6 +14580,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutInstanceInput
     User?: UserUncheckedCreateNestedManyWithoutInstanceInput
   }
@@ -14461,6 +14607,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput
     User?: UserUpdateManyWithoutInstanceNestedInput
   }
@@ -14471,6 +14618,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceNestedInput
     User?: UserUncheckedUpdateManyWithoutInstanceNestedInput
   }
@@ -14514,7 +14662,7 @@ export namespace Prisma {
   export type UserCreateWithoutInstanceInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     emails?: EmailCreateNestedManyWithoutUserInput
     role: RoleCreateNestedOneWithoutUserInput
   }
@@ -14522,7 +14670,7 @@ export namespace Prisma {
   export type UserUncheckedCreateWithoutInstanceInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     roleId: string
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
   }
@@ -14652,6 +14800,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     User?: UserCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksCreateNestedManyWithoutInstitutionInstanceInput
   }
@@ -14662,6 +14811,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     institutionName: string
     institutionSlug: string
+    validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     User?: UserUncheckedCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksUncheckedCreateNestedManyWithoutInstitutionInstanceInput
   }
@@ -14705,6 +14855,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     User?: UserUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUpdateManyWithoutInstitutionInstanceNestedInput
   }
@@ -14715,6 +14866,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
     institutionSlug?: StringFieldUpdateOperationsInput | string
+    validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     User?: UserUncheckedUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUncheckedUpdateManyWithoutInstitutionInstanceNestedInput
   }
@@ -14795,44 +14947,48 @@ export namespace Prisma {
   }
 
   export type EmailCreateManyUserInput = {
-    id?: string
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    googleAccessToken?: string | null
+    googleRefreshToken?: string | null
   }
 
   export type EmailUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmailUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmailUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateManyRoleInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     instanceId?: string | null
   }
 
   export type UserUpdateWithoutRoleInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emails?: EmailUpdateManyWithoutUserNestedInput
     instance?: InstitutionInstanceUpdateOneWithoutUserNestedInput
   }
@@ -14840,7 +14996,7 @@ export namespace Prisma {
   export type UserUncheckedUpdateWithoutRoleInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -14848,30 +15004,34 @@ export namespace Prisma {
   export type UserUncheckedUpdateManyWithoutRoleInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PermissionUpdateWithoutRolesInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionUncheckedUpdateWithoutRolesInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionUncheckedUpdateManyWithoutRolesInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type RoleUpdateWithoutPermissionsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     User?: UserUpdateManyWithoutRoleNestedInput
@@ -14879,6 +15039,7 @@ export namespace Prisma {
 
   export type RoleUncheckedUpdateWithoutPermissionsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     User?: UserUncheckedUpdateManyWithoutRoleNestedInput
@@ -14886,6 +15047,7 @@ export namespace Prisma {
 
   export type RoleUncheckedUpdateManyWithoutPermissionsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
@@ -14906,7 +15068,7 @@ export namespace Prisma {
   export type UserCreateManyInstanceInput = {
     id?: string
     createdAt?: Date | string
-    passwordHash: string
+    avatarUrl?: string | null
     roleId: string
   }
 
@@ -14962,7 +15124,7 @@ export namespace Prisma {
   export type UserUpdateWithoutInstanceInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emails?: EmailUpdateManyWithoutUserNestedInput
     role?: RoleUpdateOneRequiredWithoutUserNestedInput
   }
@@ -14970,7 +15132,7 @@ export namespace Prisma {
   export type UserUncheckedUpdateWithoutInstanceInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     roleId?: StringFieldUpdateOperationsInput | string
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -14978,7 +15140,7 @@ export namespace Prisma {
   export type UserUncheckedUpdateManyWithoutInstanceInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     roleId?: StringFieldUpdateOperationsInput | string
   }
 

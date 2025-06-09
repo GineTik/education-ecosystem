@@ -14,11 +14,13 @@ export function InstitutionContacts() {
         <TableHeader>
           <TableRow>
             <TableHead>Ім&apos;я</TableHead>
+            <TableHead>Посада</TableHead>
             <TableHead>Телефон</TableHead>
           </TableRow>
           <TableRow>
-            <TableCell>Тамара Михалівна</TableCell>
-            <TableCell>
+            <TableCell className="w-1/3">Тамара Михалівна</TableCell>
+            <TableCell className="w-1/3">Декан</TableCell>
+            <TableCell className="w-1/3">
               <Link href="tel:+380991234567">+380991234567</Link>
             </TableCell>
           </TableRow>

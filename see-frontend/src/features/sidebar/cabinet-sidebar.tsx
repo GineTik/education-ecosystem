@@ -11,14 +11,17 @@ import {
 } from "@/shared/components/ui-kit/sidebar";
 import { Logo } from "@/shared/components/logo";
 import { useMenu } from "./hooks/use-menu";
+import { ROUTES } from "@/shared/constants/routes";
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function CabinetSidebar({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
   const { groupMenu, universityMenu, studentMenu } = useMenu();
 
   return (
     <Sidebar className="border-r-0" {...props}>
       <SidebarHeader>
-        <Logo />
+        <Logo href={ROUTES.HOME} />
         <NavMain />
       </SidebarHeader>
       <SidebarContent>

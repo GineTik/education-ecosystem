@@ -1,4 +1,5 @@
 import { ArticlesCard } from "./articles-card";
+import { ArticlesPagination } from "./articles-pagination";
 
 export function ArticlesPage() {
   return (
@@ -22,6 +23,7 @@ export function ArticlesPage() {
           isLast
         />
       </div>
+      <ArticlesPagination />
     </div>
   );
 }

@@ -8,18 +8,22 @@ const today = dayjs();
 const subjects = [
   {
     subject: "Інформатика",
-    subjectColor: "bg-blue-300",
+    subjectColor: "bg-blue-400",
+    subjectDarkColor: "bg-blue-500",
     subjectForegroundColor: "text-black",
   },
   {
     subject: "Фізика",
     subjectColor: "bg-rose-400",
+    subjectDarkColor: "bg-rose-500",
     subjectForegroundColor: "text-white",
   },
   {
     subject: "Математика",
-    subjectColor: "bg-lime-300",
-    subjectForegroundColor: "text-black",
+    subjectColor: "oklch(93.8% 0.127 124.321)",
+    subjectDarkColor: "oklch(0.2008 0.0295 117.79)",
+    subjectForegroundColor: "oklch(0.4008 0.0295 117.79)",
+    subjectDarkForegroundColor: "oklch(0.8008 0.0295 117.79)",
   },
 ];
 

@@ -115,6 +115,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: "InterVariable", sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -127,4 +128,8 @@ h1 {
 
 h2 {
   @apply text-xl font-bold;
+}
+
+kbd {
+  @apply rounded-md border border-border px-1 py-0.5;
 }

@@ -123,28 +123,31 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   createdAt: 'createdAt',
-  passwordHash: 'passwordHash',
+  avatarUrl: 'avatarUrl',
   roleId: 'roleId',
   instanceId: 'instanceId'
 };
 
 exports.Prisma.RoleScalarFieldEnum = {
   id: 'id',
+  slug: 'slug',
   name: 'name',
   description: 'description'
 };
 
 exports.Prisma.PermissionScalarFieldEnum = {
   id: 'id',
+  slug: 'slug',
   name: 'name',
   description: 'description'
 };
 
 exports.Prisma.EmailScalarFieldEnum = {
-  id: 'id',
   email: 'email',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
+  googleAccessToken: 'googleAccessToken',
+  googleRefreshToken: 'googleRefreshToken',
   userId: 'userId'
 };
 
@@ -175,7 +178,8 @@ exports.Prisma.InstitutionInstanceScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   institutionName: 'institutionName',
-  institutionSlug: 'institutionSlug'
+  institutionSlug: 'institutionSlug',
+  validMailDomains: 'validMailDomains'
 };
 
 exports.Prisma.InstitutionInstanceModuleScalarFieldEnum = {
