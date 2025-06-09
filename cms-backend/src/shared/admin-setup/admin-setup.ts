@@ -1,6 +1,6 @@
 import { INestApplication } from "@nestjs/common";
 import { PrismaService } from "../prisma/prisma.service";
-import { ROLES } from "../constants/roles.constants";
+import { ROLES_SLUG } from "../auth/roles.constants";
 
 export async function setupAdmin(app: INestApplication) {
 	const prisma = app.get(PrismaService);
@@ -23,7 +23,7 @@ export async function setupAdmin(app: INestApplication) {
 		await tx.user.deleteMany({
 			where: {
 				role: {
-					slug: ROLES.ADMIN,
+					slug: ROLES_SLUG.ADMIN,
 				},
 			},
 		});
@@ -36,7 +36,7 @@ export async function setupAdmin(app: INestApplication) {
 					},
 				},
 				role: {
-					connect: { slug: ROLES.ADMIN },
+					connect: { slug: ROLES_SLUG.ADMIN },
 				},
 				avatarUrl:
 					"https://api.dicebear.com/9.x/lorelei/svg?seed=Chase",

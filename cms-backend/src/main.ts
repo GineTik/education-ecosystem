@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { setupAdmin } from "./shared/setups/admin-setup";
+import { setupAdmin } from "@/shared/admin-setup";
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);

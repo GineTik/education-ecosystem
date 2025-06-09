@@ -1,8 +1,8 @@
-import { PrismaService } from "@/shared/prisma/prisma.service";
+import { PrismaService } from "@/shared/prisma";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
-import { LoginGoogleDto } from "../../shared/auth-guards/dto/login-google.dto";
-import { ROLES } from "@/shared/constants/roles.constants";
-import { Email, User } from "@/shared/prisma/generated/prisma";
+import { LoginGoogleDto } from "@/shared/auth";
+import { ROLES_SLUG } from "@/shared/auth";
+import { Email, User } from "@/shared/prisma";
 
 @Injectable()
 export class AuthService {
@@ -75,7 +75,7 @@ export class AuthService {
 					},
 				},
 				role: {
-					connect: { slug: ROLES.STUDENT },
+					connect: { slug: ROLES_SLUG.STUDENT },
 				},
 				instance: {
 					connect: { id: institution.id },

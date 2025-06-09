@@ -1,7 +1,7 @@
 import { PassportStrategy } from "@nestjs/passport";
 import { Strategy } from "passport-google-oauth20";
-import { PrismaService } from "@/shared/prisma/prisma.service";
-import { AUTH_PROVIDERS } from "@/shared/constants/auth.constants";
+import { PrismaService } from "@/shared/prisma";
+import { AUTH_PROVIDERS } from "@/shared/auth";
 import { Injectable } from "@nestjs/common";
 import { LoginGoogleDto } from "./dto/login-google.dto";
 
