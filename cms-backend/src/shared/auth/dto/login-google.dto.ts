@@ -1,6 +1,9 @@
 export class LoginGoogleDto {
-	accessToken: string;
-	refreshToken: string;
-	email: string;
-	picture: string;
+    accessToken: string;
+    refreshToken: string;
+    email: string;
+    emailVerified: boolean;
+    picture: string;
+    firstName: string;
+    lastName: string;
 }

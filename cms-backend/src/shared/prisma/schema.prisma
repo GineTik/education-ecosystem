@@ -8,28 +8,30 @@ generator client {
   output   = "./generated/prisma"
 }
 
-generator dbml {
+/* generator dbml {
   provider = "prisma-dbml-generator"
   output   = "./dbml"
 }
-
+ */
 model User {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
 
+  firstName String?
+  lastName String?
   emails    Email[]
   avatarUrl String?
+  refreshToken String?
 
-  role Role @relation(fields: [roleId], references: [id])
-  roleId String
+  role Role @relation(fields: [roleSlug], references: [slug])
+  roleSlug String
 
   instance InstitutionInstance? @relation(fields: [instanceId], references: [id])
   instanceId String?
 }
 
 model Role {
-  id        String   @id @default(uuid())
-  slug      String @unique
+  slug      String @id 
   
   name String
   description String
@@ -55,6 +57,7 @@ model Email {
   updatedAt DateTime @updatedAt
   googleAccessToken String?
   googleRefreshToken String?
+  googleEmailVerified Boolean @default(false)
 
   user User @relation(fields: [userId], references: [id])
   userId String

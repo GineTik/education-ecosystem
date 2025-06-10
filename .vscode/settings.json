@@ -9,5 +9,5 @@
     "statusBar.foreground": "#e9dbb7"
   },
   "prismaERDPreviewer.preferredTheme": "dark",
-  "cSpell.words": ["dbml", "papaparse", "unparse"]
+  "cSpell.words": ["dbml", "NEXTAUTH", "papaparse", "unparse"]
 }
