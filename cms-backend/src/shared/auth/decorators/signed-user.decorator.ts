@@ -1,11 +1,11 @@
 import { createParamDecorator, ExecutionContext } from "@nestjs/common";
-import { AuthPayloadDto } from "../dto/auth-payload.dto";
+import { UserWithPermissions } from "../dto/user-with-permissions.dto";
 
 export const SignedUser = createParamDecorator(
-    (_data: unknown, ctx: ExecutionContext) => {
+    (_data: unknown, ctx: ExecutionContext): UserWithPermissions => {
         const request = ctx
             .switchToHttp()
-            .getRequest<Request & { user: AuthPayloadDto }>();
+            .getRequest<Request & { user: UserWithPermissions }>();
         return request.user;
     },
 );

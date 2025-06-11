@@ -18,7 +18,7 @@ const eslintConfig = [
         {
           patterns: [
             {
-              group: ["@/features/*/*", "!@/features/*/index.{ts,tsx}"],
+              group: ["@/features/**/*.*", "!@/features/**/index.{ts,tsx}"],
               message: "Use named exports from features index.{ts,tsx}",
             },
           ],

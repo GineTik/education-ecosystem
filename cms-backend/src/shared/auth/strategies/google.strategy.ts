@@ -2,7 +2,7 @@ import { PassportStrategy } from "@nestjs/passport";
 import { Strategy } from "passport-google-oauth20";
 import { AUTH_PROVIDERS, GOOGLE_REDIRECT_URL } from "@/shared/auth";
 import { Injectable } from "@nestjs/common";
-import { LoginGoogleDto } from "../dto/login-google.dto";
+import { LoginByGoogleDto } from "../dto/login-google.dto";
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(
@@ -24,7 +24,7 @@ export class GoogleStrategy extends PassportStrategy(
         accessToken: string,
         refreshToken: string,
         profile: any,
-    ): LoginGoogleDto {
+    ): LoginByGoogleDto {
         const { emails, photos } = profile;
         return {
             email: emails[0].value,

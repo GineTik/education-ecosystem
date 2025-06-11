@@ -15,10 +15,7 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 /**
  * Model User
- * generator dbml {
- *   provider = "prisma-dbml-generator"
- *   output   = "./dbml"
- * }
+ * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
@@ -4036,21 +4033,18 @@ export namespace Prisma {
   }
 
   export type PermissionMinAggregateOutputType = {
-    id: string | null
     slug: string | null
     name: string | null
     description: string | null
   }
 
   export type PermissionMaxAggregateOutputType = {
-    id: string | null
     slug: string | null
     name: string | null
     description: string | null
   }
 
   export type PermissionCountAggregateOutputType = {
-    id: number
     slug: number
     name: number
     description: number
@@ -4059,21 +4053,18 @@ export namespace Prisma {
 
 
   export type PermissionMinAggregateInputType = {
-    id?: true
     slug?: true
     name?: true
     description?: true
   }
 
   export type PermissionMaxAggregateInputType = {
-    id?: true
     slug?: true
     name?: true
     description?: true
   }
 
   export type PermissionCountAggregateInputType = {
-    id?: true
     slug?: true
     name?: true
     description?: true
@@ -4153,7 +4144,6 @@ export namespace Prisma {
   }
 
   export type PermissionGroupByOutputType = {
-    id: string
     slug: string
     name: string
     description: string
@@ -4177,7 +4167,6 @@ export namespace Prisma {
 
 
   export type PermissionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     slug?: boolean
     name?: boolean
     description?: boolean
@@ -4186,27 +4175,24 @@ export namespace Prisma {
   }, ExtArgs["result"]["permission"]>
 
   export type PermissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     slug?: boolean
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["permission"]>
 
   export type PermissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     slug?: boolean
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["permission"]>
 
   export type PermissionSelectScalar = {
-    id?: boolean
     slug?: boolean
     name?: boolean
     description?: boolean
   }
 
-  export type PermissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "name" | "description", ExtArgs["result"]["permission"]>
+  export type PermissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"slug" | "name" | "description", ExtArgs["result"]["permission"]>
   export type PermissionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     roles?: boolean | Permission$rolesArgs<ExtArgs>
     _count?: boolean | PermissionCountOutputTypeDefaultArgs<ExtArgs>
@@ -4220,7 +4206,6 @@ export namespace Prisma {
       roles: Prisma.$RolePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
       slug: string
       name: string
       description: string
@@ -4307,8 +4292,8 @@ export namespace Prisma {
      * // Get first 10 Permissions
      * const permissions = await prisma.permission.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const permissionWithIdOnly = await prisma.permission.findMany({ select: { id: true } })
+     * // Only select the `slug`
+     * const permissionWithSlugOnly = await prisma.permission.findMany({ select: { slug: true } })
      * 
      */
     findMany<T extends PermissionFindManyArgs>(args?: SelectSubset<T, PermissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PermissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -4352,9 +4337,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Permissions and only return the `id`
-     * const permissionWithIdOnly = await prisma.permission.createManyAndReturn({
-     *   select: { id: true },
+     * // Create many Permissions and only return the `slug`
+     * const permissionWithSlugOnly = await prisma.permission.createManyAndReturn({
+     *   select: { slug: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -4443,9 +4428,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Permissions and only return the `id`
-     * const permissionWithIdOnly = await prisma.permission.updateManyAndReturn({
-     *   select: { id: true },
+     * // Update zero or more Permissions and only return the `slug`
+     * const permissionWithSlugOnly = await prisma.permission.updateManyAndReturn({
+     *   select: { slug: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4648,7 +4633,6 @@ export namespace Prisma {
    * Fields of the Permission model
    */
   interface PermissionFieldRefs {
-    readonly id: FieldRef<"Permission", 'String'>
     readonly slug: FieldRef<"Permission", 'String'>
     readonly name: FieldRef<"Permission", 'String'>
     readonly description: FieldRef<"Permission", 'String'>
@@ -8331,7 +8315,6 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     institutionName: string | null
-    institutionSlug: string | null
   }
 
   export type InstitutionInstanceMaxAggregateOutputType = {
@@ -8339,7 +8322,6 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     institutionName: string | null
-    institutionSlug: string | null
   }
 
   export type InstitutionInstanceCountAggregateOutputType = {
@@ -8347,7 +8329,6 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     institutionName: number
-    institutionSlug: number
     validMailDomains: number
     _all: number
   }
@@ -8358,7 +8339,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     institutionName?: true
-    institutionSlug?: true
   }
 
   export type InstitutionInstanceMaxAggregateInputType = {
@@ -8366,7 +8346,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     institutionName?: true
-    institutionSlug?: true
   }
 
   export type InstitutionInstanceCountAggregateInputType = {
@@ -8374,7 +8353,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     institutionName?: true
-    institutionSlug?: true
     validMailDomains?: true
     _all?: true
   }
@@ -8456,7 +8434,6 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     institutionName: string
-    institutionSlug: string
     validMailDomains: string[]
     _count: InstitutionInstanceCountAggregateOutputType | null
     _min: InstitutionInstanceMinAggregateOutputType | null
@@ -8482,7 +8459,6 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     institutionName?: boolean
-    institutionSlug?: boolean
     validMailDomains?: boolean
     modules?: boolean | InstitutionInstance$modulesArgs<ExtArgs>
     User?: boolean | InstitutionInstance$UserArgs<ExtArgs>
@@ -8495,7 +8471,6 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     institutionName?: boolean
-    institutionSlug?: boolean
     validMailDomains?: boolean
   }, ExtArgs["result"]["institutionInstance"]>
 
@@ -8504,7 +8479,6 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     institutionName?: boolean
-    institutionSlug?: boolean
     validMailDomains?: boolean
   }, ExtArgs["result"]["institutionInstance"]>
 
@@ -8513,11 +8487,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     institutionName?: boolean
-    institutionSlug?: boolean
     validMailDomains?: boolean
   }
 
-  export type InstitutionInstanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "institutionName" | "institutionSlug" | "validMailDomains", ExtArgs["result"]["institutionInstance"]>
+  export type InstitutionInstanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "institutionName" | "validMailDomains", ExtArgs["result"]["institutionInstance"]>
   export type InstitutionInstanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     modules?: boolean | InstitutionInstance$modulesArgs<ExtArgs>
     User?: boolean | InstitutionInstance$UserArgs<ExtArgs>
@@ -8539,7 +8512,6 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       institutionName: string
-      institutionSlug: string
       validMailDomains: string[]
     }, ExtArgs["result"]["institutionInstance"]>
     composites: {}
@@ -8971,7 +8943,6 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"InstitutionInstance", 'DateTime'>
     readonly updatedAt: FieldRef<"InstitutionInstance", 'DateTime'>
     readonly institutionName: FieldRef<"InstitutionInstance", 'String'>
-    readonly institutionSlug: FieldRef<"InstitutionInstance", 'String'>
     readonly validMailDomains: FieldRef<"InstitutionInstance", 'String[]'>
   }
     
@@ -11715,7 +11686,6 @@ export namespace Prisma {
 
 
   export const PermissionScalarFieldEnum: {
-    id: 'id',
     slug: 'slug',
     name: 'name',
     description: 'description'
@@ -11770,7 +11740,6 @@ export namespace Prisma {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     institutionName: 'institutionName',
-    institutionSlug: 'institutionSlug',
     validMailDomains: 'validMailDomains'
   };
 
@@ -12040,7 +12009,6 @@ export namespace Prisma {
     AND?: PermissionWhereInput | PermissionWhereInput[]
     OR?: PermissionWhereInput[]
     NOT?: PermissionWhereInput | PermissionWhereInput[]
-    id?: StringFilter<"Permission"> | string
     slug?: StringFilter<"Permission"> | string
     name?: StringFilter<"Permission"> | string
     description?: StringFilter<"Permission"> | string
@@ -12048,7 +12016,6 @@ export namespace Prisma {
   }
 
   export type PermissionOrderByWithRelationInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -12056,7 +12023,6 @@ export namespace Prisma {
   }
 
   export type PermissionWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
     slug?: string
     AND?: PermissionWhereInput | PermissionWhereInput[]
     OR?: PermissionWhereInput[]
@@ -12064,10 +12030,9 @@ export namespace Prisma {
     name?: StringFilter<"Permission"> | string
     description?: StringFilter<"Permission"> | string
     roles?: RoleListRelationFilter
-  }, "id" | "slug">
+  }, "slug">
 
   export type PermissionOrderByWithAggregationInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -12080,7 +12045,6 @@ export namespace Prisma {
     AND?: PermissionScalarWhereWithAggregatesInput | PermissionScalarWhereWithAggregatesInput[]
     OR?: PermissionScalarWhereWithAggregatesInput[]
     NOT?: PermissionScalarWhereWithAggregatesInput | PermissionScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Permission"> | string
     slug?: StringWithAggregatesFilter<"Permission"> | string
     name?: StringWithAggregatesFilter<"Permission"> | string
     description?: StringWithAggregatesFilter<"Permission"> | string
@@ -12296,7 +12260,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"InstitutionInstance"> | Date | string
     updatedAt?: DateTimeFilter<"InstitutionInstance"> | Date | string
     institutionName?: StringFilter<"InstitutionInstance"> | string
-    institutionSlug?: StringFilter<"InstitutionInstance"> | string
     validMailDomains?: StringNullableListFilter<"InstitutionInstance">
     modules?: InstitutionInstanceModuleListRelationFilter
     User?: UserListRelationFilter
@@ -12308,7 +12271,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     institutionName?: SortOrder
-    institutionSlug?: SortOrder
     validMailDomains?: SortOrder
     modules?: InstitutionInstanceModuleOrderByRelationAggregateInput
     User?: UserOrderByRelationAggregateInput
@@ -12317,7 +12279,6 @@ export namespace Prisma {
 
   export type InstitutionInstanceWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    institutionSlug?: string
     AND?: InstitutionInstanceWhereInput | InstitutionInstanceWhereInput[]
     OR?: InstitutionInstanceWhereInput[]
     NOT?: InstitutionInstanceWhereInput | InstitutionInstanceWhereInput[]
@@ -12328,14 +12289,13 @@ export namespace Prisma {
     modules?: InstitutionInstanceModuleListRelationFilter
     User?: UserListRelationFilter
     externalLinks?: ExternalLinksListRelationFilter
-  }, "id" | "institutionSlug">
+  }, "id">
 
   export type InstitutionInstanceOrderByWithAggregationInput = {
     id?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     institutionName?: SortOrder
-    institutionSlug?: SortOrder
     validMailDomains?: SortOrder
     _count?: InstitutionInstanceCountOrderByAggregateInput
     _max?: InstitutionInstanceMaxOrderByAggregateInput
@@ -12350,7 +12310,6 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"InstitutionInstance"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"InstitutionInstance"> | Date | string
     institutionName?: StringWithAggregatesFilter<"InstitutionInstance"> | string
-    institutionSlug?: StringWithAggregatesFilter<"InstitutionInstance"> | string
     validMailDomains?: StringNullableListFilter<"InstitutionInstance">
   }
 
@@ -12620,7 +12579,6 @@ export namespace Prisma {
   }
 
   export type PermissionCreateInput = {
-    id?: string
     slug: string
     name: string
     description: string
@@ -12628,7 +12586,6 @@ export namespace Prisma {
   }
 
   export type PermissionUncheckedCreateInput = {
-    id?: string
     slug: string
     name: string
     description: string
@@ -12636,7 +12593,6 @@ export namespace Prisma {
   }
 
   export type PermissionUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -12644,7 +12600,6 @@ export namespace Prisma {
   }
 
   export type PermissionUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -12652,21 +12607,18 @@ export namespace Prisma {
   }
 
   export type PermissionCreateManyInput = {
-    id?: string
     slug: string
     name: string
     description: string
   }
 
   export type PermissionUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -12899,7 +12851,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput
     User?: UserCreateNestedManyWithoutInstanceInput
@@ -12911,7 +12862,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutInstanceInput
     User?: UserUncheckedCreateNestedManyWithoutInstanceInput
@@ -12923,7 +12873,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput
     User?: UserUpdateManyWithoutInstanceNestedInput
@@ -12935,7 +12884,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceNestedInput
     User?: UserUncheckedUpdateManyWithoutInstanceNestedInput
@@ -12947,7 +12895,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
   }
 
@@ -12956,7 +12903,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
   }
 
@@ -12965,7 +12911,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
   }
 
@@ -13309,21 +13254,18 @@ export namespace Prisma {
   }
 
   export type PermissionCountOrderByAggregateInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
 
   export type PermissionMaxOrderByAggregateInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
   }
 
   export type PermissionMinOrderByAggregateInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -13518,7 +13460,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     institutionName?: SortOrder
-    institutionSlug?: SortOrder
     validMailDomains?: SortOrder
   }
 
@@ -13527,7 +13468,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     institutionName?: SortOrder
-    institutionSlug?: SortOrder
   }
 
   export type InstitutionInstanceMinOrderByAggregateInput = {
@@ -13535,7 +13475,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     institutionName?: SortOrder
-    institutionSlug?: SortOrder
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -14350,7 +14289,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksCreateNestedManyWithoutInstitutionInstanceInput
@@ -14361,7 +14299,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksUncheckedCreateNestedManyWithoutInstitutionInstanceInput
@@ -14442,7 +14379,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUpdateManyWithoutInstitutionInstanceNestedInput
@@ -14453,7 +14389,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUncheckedUpdateManyWithoutInstitutionInstanceNestedInput
@@ -14492,14 +14427,12 @@ export namespace Prisma {
   }
 
   export type PermissionCreateWithoutRolesInput = {
-    id?: string
     slug: string
     name: string
     description: string
   }
 
   export type PermissionUncheckedCreateWithoutRolesInput = {
-    id?: string
     slug: string
     name: string
     description: string
@@ -14560,7 +14493,6 @@ export namespace Prisma {
     AND?: PermissionScalarWhereInput | PermissionScalarWhereInput[]
     OR?: PermissionScalarWhereInput[]
     NOT?: PermissionScalarWhereInput | PermissionScalarWhereInput[]
-    id?: StringFilter<"Permission"> | string
     slug?: StringFilter<"Permission"> | string
     name?: StringFilter<"Permission"> | string
     description?: StringFilter<"Permission"> | string
@@ -14675,7 +14607,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleCreateNestedManyWithoutInstanceInput
     User?: UserCreateNestedManyWithoutInstanceInput
@@ -14686,7 +14617,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutInstanceInput
     User?: UserUncheckedCreateNestedManyWithoutInstanceInput
@@ -14713,7 +14643,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUpdateManyWithoutInstanceNestedInput
     User?: UserUpdateManyWithoutInstanceNestedInput
@@ -14724,7 +14653,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceNestedInput
     User?: UserUncheckedUpdateManyWithoutInstanceNestedInput
@@ -14912,7 +14840,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     User?: UserCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksCreateNestedManyWithoutInstitutionInstanceInput
@@ -14923,7 +14850,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     institutionName: string
-    institutionSlug: string
     validMailDomains?: InstitutionInstanceCreatevalidMailDomainsInput | string[]
     User?: UserUncheckedCreateNestedManyWithoutInstanceInput
     externalLinks?: ExternalLinksUncheckedCreateNestedManyWithoutInstitutionInstanceInput
@@ -14967,7 +14893,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     User?: UserUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUpdateManyWithoutInstitutionInstanceNestedInput
@@ -14978,7 +14903,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     institutionName?: StringFieldUpdateOperationsInput | string
-    institutionSlug?: StringFieldUpdateOperationsInput | string
     validMailDomains?: InstitutionInstanceUpdatevalidMailDomainsInput | string[]
     User?: UserUncheckedUpdateManyWithoutInstanceNestedInput
     externalLinks?: ExternalLinksUncheckedUpdateManyWithoutInstitutionInstanceNestedInput
@@ -15138,21 +15062,18 @@ export namespace Prisma {
   }
 
   export type PermissionUpdateWithoutRolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionUncheckedUpdateWithoutRolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type PermissionUncheckedUpdateManyWithoutRolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string

@@ -11,3 +11,12 @@ export class ErrorResponse {
     })
     message: string;
 }
+
+export class ForbiddenResponse extends ErrorResponse {
+    @ApiProperty({
+        example: ["institution:read"],
+        type: [String],
+        nullable: true,
+    })
+    requiredPermissions?: string[];
+}

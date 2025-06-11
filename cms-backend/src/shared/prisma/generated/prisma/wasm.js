@@ -138,7 +138,6 @@ exports.Prisma.RoleScalarFieldEnum = {
 };
 
 exports.Prisma.PermissionScalarFieldEnum = {
-  id: 'id',
   slug: 'slug',
   name: 'name',
   description: 'description'
@@ -181,7 +180,6 @@ exports.Prisma.InstitutionInstanceScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   institutionName: 'institutionName',
-  institutionSlug: 'institutionSlug',
   validMailDomains: 'validMailDomains'
 };
 

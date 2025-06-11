@@ -1,7 +1,7 @@
 import { Controller, Get, Req, Res, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { ACCESS_COOKIE_NAME, AUTH_PROVIDERS } from "@/shared/auth";
-import { LoginGoogleDto } from "@/shared/auth";
+import { ACCESS_COOKIE_KEY, AUTH_PROVIDERS } from "@/shared/auth";
+import { LoginByGoogleDto } from "@/shared/auth";
 import { AuthService } from "./auth.service";
 import { ConfigService } from "@nestjs/config";
 import { Response } from "express";
@@ -22,11 +22,11 @@ export class AuthController {
     @Get("google/callback")
     @UseGuards(AuthGuard(AUTH_PROVIDERS.LOGIN_GOOGLE))
     async googleAuthCallback(@Req() req: Request, @Res() res: Response) {
-        const googlePayload = req["user"] as LoginGoogleDto;
+        const googlePayload = req["user"] as LoginByGoogleDto;
         try {
             const tokens = await this.authService.loginByGoogle(googlePayload);
 
-            res.cookie(ACCESS_COOKIE_NAME, tokens.accessToken, {
+            res.cookie(ACCESS_COOKIE_KEY, tokens.accessToken, {
                 secure: this.configService.get("NODE_ENV") === "production",
                 sameSite: "lax",
                 maxAge: this.configService.get(
@@ -36,7 +36,7 @@ export class AuthController {
                 httpOnly: true,
             });
 
-            res.status(301).redirect(
+            res.status(302).redirect(
                 this.configService.get(
                     "FRONTEND_SUCCESS_REDIRECT_URL",
                 ) as string,

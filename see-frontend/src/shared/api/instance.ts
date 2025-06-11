@@ -5,6 +5,7 @@ import { CONFIG } from "@/shared/config/env";
 
 export const fetchClient = createFetchClient<paths>({
   baseUrl: CONFIG.API_BASE_URL,
+  credentials: "include",
 });
 
 export const rqClient = createClient(fetchClient);

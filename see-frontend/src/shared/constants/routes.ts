@@ -10,6 +10,8 @@ class Routes {
   UNIVERSITY_ARTICLES = `/cabinet/institution/articles`;
   HOME = "/";
   LOGIN = "/login";
+  MANAGE_INSTANCES = "/cabinet/admin/instances";
+  MANAGE_USERS = "/cabinet/admin/users";
 }
 
 export const ROUTES = new Routes();

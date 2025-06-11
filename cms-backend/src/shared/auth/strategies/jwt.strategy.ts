@@ -3,14 +3,15 @@ import { ExtractJwt } from "passport-jwt";
 import { PassportStrategy } from "@nestjs/passport";
 import { Strategy } from "passport-jwt";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
-import { PrismaService, User } from "@/shared/prisma";
+import { PrismaService } from "@/shared/prisma";
 import {
-    ACCESS_COOKIE_NAME,
-    AUTH_ERROR_MESSAGES as AUTH_ERROR_CODES,
+    ACCESS_COOKIE_KEY,
+    ERROR_CODES as AUTH_ERROR_CODES,
     AUTH_PROVIDERS,
 } from "../auth.constants";
 import { AuthPayloadDto } from "../dto/auth-payload.dto";
 import { Request } from "express";
+import { UserWithPermissions } from "../dto/user-with-permissions.dto";
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(
@@ -26,7 +27,7 @@ export class JwtStrategy extends PassportStrategy(
                 (request: Request) => {
                     let token: string | null = null;
                     if (request && request.cookies) {
-                        token = request.cookies[ACCESS_COOKIE_NAME] as string;
+                        token = request.cookies[ACCESS_COOKIE_KEY] as string;
                     }
                     return token;
                 },
@@ -37,15 +38,28 @@ export class JwtStrategy extends PassportStrategy(
         });
     }
 
-    async validate(payload: AuthPayloadDto): Promise<User> {
+    async validate(payload: AuthPayloadDto): Promise<UserWithPermissions> {
         const user = await this.prisma.user.findUnique({
             where: { id: payload.userId },
+            include: {
+                role: {
+                    include: {
+                        permissions: true,
+                    },
+                },
+            },
         });
 
         if (!user) {
             throw new UnauthorizedException(AUTH_ERROR_CODES.USER_NOT_FOUND);
         }
 
-        return user;
+        const permissions =
+            user.role?.permissions.map((permission) => permission.slug) || [];
+
+        return {
+            ...user,
+            permissions,
+        };
     }
 }

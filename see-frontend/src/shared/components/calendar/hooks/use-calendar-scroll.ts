@@ -10,7 +10,7 @@ export const useCalendarScroll = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    const handleWheel = (e: WheelEvent) => {
+    const handleWheel = () => {
       // e.preventDefault();
       // if (e.shiftKey) {
       //   container.scrollLeft += e.deltaY;

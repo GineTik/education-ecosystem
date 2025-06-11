@@ -14,6 +14,7 @@ export function LoginPage() {
     router.push(CONFIG.API_GOOGLE_LOGIN_URL ?? "");
   });
 
+  // Login page
   return (
     <div className="mt-20 max-w-[300px] w-full mx-auto space-y-4">
       <h1>Вхід</h1>

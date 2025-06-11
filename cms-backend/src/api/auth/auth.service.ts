@@ -1,6 +1,6 @@
 import { PrismaService } from "@/shared/prisma";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
-import { AUTH_ERROR_MESSAGES, LoginGoogleDto } from "@/shared/auth";
+import { ERROR_CODES, LoginByGoogleDto } from "@/shared/auth";
 import { Email, User } from "@/shared/prisma";
 import { JwtService, ROLES_SLUG } from "@/shared/auth";
 import { AuthTokensDto } from "@/shared/auth/dto";
@@ -12,7 +12,7 @@ export class AuthService {
         private readonly jwtService: JwtService,
     ) {}
 
-    async loginByGoogle(dto: LoginGoogleDto): Promise<AuthTokensDto> {
+    async loginByGoogle(dto: LoginByGoogleDto): Promise<AuthTokensDto> {
         const existingEmail = await this.findEmail(dto.email);
 
         if (existingEmail) {
@@ -45,7 +45,7 @@ export class AuthService {
         email,
         accessToken,
         refreshToken,
-    }: LoginGoogleDto) {
+    }: LoginByGoogleDto) {
         await this.prisma.email.update({
             where: { email },
             data: {
@@ -63,7 +63,7 @@ export class AuthService {
         firstName,
         lastName,
         emailVerified,
-    }: LoginGoogleDto) {
+    }: LoginByGoogleDto) {
         const domain = email.split("@")[1];
         const institution = await this.prisma.institutionInstance.findFirst({
             where: {
@@ -74,9 +74,7 @@ export class AuthService {
         });
 
         if (!institution) {
-            throw new UnauthorizedException(
-                AUTH_ERROR_MESSAGES.DOMAIN_NOT_SUPPORTED,
-            );
+            throw new UnauthorizedException(ERROR_CODES.DOMAIN_NOT_SUPPORTED);
         }
 
         const user = await this.prisma.user.create({

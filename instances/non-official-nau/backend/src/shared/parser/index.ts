@@ -1,3 +1,5 @@
+// GENERATED CODE BY AI
+
 import { Injectable, Module } from "@nestjs/common";
 import { HttpModule, HttpService } from "@nestjs/axios";
 import { firstValueFrom } from "rxjs";

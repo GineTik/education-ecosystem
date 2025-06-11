@@ -1,6 +1,8 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/shared/lib/utils"
+import { cn } from "@/shared/lib/utils";
+import { FormField, FormItem, FormLabel, FormMessage } from "./form";
+import { Control, FieldValues, Path } from "react-hook-form";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
@@ -15,7 +17,34 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Input }
+export { Input };
+
+type InputFormProps<T extends FieldValues> = React.ComponentProps<"input"> & {
+  label?: string;
+  name: Path<T>;
+  control: Control<T>;
+};
+
+export function InputForm<T extends FieldValues>({
+  label,
+  name,
+  control,
+  ...props
+}: InputFormProps<T>) {
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <Input {...field} {...props} />
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+}

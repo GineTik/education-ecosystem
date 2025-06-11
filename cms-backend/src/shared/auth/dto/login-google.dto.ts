@@ -1,4 +1,4 @@
-export class LoginGoogleDto {
+export class LoginByGoogleDto {
     accessToken: string;
     refreshToken: string;
     email: string;

@@ -3,9 +3,10 @@ import Link from "next/link";
 
 type LogoProps = {
   href?: string;
+  isFullTitle?: boolean;
 };
 
-export function Logo({ href }: LogoProps) {
+export function Logo({ href, isFullTitle = false }: LogoProps) {
   return (
     <Link
       href={href ?? ""}
@@ -14,7 +15,9 @@ export function Logo({ href }: LogoProps) {
       <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-5 items-center justify-center rounded-sm">
         <CommandIcon className="size-3" />
       </div>
-      <span className="truncate font-medium">SEE</span>
+      <span className="truncate font-medium">
+        {isFullTitle ? "Student Education Ecosystem" : "SEE"}
+      </span>
     </Link>
   );
 }

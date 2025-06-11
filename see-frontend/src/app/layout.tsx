@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers/providers";
+import { Suspense } from "react";
+import { Loader2 } from "lucide-react";
+import { Toaster } from "@/shared/components/ui-kit/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +35,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Suspense fallback={<Loader2 className="animate-spin" />}>
+          <Providers>
+            {children}
+            <Toaster />
+          </Providers>
+        </Suspense>
       </body>
     </html>
   );

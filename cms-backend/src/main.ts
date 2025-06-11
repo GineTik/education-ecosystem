@@ -2,9 +2,16 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { setupSwagger } from "@/shared/swagger";
 import { setupAdmin } from "@/shared/admin-setup";
+import * as cookieParser from "cookie-parser";
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
+
+    app.use(cookieParser());
+    app.enableCors({
+        origin: process.env.FRONTEND_URL,
+        credentials: true,
+    });
 
     await setupAdmin(app);
     setupSwagger(app);

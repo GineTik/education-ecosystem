@@ -1,6 +1,6 @@
 "use client";
 
-import { useProfile } from "@/shared/api/hooks/use-profile";
+import { useProfile } from "@/shared/hooks/use-profile";
 
 type SignedInProps = {
   children: React.ReactNode;

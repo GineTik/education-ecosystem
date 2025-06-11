@@ -73,5 +73,17 @@ export const useMenu = () => {
         emoji: "⚙️",
       },
     ],
+    adminMenu: [
+      {
+        title: "Управління закладами освіти",
+        href: ROUTES.MANAGE_INSTANCES,
+        emoji: "🏫",
+      },
+      {
+        title: "Управління користувачами",
+        href: ROUTES.MANAGE_USERS,
+        emoji: "👤",
+      },
+    ],
   };
 };

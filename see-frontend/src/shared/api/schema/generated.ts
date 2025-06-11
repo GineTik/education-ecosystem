@@ -52,16 +52,100 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/users": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["UsersController_getAll"];
+        put?: never;
+        post: operations["UsersController_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/instances": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["InstancesController_getAll"];
+        put?: never;
+        post: operations["InstancesController_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        ProfileDto: {
+            id: string;
+            email: string;
+            firstName: string | null;
+            lastName: string | null;
+            avatarUrl: string | null;
+            /** Format: date-time */
+            createdAt: string;
+            role: string;
+        };
         ErrorResponse: {
             /** @example 401 */
             statusCode: number;
             /** @example Unauthorized */
             message: string;
         };
+        CreateUserDto: {
+            firstName: string;
+            lastName: string;
+            email: string;
+            roleSlug: string;
+            instanceId: string;
+        };
+        CreateInstanceDto: {
+            name: string;
+            validMailDomains: string[];
+        };
+        ForbiddenResponse: {
+            /** @example 401 */
+            statusCode: number;
+            /** @example Unauthorized */
+            message: string;
+            /** @example [
+             *       "institution:read"
+             *     ] */
+            requiredPermissions: string[] | null;
+        };
+        GetInstanceDto: {
+            id: string;
+            name: string;
+            validMailDomains: string[];
+            /** Format: date-time */
+            createdAt: string;
+            /** Format: date-time */
+            updatedAt: string;
+        };
+        /**
+         * @description Available user roles in the system
+         * @example student
+         * @enum {string}
+         */
+        Role: Role;
+        /**
+         * @description Available permissions in the system
+         * @example institution:read
+         * @enum {string}
+         */
+        Permission: Permission;
     };
     responses: never;
     parameters: never;
@@ -119,7 +203,9 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["ProfileDto"];
+                };
             };
             /** @description Unauthorized */
             401: {
@@ -132,4 +218,133 @@ export interface operations {
             };
         };
     };
+    UsersController_getAll: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileDto"][];
+                };
+            };
+        };
+    };
+    UsersController_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateUserDto"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    InstancesController_getAll: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Instances fetched successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetInstanceDto"][];
+                };
+            };
+        };
+    };
+    InstancesController_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateInstanceDto"];
+            };
+        };
+        responses: {
+            /** @description Instance created successfully */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Instance already exists */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForbiddenResponse"];
+                };
+            };
+        };
+    };
+}
+export enum Role {
+    student = "student",
+    admin = "admin",
+    institution_admin = "institution_admin"
+}
+export enum Permission {
+    institution_manage = "institution:manage",
+    institution_users = "institution:users",
+    institution_read = "institution:read",
+    users_manage = "users:manage",
+    users_read = "users:read"
 }
