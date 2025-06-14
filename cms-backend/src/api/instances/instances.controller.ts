@@ -13,7 +13,7 @@ export class InstancesController {
     constructor(private readonly instancesService: InstancesService) {}
 
     @Post()
-    @Auth(PERMISSIONS.INSTITUTION_MANAGE)
+    @Auth(PERMISSIONS.INSTANCE_MANAGE)
     @ApiBody({ type: CreateInstanceDto })
     @ApiResponse({
         status: 201,
@@ -41,7 +41,7 @@ export class InstancesController {
     }
 
     @Get()
-    @Auth(PERMISSIONS.INSTITUTION_READ)
+    @Auth(PERMISSIONS.INSTANCE_READ)
     @ApiResponse({
         status: 200,
         description: "Instances fetched successfully",

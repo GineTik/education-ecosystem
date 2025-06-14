@@ -5,6 +5,7 @@ import { JwtModule as NestJwtModule } from "@nestjs/jwt";
 import { UsersModule } from "@/api/users";
 import { InstitutionsModule } from "./api/institutions/institutions.module";
 import { InstancesModule } from "./api/instances/instances.module";
+import { ModulesModule } from "./api/modules/modules.module";
 
 @Module({
     imports: [
@@ -23,6 +24,7 @@ import { InstancesModule } from "./api/instances/instances.module";
         UsersModule,
         InstancesModule,
         InstitutionsModule,
+        ModulesModule,
     ],
 })
 export class AppModule {}

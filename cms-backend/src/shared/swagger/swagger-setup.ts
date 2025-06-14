@@ -34,7 +34,7 @@ export function setupSwagger(app: INestApplication) {
         type: "string",
         enum: Object.values(PERMISSIONS),
         description: "Available permissions in the system",
-        example: PERMISSIONS.INSTITUTION_READ,
+        example: PERMISSIONS.INSTANCE_MODULE_READ,
     };
 
     fs.writeFileSync(
