@@ -50,7 +50,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
               {dayjs(event.end).format("HH:mm")}
             </span>
             <span className="font-semibold">{event.title}</span>
-            {event.data?.subject && (
+            {event.type && (
               <span
                 className={cn("text-xs opacity-80 font-medium")}
                 style={{
@@ -59,7 +59,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                     : event.data?.subjectForegroundColor,
                 }}
               >
-                {event.data?.subject}
+                {event.type}
               </span>
             )}
           </div>

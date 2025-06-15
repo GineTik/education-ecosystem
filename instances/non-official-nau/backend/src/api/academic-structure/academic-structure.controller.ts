@@ -15,6 +15,30 @@ export class AcademicStructureController {
     };
   }
 
+  @Get()
+  async getProfile() {
+    return {
+      name: "Київський авіаційний університет",
+      abbreviation: "КАУ",
+      logoBackgroundColor: "#2f418e",
+      logoUrl: "https://nau.edu.ua/site/images/header/logo/KAI_logo.png",
+      address: "вул. Сім'яновича, 1, м. Київ, 03056, Україна",
+      email: "info@nau.edu.ua",
+      website: "https://nau.edu.ua",
+    }
+  }
+
+  @Get("/about")
+  async getAbout() {
+    return `
+# Привіт
+
+Це приклад сторінки опису університету КАІ. Це неофіційний instance університету, тому і офіційного опису тут немає.
+
+> Поки можеш переглянути наступні вкладки.
+    `;
+  }
+
   @Get("faculties")
   async getFaculties() {
     return await this.academicStructureService.getFaculties();

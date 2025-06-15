@@ -9,7 +9,7 @@ type DatesHeaderProps = {
 
 const DatesHeader: React.FC<DatesHeaderProps> = ({ currentDate }) => {
   const weekDays = getWeekDays(currentDate);
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const days = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"];
 
   return (
     <div className="flex border-b border-border">

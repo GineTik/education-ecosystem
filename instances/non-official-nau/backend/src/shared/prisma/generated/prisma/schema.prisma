@@ -63,7 +63,8 @@ model Specialty {
 model Group {
   id String @id @default(uuid())
 
-  name String @unique
+  externalId String @default("null")
+  name       String @unique
 
   specialty   Specialty @relation(fields: [specialtyId], references: [id])
   specialtyId String

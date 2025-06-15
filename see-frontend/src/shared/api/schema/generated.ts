@@ -132,6 +132,86 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/institution-profile": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["InstitutionProfileController_getProfile"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/institution-profile/about": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["InstitutionProfileController_getAbout"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/institution-profile/faculties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["InstitutionProfileController_getFaculties"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/institution-profile/specialty": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["InstitutionProfileController_getSpecialties"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/schedule/{groupId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["ScheduleController_getSchedule"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -194,6 +274,44 @@ export interface components {
             apiKey: string | null;
             baseUrl: string;
             isEnabled: boolean;
+        };
+        InstitutionShortProfileDto: {
+            name: string;
+            abbreviation: string;
+            logoBackgroundColor: string;
+            logoUrl: string;
+            address: string;
+            email: string;
+            website: string;
+        };
+        GetAboutDto: {
+            about: string;
+        };
+        GetFacultyDto: {
+            id: string;
+            name: string;
+        };
+        GetSpecialtyDto: {
+            id: string;
+            name: string;
+            code: string;
+            facultyId: string;
+        };
+        LessonDto: {
+            lessonName: string;
+            lessonType: string;
+            subGroup: string;
+            teacher: string;
+            timeSlotStart: string;
+            timeSlotEnd: string;
+        };
+        DayDto: {
+            dayNumber: number;
+            lessons: components["schemas"]["LessonDto"][];
+        };
+        GetWeekDto: {
+            weekNumber: number;
+            days: components["schemas"]["DayDto"][];
         };
         /**
          * @description Available user roles in the system
@@ -453,6 +571,103 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["GetModuleDto"][];
+                };
+            };
+        };
+    };
+    InstitutionProfileController_getProfile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InstitutionShortProfileDto"];
+                };
+            };
+        };
+    };
+    InstitutionProfileController_getAbout: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetAboutDto"];
+                };
+            };
+        };
+    };
+    InstitutionProfileController_getFaculties: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetFacultyDto"][];
+                };
+            };
+        };
+    };
+    InstitutionProfileController_getSpecialties: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetSpecialtyDto"][];
+                };
+            };
+        };
+    };
+    ScheduleController_getSchedule: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                groupId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetWeekDto"][];
                 };
             };
         };

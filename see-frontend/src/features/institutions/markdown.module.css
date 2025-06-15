@@ -10,6 +10,10 @@
   line-height: 1.25;
 }
 
+.markdown h1:first-child {
+  margin-top: 16px;
+}
+
 .markdown h1 {
   font-size: 1.5em;
   padding-bottom: 0.3em;

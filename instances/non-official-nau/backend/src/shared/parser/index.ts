@@ -97,7 +97,7 @@ export class ParserService {
     }
   }
 
-  async parseGroupPage(groupId: number): Promise<ScheduleWeek[]> {
+  async parseGroupPage(groupId: string): Promise<ScheduleWeek[]> {
     const url = `https://portal.nau.edu.ua/schedule/group?id=${groupId}`;
     try {
       const response: AxiosResponse<string> = await firstValueFrom(

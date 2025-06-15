@@ -113,9 +113,12 @@ export class AcademicStructureRepository {
             });
             await tx.group.upsert({
               where: { name: g.name },
-              update: {},
+              update: {
+                externalId: g.externalId,
+              },
               create: {
                 name: g.name,
+                externalId: g.externalId,
                 specialty: { connect: { id: specialty.id } },
               },
             });

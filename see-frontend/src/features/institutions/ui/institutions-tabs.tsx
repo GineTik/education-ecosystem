@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Tabs,
   TabsContent,
@@ -5,28 +7,33 @@ import {
   TabsTrigger,
 } from "@/shared/components/ui-kit/tabs";
 import MarkdownView from "react-showdown";
-import { InstitutionContacts } from "./institutions-contacts";
 import styles from "./../markdown.module.css";
-import { InstitutionArticles } from "./institutions-articles";
+import { useAbout } from "../hooks/use-about";
+import { Loader2 } from "lucide-react";
+import { InstitutionsFacultiesList } from "./institutions-faculties-list";
+import { InstitutionsSpecialtiesList } from "./institutions-specialties";
 
 export function InstitutionTabs() {
+  const about = useAbout();
+  
   return (
-    <Tabs defaultValue="articles">
+    <Tabs defaultValue="description">
       <TabsList>
-        <TabsTrigger value="articles">Публікації</TabsTrigger>
         <TabsTrigger value="description">Опис</TabsTrigger>
-        <TabsTrigger value="contacts">Контакти</TabsTrigger>
+        <TabsTrigger value="faculties">Факультети</TabsTrigger>
+        <TabsTrigger value="specialties">Спеціальності</TabsTrigger>
       </TabsList>
       <TabsContent value="description">
         <div className={styles.markdown}>
-          <MarkdownView markdown={"# Hello"} />
+          {about.isLoading && <Loader2 className="animate-spin" />}
+          {!about.isLoading && <MarkdownView markdown={about.data?.about ?? ''} />}
         </div>
       </TabsContent>
-      <TabsContent value="contacts">
-        <InstitutionContacts />
+      <TabsContent value="faculties">
+        <InstitutionsFacultiesList />
       </TabsContent>
-      <TabsContent value="articles">
-        <InstitutionArticles />
+      <TabsContent value="specialties">
+        <InstitutionsSpecialtiesList />
       </TabsContent>
     </Tabs>
   );

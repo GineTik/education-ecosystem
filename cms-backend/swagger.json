@@ -272,6 +272,129 @@
           "UsersRelated"
         ]
       }
+    },
+    "/institution-profile": {
+      "get": {
+        "operationId": "InstitutionProfileController_getProfile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstitutionShortProfileDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "InstitutionProfile"
+        ]
+      }
+    },
+    "/institution-profile/about": {
+      "get": {
+        "operationId": "InstitutionProfileController_getAbout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAboutDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "InstitutionProfile"
+        ]
+      }
+    },
+    "/institution-profile/faculties": {
+      "get": {
+        "operationId": "InstitutionProfileController_getFaculties",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetFacultyDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "InstitutionProfile"
+        ]
+      }
+    },
+    "/institution-profile/specialty": {
+      "get": {
+        "operationId": "InstitutionProfileController_getSpecialties",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetSpecialtyDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "InstitutionProfile"
+        ]
+      }
+    },
+    "/schedule/{groupId}": {
+      "get": {
+        "operationId": "ScheduleController_getSchedule",
+        "parameters": [
+          {
+            "name": "groupId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetWeekDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Schedule"
+        ]
+      }
     }
   },
   "info": {
@@ -503,6 +626,157 @@
           "apiKey",
           "baseUrl",
           "isEnabled"
+        ]
+      },
+      "InstitutionShortProfileDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "abbreviation": {
+            "type": "string"
+          },
+          "logoBackgroundColor": {
+            "type": "string"
+          },
+          "logoUrl": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "abbreviation",
+          "logoBackgroundColor",
+          "logoUrl",
+          "address",
+          "email",
+          "website"
+        ]
+      },
+      "GetAboutDto": {
+        "type": "object",
+        "properties": {
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "about"
+        ]
+      },
+      "GetFacultyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "GetSpecialtyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "facultyId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "code",
+          "facultyId"
+        ]
+      },
+      "LessonDto": {
+        "type": "object",
+        "properties": {
+          "lessonName": {
+            "type": "string"
+          },
+          "lessonType": {
+            "type": "string"
+          },
+          "subGroup": {
+            "type": "string"
+          },
+          "teacher": {
+            "type": "string"
+          },
+          "timeSlotStart": {
+            "type": "string"
+          },
+          "timeSlotEnd": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lessonName",
+          "lessonType",
+          "subGroup",
+          "teacher",
+          "timeSlotStart",
+          "timeSlotEnd"
+        ]
+      },
+      "DayDto": {
+        "type": "object",
+        "properties": {
+          "dayNumber": {
+            "type": "number"
+          },
+          "lessons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LessonDto"
+            }
+          }
+        },
+        "required": [
+          "dayNumber",
+          "lessons"
+        ]
+      },
+      "GetWeekDto": {
+        "type": "object",
+        "properties": {
+          "weekNumber": {
+            "type": "number"
+          },
+          "days": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DayDto"
+            }
+          }
+        },
+        "required": [
+          "weekNumber",
+          "days"
         ]
       },
       "Role": {

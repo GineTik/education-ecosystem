@@ -6,7 +6,7 @@ export class ScheduleController {
   constructor(private readonly scheduleService: ScheduleService) {}
 
   @Get("schedule/:groupId")
-  async getSchedule(@Param("groupId") groupId: number) {
+  async getSchedule(@Param("groupId") groupId: string) {
     return this.scheduleService.getSchedule(groupId);
   }
 

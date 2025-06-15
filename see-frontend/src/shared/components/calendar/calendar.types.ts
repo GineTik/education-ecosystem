@@ -4,8 +4,9 @@ export type CalendarEvent = {
   end: Date;
   title: string;
   allDay?: boolean;
+  type?: string;
+  teacher?: string;
   data?: {
-    subject?: string;
     subjectColor?: string;
     subjectDarkColor?: string;
     subjectForegroundColor?: string;

@@ -8,6 +8,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HOTKEYS } from "@/shared/constants/hotkeys";
 import { KBD } from "@/shared/components/hotkeys/kbd";
 import { useHotkeys } from "react-hotkeys-hook";
+import dayjs from "dayjs";
+import "dayjs/locale/uk";
 
 type CalendarProps = {
   events: CalendarEvent[];
@@ -39,8 +41,7 @@ export const Calendar: React.FC<CalendarProps> = ({ events }) => {
     <div className="flex flex-col grow overflow-auto">
       <div className="flex justify-between items-center mb-4 px-4">
         <h2 className="text-xl font-bold">
-          {currentDate.toLocaleString("default", { month: "long" })}{" "}
-          {currentDate.getFullYear()}
+          {dayjs(currentDate).locale("uk").format("MMMM YYYY").charAt(0).toUpperCase() + dayjs(currentDate).locale("uk").format("MMMM YYYY").slice(1)}
         </h2>
         <div className="flex items-center space-x-2">
           <Button variant="outline" onClick={handlePrevWeek}>

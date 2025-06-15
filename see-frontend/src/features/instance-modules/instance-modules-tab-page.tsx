@@ -96,7 +96,7 @@ export function InstanceModulesTabPage({
             {formValues.isEnabled && (
               <>
                 <ModuleSettingRow name="АПІ ключ">
-                  <Input {...form.register("apiKey")} />
+                  <Input placeholder="Відсутній" {...form.register("apiKey")} />
                 </ModuleSettingRow>
               </>
             )}

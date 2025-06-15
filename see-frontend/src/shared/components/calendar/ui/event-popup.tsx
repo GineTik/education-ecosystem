@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/shared/components/ui-kit/popover";
-import { Button } from "@/shared/components/ui-kit/button";
+import dayjs from "dayjs";
 
 type EventPopupProps = {
   event: CalendarEvent;
@@ -16,18 +16,15 @@ const EventPopup: React.FC<EventPopupProps> = ({ event, trigger }) => {
   return (
     <Popover>
       <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-      <PopoverContent className="w-80">
+      <PopoverContent className="w-80" side="right" align="start">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">{event.title}</h4>
+            <p className="text-sm text-muted-foreground">{event.teacher}</p>
             <p className="text-sm text-muted-foreground">
-              {event.start.toLocaleTimeString()} -{" "}
-              {event.end.toLocaleTimeString()}
+              {dayjs( event.start).format("HH:mm")} -{" "}
+              {dayjs(event.end).format("HH:mm")}
             </p>
-          </div>
-          <div className="grid gap-2">
-            <Button>Edit</Button>
-            <Button variant="destructive">Delete</Button>
           </div>
         </div>
       </PopoverContent>

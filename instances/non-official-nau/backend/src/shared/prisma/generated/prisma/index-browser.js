@@ -153,6 +153,7 @@ exports.Prisma.SpecialtyScalarFieldEnum = {
 
 exports.Prisma.GroupScalarFieldEnum = {
   id: 'id',
+  externalId: 'externalId',
   name: 'name',
   specialtyId: 'specialtyId'
 };

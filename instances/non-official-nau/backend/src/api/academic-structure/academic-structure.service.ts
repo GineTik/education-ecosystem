@@ -49,6 +49,7 @@ export class AcademicStructureService {
     const groups = pageData.faculties.flatMap((f) =>
       f.groups.map((group) => ({
         name: group.name,
+        externalId: group.id.toString(),
         faculty: f.name,
         specialty: group.specialtyNumber,
       })),

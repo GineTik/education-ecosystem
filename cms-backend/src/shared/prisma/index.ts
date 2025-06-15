@@ -6,3 +6,4 @@ export type {
     InstitutionInstanceModule,
 } from "./generated/prisma";
 export * from "./prisma.module";
+export * from "./prisma.types";

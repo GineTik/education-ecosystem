@@ -5943,18 +5943,21 @@ export namespace Prisma {
 
   export type GroupMinAggregateOutputType = {
     id: string | null
+    externalId: string | null
     name: string | null
     specialtyId: string | null
   }
 
   export type GroupMaxAggregateOutputType = {
     id: string | null
+    externalId: string | null
     name: string | null
     specialtyId: string | null
   }
 
   export type GroupCountAggregateOutputType = {
     id: number
+    externalId: number
     name: number
     specialtyId: number
     _all: number
@@ -5963,18 +5966,21 @@ export namespace Prisma {
 
   export type GroupMinAggregateInputType = {
     id?: true
+    externalId?: true
     name?: true
     specialtyId?: true
   }
 
   export type GroupMaxAggregateInputType = {
     id?: true
+    externalId?: true
     name?: true
     specialtyId?: true
   }
 
   export type GroupCountAggregateInputType = {
     id?: true
+    externalId?: true
     name?: true
     specialtyId?: true
     _all?: true
@@ -6054,6 +6060,7 @@ export namespace Prisma {
 
   export type GroupGroupByOutputType = {
     id: string
+    externalId: string
     name: string
     specialtyId: string
     _count: GroupCountAggregateOutputType | null
@@ -6077,6 +6084,7 @@ export namespace Prisma {
 
   export type GroupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    externalId?: boolean
     name?: boolean
     specialtyId?: boolean
     specialty?: boolean | SpecialtyDefaultArgs<ExtArgs>
@@ -6086,6 +6094,7 @@ export namespace Prisma {
 
   export type GroupSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    externalId?: boolean
     name?: boolean
     specialtyId?: boolean
     specialty?: boolean | SpecialtyDefaultArgs<ExtArgs>
@@ -6093,6 +6102,7 @@ export namespace Prisma {
 
   export type GroupSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    externalId?: boolean
     name?: boolean
     specialtyId?: boolean
     specialty?: boolean | SpecialtyDefaultArgs<ExtArgs>
@@ -6100,11 +6110,12 @@ export namespace Prisma {
 
   export type GroupSelectScalar = {
     id?: boolean
+    externalId?: boolean
     name?: boolean
     specialtyId?: boolean
   }
 
-  export type GroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "specialtyId", ExtArgs["result"]["group"]>
+  export type GroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "externalId" | "name" | "specialtyId", ExtArgs["result"]["group"]>
   export type GroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     specialty?: boolean | SpecialtyDefaultArgs<ExtArgs>
     subjectTimeSlots?: boolean | Group$subjectTimeSlotsArgs<ExtArgs>
@@ -6125,6 +6136,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      externalId: string
       name: string
       specialtyId: string
     }, ExtArgs["result"]["group"]>
@@ -6553,6 +6565,7 @@ export namespace Prisma {
    */
   interface GroupFieldRefs {
     readonly id: FieldRef<"Group", 'String'>
+    readonly externalId: FieldRef<"Group", 'String'>
     readonly name: FieldRef<"Group", 'String'>
     readonly specialtyId: FieldRef<"Group", 'String'>
   }
@@ -9191,6 +9204,7 @@ export namespace Prisma {
 
   export const GroupScalarFieldEnum: {
     id: 'id',
+    externalId: 'externalId',
     name: 'name',
     specialtyId: 'specialtyId'
   };
@@ -9539,6 +9553,7 @@ export namespace Prisma {
     OR?: GroupWhereInput[]
     NOT?: GroupWhereInput | GroupWhereInput[]
     id?: StringFilter<"Group"> | string
+    externalId?: StringFilter<"Group"> | string
     name?: StringFilter<"Group"> | string
     specialtyId?: StringFilter<"Group"> | string
     specialty?: XOR<SpecialtyScalarRelationFilter, SpecialtyWhereInput>
@@ -9547,6 +9562,7 @@ export namespace Prisma {
 
   export type GroupOrderByWithRelationInput = {
     id?: SortOrder
+    externalId?: SortOrder
     name?: SortOrder
     specialtyId?: SortOrder
     specialty?: SpecialtyOrderByWithRelationInput
@@ -9559,6 +9575,7 @@ export namespace Prisma {
     AND?: GroupWhereInput | GroupWhereInput[]
     OR?: GroupWhereInput[]
     NOT?: GroupWhereInput | GroupWhereInput[]
+    externalId?: StringFilter<"Group"> | string
     specialtyId?: StringFilter<"Group"> | string
     specialty?: XOR<SpecialtyScalarRelationFilter, SpecialtyWhereInput>
     subjectTimeSlots?: SubjectTimeSlotListRelationFilter
@@ -9566,6 +9583,7 @@ export namespace Prisma {
 
   export type GroupOrderByWithAggregationInput = {
     id?: SortOrder
+    externalId?: SortOrder
     name?: SortOrder
     specialtyId?: SortOrder
     _count?: GroupCountOrderByAggregateInput
@@ -9578,6 +9596,7 @@ export namespace Prisma {
     OR?: GroupScalarWhereWithAggregatesInput[]
     NOT?: GroupScalarWhereWithAggregatesInput | GroupScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Group"> | string
+    externalId?: StringWithAggregatesFilter<"Group"> | string
     name?: StringWithAggregatesFilter<"Group"> | string
     specialtyId?: StringWithAggregatesFilter<"Group"> | string
   }
@@ -9918,6 +9937,7 @@ export namespace Prisma {
 
   export type GroupCreateInput = {
     id?: string
+    externalId?: string
     name: string
     specialty: SpecialtyCreateNestedOneWithoutGroupsInput
     subjectTimeSlots?: SubjectTimeSlotCreateNestedManyWithoutGroupInput
@@ -9925,6 +9945,7 @@ export namespace Prisma {
 
   export type GroupUncheckedCreateInput = {
     id?: string
+    externalId?: string
     name: string
     specialtyId: string
     subjectTimeSlots?: SubjectTimeSlotUncheckedCreateNestedManyWithoutGroupInput
@@ -9932,6 +9953,7 @@ export namespace Prisma {
 
   export type GroupUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     specialty?: SpecialtyUpdateOneRequiredWithoutGroupsNestedInput
     subjectTimeSlots?: SubjectTimeSlotUpdateManyWithoutGroupNestedInput
@@ -9939,6 +9961,7 @@ export namespace Prisma {
 
   export type GroupUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     specialtyId?: StringFieldUpdateOperationsInput | string
     subjectTimeSlots?: SubjectTimeSlotUncheckedUpdateManyWithoutGroupNestedInput
@@ -9946,17 +9969,20 @@ export namespace Prisma {
 
   export type GroupCreateManyInput = {
     id?: string
+    externalId?: string
     name: string
     specialtyId: string
   }
 
   export type GroupUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
   }
 
   export type GroupUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     specialtyId?: StringFieldUpdateOperationsInput | string
   }
@@ -10313,18 +10339,21 @@ export namespace Prisma {
 
   export type GroupCountOrderByAggregateInput = {
     id?: SortOrder
+    externalId?: SortOrder
     name?: SortOrder
     specialtyId?: SortOrder
   }
 
   export type GroupMaxOrderByAggregateInput = {
     id?: SortOrder
+    externalId?: SortOrder
     name?: SortOrder
     specialtyId?: SortOrder
   }
 
   export type GroupMinOrderByAggregateInput = {
     id?: SortOrder
+    externalId?: SortOrder
     name?: SortOrder
     specialtyId?: SortOrder
   }
@@ -11085,12 +11114,14 @@ export namespace Prisma {
 
   export type GroupCreateWithoutSpecialtyInput = {
     id?: string
+    externalId?: string
     name: string
     subjectTimeSlots?: SubjectTimeSlotCreateNestedManyWithoutGroupInput
   }
 
   export type GroupUncheckedCreateWithoutSpecialtyInput = {
     id?: string
+    externalId?: string
     name: string
     subjectTimeSlots?: SubjectTimeSlotUncheckedCreateNestedManyWithoutGroupInput
   }
@@ -11147,6 +11178,7 @@ export namespace Prisma {
     OR?: GroupScalarWhereInput[]
     NOT?: GroupScalarWhereInput | GroupScalarWhereInput[]
     id?: StringFilter<"Group"> | string
+    externalId?: StringFilter<"Group"> | string
     name?: StringFilter<"Group"> | string
     specialtyId?: StringFilter<"Group"> | string
   }
@@ -11292,12 +11324,14 @@ export namespace Prisma {
 
   export type GroupCreateWithoutSubjectTimeSlotsInput = {
     id?: string
+    externalId?: string
     name: string
     specialty: SpecialtyCreateNestedOneWithoutGroupsInput
   }
 
   export type GroupUncheckedCreateWithoutSubjectTimeSlotsInput = {
     id?: string
+    externalId?: string
     name: string
     specialtyId: string
   }
@@ -11368,12 +11402,14 @@ export namespace Prisma {
 
   export type GroupUpdateWithoutSubjectTimeSlotsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     specialty?: SpecialtyUpdateOneRequiredWithoutGroupsNestedInput
   }
 
   export type GroupUncheckedUpdateWithoutSubjectTimeSlotsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     specialtyId?: StringFieldUpdateOperationsInput | string
   }
@@ -11499,23 +11535,27 @@ export namespace Prisma {
 
   export type GroupCreateManySpecialtyInput = {
     id?: string
+    externalId?: string
     name: string
   }
 
   export type GroupUpdateWithoutSpecialtyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     subjectTimeSlots?: SubjectTimeSlotUpdateManyWithoutGroupNestedInput
   }
 
   export type GroupUncheckedUpdateWithoutSpecialtyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     subjectTimeSlots?: SubjectTimeSlotUncheckedUpdateManyWithoutGroupNestedInput
   }
 
   export type GroupUncheckedUpdateManyWithoutSpecialtyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    externalId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
   }
 

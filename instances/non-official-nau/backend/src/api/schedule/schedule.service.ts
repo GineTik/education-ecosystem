@@ -1,12 +1,23 @@
 import { ParserService } from "@/shared/parser";
-import { Injectable } from "@nestjs/common";
+import { PrismaService } from "@/shared/prisma";
+import { Injectable, NotFoundException } from "@nestjs/common";
 
 @Injectable()
 export class ScheduleService {
-  constructor(private readonly parserService: ParserService) {}
+  constructor(private readonly prisma: PrismaService, private readonly parserService: ParserService) {}
 
-  async getSchedule(groupId: number) {
-    return await this.parserService.parseGroupPage(groupId);
+  async getSchedule(groupId: string) {
+    const group = await this.prisma.group.findUnique({
+      where: {
+        id: groupId,
+      },
+    });
+
+    if (!group) {
+      throw new NotFoundException("Group not found");
+    }
+
+    return await this.parserService.parseGroupPage(group.externalId);
   }
 
   async getAllLessons() {
@@ -24,7 +35,7 @@ export class ScheduleService {
             self.findIndex((t) => t.id === group.id) === index,
         )
         .map(async (group) => {
-          const result = await this.getSchedule(group.id);
+          const result = await this.getSchedule(group.id.toString());
           console.log(`schedule ${group.id} taken`);
           return result;
         }),
