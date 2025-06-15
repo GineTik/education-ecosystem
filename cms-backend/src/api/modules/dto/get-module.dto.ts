@@ -4,25 +4,32 @@ export class GetModuleDto {
     @ApiProperty({
         type: String,
     })
-    id: string;
+    slug: string;
 
     @ApiProperty({
         type: String,
     })
-    type: string;
+    name: string;
+
+    @ApiProperty({
+        type: String,
+        nullable: true,
+    })
+    description?: string | null;
+
+    @ApiProperty({
+        type: String,
+        nullable: true,
+    })
+    apiKey?: string | null;
 
     @ApiProperty({
         type: String,
     })
-    apiKey: string | null;
-
-    @ApiProperty({
-        type: String,
-    })
-    baseUrl: string;
+    baseUrl?: string;
 
     @ApiProperty({
         type: Boolean,
     })
-    isEnabled: boolean;
+    isEnabled?: boolean;
 }

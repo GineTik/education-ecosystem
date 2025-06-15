@@ -1,6 +1,7 @@
 import { HOTKEYS } from "@/shared/constants/hotkeys";
 import { ROUTES } from "@/shared/constants/routes";
 import { BookOpenIcon, HomeIcon } from "lucide-react";
+import { isExternal } from "util/types";
 
 export const useMenu = () => {
   return {
@@ -37,7 +38,7 @@ export const useMenu = () => {
         title: "Digital University",
         href: "https://digitaluniversity.kpi.ua/",
         emoji: "💻",
-        external: true,
+        isExternal: true,
       },
     ],
     groupMenu: [
@@ -57,7 +58,7 @@ export const useMenu = () => {
         title: "Група в телеграм",
         href: "https://t.me/see_group_b31211pi",
         emoji: "💬",
-        external: true,
+        isExternal: true,
       },
     ],
     studentMenu: [
@@ -83,6 +84,19 @@ export const useMenu = () => {
         title: "Управління користувачами",
         href: ROUTES.MANAGE_USERS,
         emoji: "👤",
+      },
+    ],
+    instanceExternalLinks: [
+      {
+        title: "Модулі public API",
+        href: ROUTES.MANAGE_INSTANCE_MODULES,
+        emoji: "🧱",
+      },
+      {
+        title: "Digital University",
+        href: "#",
+        emoji: "📅",
+        isExternal: true,
       },
     ],
   };

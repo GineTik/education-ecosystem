@@ -4,16 +4,14 @@ import {
   SidebarGroupLabel,
   SidebarMenu,
 } from "@/shared/components/ui-kit/sidebar";
-import { DefaultMenuItem } from "../nav-items/default-menu-item";
+import {
+  DefaultMenuItem,
+  DefaultMenuItemProps,
+} from "../nav-items/default-menu-item";
 
 type NavGroupProps = {
   label: string;
-  items: {
-    title: string;
-    href: string;
-    emoji: string;
-    external?: boolean;
-  }[];
+  items: DefaultMenuItemProps[];
 };
 
 export function NavGroup({ label, items }: NavGroupProps) {

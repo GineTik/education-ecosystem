@@ -1,12 +1,23 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { IsBoolean, IsString } from "class-validator";
 
 export class UpdateModuleDto {
     @IsBoolean()
+    @ApiProperty({
+        type: Boolean,
+    })
     isEnabled: boolean;
 
     @IsString()
-    apiKey: string;
+    @ApiProperty({
+        type: String,
+        nullable: true,
+    })
+    apiKey: string | null;
 
     @IsString()
-    typeId: string;
+    @ApiProperty({
+        type: String,
+    })
+    baseUrl: string;
 }

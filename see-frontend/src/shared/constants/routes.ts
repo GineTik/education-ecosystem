@@ -12,6 +12,7 @@ class Routes {
   LOGIN = "/login";
   MANAGE_INSTANCES = "/cabinet/admin/instances";
   MANAGE_USERS = "/cabinet/admin/users";
+  MANAGE_INSTANCE_MODULES = "/cabinet/instance/modules";
 }
 
 export const ROUTES = new Routes();

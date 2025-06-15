@@ -3,9 +3,10 @@ import { ConfigModule } from "@nestjs/config";
 import { ApiAuthModule } from "@/api/auth";
 import { JwtModule as NestJwtModule } from "@nestjs/jwt";
 import { UsersModule } from "@/api/users";
-import { InstitutionsModule } from "./api/institutions/institutions.module";
-import { InstancesModule } from "./api/instances/instances.module";
-import { ModulesModule } from "./api/modules/modules.module";
+import { InstitutionsModule } from "@/api/institutions";
+import { InstancesModule } from "@/api/instances";
+import { ModulesModule } from "@/api/modules";
+import { UsersRelatedModule } from "@/api/users-related";
 
 @Module({
     imports: [
@@ -25,6 +26,7 @@ import { ModulesModule } from "./api/modules/modules.module";
         InstancesModule,
         InstitutionsModule,
         ModulesModule,
+        UsersRelatedModule,
     ],
 })
 export class AppModule {}

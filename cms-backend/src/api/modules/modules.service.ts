@@ -1,9 +1,7 @@
 import { PrismaService } from "@/shared/prisma";
-import { ForbiddenException, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { UpdateModuleDto } from "./dto/update-module.dto";
 import { UserWithPermissions } from "@/shared/auth/dto";
-import { ERROR_CODES } from "@/shared/auth";
-import { InstitutionInstanceModule } from "@/shared/prisma/generated/prisma";
 import { GetModuleDto } from "./dto/get-module.dto";
 
 @Injectable()
@@ -12,30 +10,65 @@ export class ModulesService {
 
     async update(
         updateModuleDto: UpdateModuleDto,
-        id: string,
+        typeSlug: string,
         user: UserWithPermissions,
     ): Promise<void> {
-        if (user.instanceId !== id) {
-            throw new ForbiddenException(ERROR_CODES.USER_HAS_NO_PERMISSION);
-        }
-
-        await this.prisma.institutionInstanceModule.update({
-            where: { id },
-            data: updateModuleDto,
+        await this.prisma.institutionInstanceModule.upsert({
+            where: {
+                instanceId_typeSlug: {
+                    instanceId: user.instanceId!,
+                    typeSlug: typeSlug,
+                },
+            },
+            create: {
+                baseURL: updateModuleDto.baseUrl,
+                apiKey: updateModuleDto.apiKey,
+                isEnabled: updateModuleDto.isEnabled,
+                status: "none",
+                expectedMajorVersion: 1,
+                expectedMinorVersion: 0,
+                type: {
+                    connect: {
+                        slug: typeSlug,
+                    },
+                },
+                instance: {
+                    connect: {
+                        id: user.instanceId!,
+                    },
+                },
+            },
+            update: {
+                baseURL: updateModuleDto.baseUrl,
+                apiKey: updateModuleDto.apiKey,
+                isEnabled: updateModuleDto.isEnabled,
+            },
         });
     }
 
     async getModules(instanceId: string): Promise<GetModuleDto[]> {
-        const modules = await this.prisma.institutionInstanceModule.findMany({
-            where: { instanceId },
-        });
+        const moduleTypes =
+            await this.prisma.institutionInstanceModuleType.findMany({
+                include: {
+                    modules: {
+                        where: {
+                            instanceId,
+                        },
+                    },
+                },
+            });
 
-        return modules.map((module) => ({
-            id: module.id,
-            type: module.typeId,
-            baseUrl: module.baseURL,
-            apiKey: module.apiKey,
-            isEnabled: module.isEnabled,
-        }));
+        return moduleTypes.map((type) => {
+            const module =
+                type.modules.length === 0 ? undefined : type.modules[0];
+            return {
+                slug: type.slug,
+                name: type.name,
+                description: type.description,
+                baseUrl: module?.baseURL,
+                apiKey: module?.apiKey,
+                isEnabled: module?.isEnabled,
+            };
+        });
     }
 }

@@ -143,7 +143,7 @@ exports.Prisma.PermissionScalarFieldEnum = {
   description: 'description'
 };
 
-exports.Prisma.EmailScalarFieldEnum = {
+exports.Prisma.AccountScalarFieldEnum = {
   email: 'email',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -194,13 +194,13 @@ exports.Prisma.InstitutionInstanceModuleScalarFieldEnum = {
   expectedMajorVersion: 'expectedMajorVersion',
   expectedMinorVersion: 'expectedMinorVersion',
   instanceId: 'instanceId',
-  typeId: 'typeId'
+  typeSlug: 'typeSlug'
 };
 
 exports.Prisma.InstitutionInstanceModuleTypeScalarFieldEnum = {
-  id: 'id',
   slug: 'slug',
-  name: 'name'
+  name: 'name',
+  description: 'description'
 };
 
 exports.Prisma.SortOrder = {
@@ -227,7 +227,7 @@ exports.Prisma.ModelName = {
   User: 'User',
   Role: 'Role',
   Permission: 'Permission',
-  Email: 'Email',
+  Account: 'Account',
   ExternalLinks: 'ExternalLinks',
   Articles: 'Articles',
   InstitutionInstance: 'InstitutionInstance',

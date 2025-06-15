@@ -192,12 +192,12 @@
         ]
       }
     },
-    "/modules/{id}": {
-      "post": {
+    "/modules/{typeSlug}": {
+      "put": {
         "operationId": "ModulesController_update",
         "parameters": [
           {
-            "name": "id",
+            "name": "typeSlug",
             "required": true,
             "in": "path",
             "schema": {
@@ -225,19 +225,10 @@
         ]
       }
     },
-    "/modules/{instanceId}": {
+    "/modules": {
       "get": {
-        "operationId": "ModulesController_getModules",
-        "parameters": [
-          {
-            "name": "instanceId",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "ModulesController_getAll",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
@@ -255,6 +246,30 @@
         },
         "tags": [
           "Modules"
+        ]
+      }
+    },
+    "/users/modules": {
+      "get": {
+        "operationId": "UsersRelatedController_getModules",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetModuleDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "UsersRelated"
         ]
       }
     }
@@ -439,19 +454,40 @@
       },
       "UpdateModuleDto": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "baseUrl": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "isEnabled",
+          "apiKey",
+          "baseUrl"
+        ]
       },
       "GetModuleDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "slug": {
             "type": "string"
           },
-          "type": {
+          "name": {
             "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           },
           "apiKey": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "baseUrl": {
             "type": "string"
@@ -461,8 +497,9 @@
           }
         },
         "required": [
-          "id",
-          "type",
+          "slug",
+          "name",
+          "description",
           "apiKey",
           "baseUrl",
           "isEnabled"

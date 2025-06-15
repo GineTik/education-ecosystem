@@ -18,7 +18,13 @@ import { HasRole } from "@/shared/components/auth/HasRole";
 export function CabinetSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const { groupMenu, universityMenu, studentMenu, adminMenu } = useMenu();
+  const {
+    groupMenu,
+    universityMenu,
+    studentMenu,
+    adminMenu,
+    instanceExternalLinks,
+  } = useMenu();
 
   return (
     <Sidebar className="border-r-0" {...props}>
@@ -34,6 +40,9 @@ export function CabinetSidebar({
         </HasRole>
         <HasRole role={Role.admin}>
           <NavGroup label="Адміністратор" items={adminMenu} />
+        </HasRole>
+        <HasRole role={Role.institution_admin}>
+          <NavGroup label="Управління закладом" items={instanceExternalLinks} />
         </HasRole>
       </SidebarContent>
       <SidebarRail />

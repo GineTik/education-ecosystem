@@ -1,7 +1,7 @@
 import { PrismaService } from "@/shared/prisma";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { ERROR_CODES, LoginByGoogleDto } from "@/shared/auth";
-import { Email, User } from "@/shared/prisma";
+import { Account, User } from "@/shared/prisma";
 import { JwtService, ROLES_SLUG } from "@/shared/auth";
 import { AuthTokensDto } from "@/shared/auth/dto";
 
@@ -30,8 +30,8 @@ export class AuthService {
 
     private async findEmail(
         email: string,
-    ): Promise<(Email & { user: User }) | null> {
-        return this.prisma.email.findFirst({
+    ): Promise<(Account & { user: User }) | null> {
+        return this.prisma.account.findFirst({
             where: {
                 email,
             },
@@ -46,7 +46,7 @@ export class AuthService {
         accessToken,
         refreshToken,
     }: LoginByGoogleDto) {
-        await this.prisma.email.update({
+        await this.prisma.account.update({
             where: { email },
             data: {
                 googleAccessToken: accessToken,
@@ -79,7 +79,7 @@ export class AuthService {
 
         const user = await this.prisma.user.create({
             data: {
-                emails: {
+                accounts: {
                     create: {
                         email,
                         googleAccessToken: accessToken,

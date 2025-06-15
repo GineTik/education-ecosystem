@@ -1,7 +1,7 @@
 export * from "./prisma.service";
 export type {
     User,
-    Email,
+    Account,
     Role,
     InstitutionInstanceModule,
 } from "./generated/prisma";

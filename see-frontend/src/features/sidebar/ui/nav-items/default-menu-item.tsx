@@ -12,14 +12,14 @@ import { KBD } from "@/shared/components/hotkeys/kbd";
 import { useRouter } from "next/navigation";
 import { useHotkeys } from "react-hotkeys-hook";
 
-type DefaultMenuItemProps = {
+export type DefaultMenuItemProps = {
   title: string;
   href: string;
   icon?: ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
   >;
   emoji?: string;
-  external?: boolean;
+  isExternal?: boolean;
   hotkeys?: string;
 };
 
@@ -28,7 +28,7 @@ export function DefaultMenuItem({
   href,
   icon: Icon,
   emoji,
-  external,
+  isExternal,
   hotkeys,
 }: DefaultMenuItemProps) {
   const linkRef = useRef<HTMLAnchorElement>(null);
@@ -43,12 +43,12 @@ export function DefaultMenuItem({
         <Link
           ref={linkRef}
           href={href}
-          target={external ? "_blank" : undefined}
+          target={isExternal ? "_blank" : undefined}
         >
           {Icon && <Icon />}
           {emoji && <span>{emoji}</span>}
           <span>{title}</span>
-          {external && (
+          {isExternal && (
             <ExternalLinkIcon className="w-4 h-4 ml-auto text-muted-foreground" />
           )}
           {hotkeys && <KBD hotkeys={hotkeys} />}

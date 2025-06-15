@@ -35,7 +35,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Suspense fallback={<Loader2 className="animate-spin" />}>
+        <Suspense
+          fallback={
+            <div className="w-screen h-screen flex items-center justify-center">
+              <Loader2 className="animate-spin" />
+            </div>
+          }
+        >
           <Providers>
             {children}
             <Toaster />

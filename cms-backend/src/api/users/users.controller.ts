@@ -1,4 +1,10 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Get,
+    Post,
+} from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { Auth, SignedUser } from "@/shared/auth/decorators";
 import { ApiBody, ApiResponse } from "@nestjs/swagger";

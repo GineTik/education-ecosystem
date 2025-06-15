@@ -84,6 +84,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/modules/{typeSlug}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["ModulesController_update"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/modules": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["ModulesController_getAll"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/users/modules": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["UsersRelatedController_getModules"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -134,6 +182,19 @@ export interface components {
             /** Format: date-time */
             updatedAt: string;
         };
+        UpdateModuleDto: {
+            isEnabled: boolean;
+            apiKey: string | null;
+            baseUrl: string;
+        };
+        GetModuleDto: {
+            slug: string;
+            name: string;
+            description: string | null;
+            apiKey: string | null;
+            baseUrl: string;
+            isEnabled: boolean;
+        };
         /**
          * @description Available user roles in the system
          * @example student
@@ -142,7 +203,7 @@ export interface components {
         Role: Role;
         /**
          * @description Available permissions in the system
-         * @example institution:read
+         * @example (instance):module:read
          * @enum {string}
          */
         Permission: Permission;
@@ -335,6 +396,67 @@ export interface operations {
             };
         };
     };
+    ModulesController_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                typeSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateModuleDto"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    ModulesController_getAll: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetModuleDto"][];
+                };
+            };
+        };
+    };
+    UsersRelatedController_getModules: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetModuleDto"][];
+                };
+            };
+        };
+    };
 }
 export enum Role {
     student = "student",
@@ -346,5 +468,9 @@ export enum Permission {
     institution_users = "institution:users",
     institution_read = "institution:read",
     users_manage = "users:manage",
-    users_read = "users:read"
+    users_read = "users:read",
+    _instance_module_create = "(instance):module:create",
+    _instance_module_read = "(instance):module:read",
+    _instance_module_update = "(instance):module:update",
+    _instance_module_delete = "(instance):module:delete"
 }

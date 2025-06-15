@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Get,
+    Param,
+    Post,
+    Put,
+} from "@nestjs/common";
 import { ModulesService } from "./modules.service";
 import { UpdateModuleDto } from "./dto/update-module.dto";
 import { Auth, SignedUser } from "@/shared/auth/decorators";
@@ -7,33 +15,37 @@ import { ApiBody, ApiResponse } from "@nestjs/swagger";
 import { plainToInstance } from "class-transformer";
 import { GetModuleDto } from "./dto/get-module.dto";
 import { UserWithPermissions } from "@/shared/auth/dto";
+import { ERROR_CODES } from "./modules.constants";
 
 @Controller("modules")
 export class ModulesController {
     constructor(private readonly modulesService: ModulesService) {}
 
-    @Post(":id")
+    @Put(":typeSlug")
     @Auth(PERMISSIONS.INSTANCE_MODULE_UPDATE)
     @ApiBody({ type: UpdateModuleDto })
     @ApiResponse({ status: 201 })
     async update(
+        @Param("typeSlug") typeSlug: string,
         @Body() updateModuleDto: UpdateModuleDto,
-        @Param("id") id: string,
         @SignedUser() user: UserWithPermissions,
     ): Promise<void> {
         await this.modulesService.update(
             plainToInstance(UpdateModuleDto, updateModuleDto),
-            id,
+            typeSlug,
             user,
         );
     }
 
-    @Get(":instanceId")
+    @Get()
     @Auth(PERMISSIONS.INSTANCE_MODULE_READ)
     @ApiResponse({ status: 200, type: [GetModuleDto] })
-    async getModules(
-        @Param("instanceId") instanceId: string,
+    async getAll(
+        @SignedUser() user: UserWithPermissions,
     ): Promise<GetModuleDto[]> {
-        return await this.modulesService.getModules(instanceId);
+        if (user.instanceId === null) {
+            throw new BadRequestException(ERROR_CODES.YOU_HAS_NOT_INSTANCE);
+        }
+        return await this.modulesService.getModules(user.instanceId);
     }
 }

@@ -21,7 +21,7 @@ model User {
 
   firstName    String?
   lastName     String?
-  emails       Email[]
+  accounts     Account[]
   avatarUrl    String?
   refreshToken String?
 
@@ -51,7 +51,7 @@ model Permission {
   roles Role[]
 }
 
-model Email {
+model Account {
   email String @id @unique
 
   createdAt           DateTime @default(now())
@@ -126,17 +126,17 @@ model InstitutionInstanceModule {
   instance   InstitutionInstance @relation(fields: [instanceId], references: [id])
   instanceId String
 
-  type   InstitutionInstanceModuleType @relation(fields: [typeId], references: [id])
-  typeId String
+  type     InstitutionInstanceModuleType @relation(fields: [typeSlug], references: [slug])
+  typeSlug String
 
-  @@unique([instanceId, typeId])
+  @@unique([instanceId, typeSlug])
 }
 
 model InstitutionInstanceModuleType {
-  id   String @id @default(uuid())
-  slug String @unique
+  slug String @id
 
-  name String
+  name        String
+  description String?
 
-  InstitutionInstanceModule InstitutionInstanceModule[]
+  modules InstitutionInstanceModule[]
 }

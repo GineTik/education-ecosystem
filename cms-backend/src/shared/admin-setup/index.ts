@@ -7,7 +7,7 @@ export async function setupAdmin(app: INestApplication) {
 
     const user = await prisma.user.findFirst({
         where: {
-            emails: {
+            accounts: {
                 some: {
                     email: process.env.ADMIN_EMAIL,
                 },
@@ -30,7 +30,7 @@ export async function setupAdmin(app: INestApplication) {
 
         await tx.user.create({
             data: {
-                emails: {
+                accounts: {
                     create: {
                         email: process.env.ADMIN_EMAIL as string,
                     },

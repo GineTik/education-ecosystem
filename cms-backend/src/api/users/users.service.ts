@@ -13,7 +13,7 @@ export class UsersService {
         const user = await this.prisma.user.findUnique({
             where: { id },
             include: {
-                emails: true,
+                accounts: true,
             },
         });
 
@@ -23,7 +23,7 @@ export class UsersService {
 
         return {
             id: user.id,
-            email: user.emails[0].email,
+            email: user.accounts[0].email,
             firstName: user.firstName,
             lastName: user.lastName,
             avatarUrl: user.avatarUrl,
@@ -35,13 +35,13 @@ export class UsersService {
     async getAll(): Promise<ProfileDto[]> {
         const users = await this.prisma.user.findMany({
             include: {
-                emails: true,
+                accounts: true,
             },
         });
 
         return users.map((user) => ({
             id: user.id,
-            email: user.emails[0].email,
+            email: user.accounts[0].email,
             firstName: user.firstName,
             lastName: user.lastName,
             avatarUrl: user.avatarUrl,
@@ -59,7 +59,7 @@ export class UsersService {
                 firstName: dto.firstName,
                 lastName: dto.lastName,
                 avatarUrl: this.generateAvatarUrl(dto.email),
-                emails: {
+                accounts: {
                     create: {
                         email: dto.email,
                     },
@@ -79,7 +79,7 @@ export class UsersService {
     }
 
     private async throwIfEmailAlreadyExists(email: string): Promise<void> {
-        const emailExists = await this.prisma.email.findFirst({
+        const emailExists = await this.prisma.account.findFirst({
             where: {
                 email,
             },

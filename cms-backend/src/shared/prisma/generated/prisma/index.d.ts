@@ -29,10 +29,10 @@ export type Role = $Result.DefaultSelection<Prisma.$RolePayload>
  */
 export type Permission = $Result.DefaultSelection<Prisma.$PermissionPayload>
 /**
- * Model Email
+ * Model Account
  * 
  */
-export type Email = $Result.DefaultSelection<Prisma.$EmailPayload>
+export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
 /**
  * Model ExternalLinks
  * 
@@ -233,14 +233,14 @@ export class PrismaClient<
   get permission(): Prisma.PermissionDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.email`: Exposes CRUD operations for the **Email** model.
+   * `prisma.account`: Exposes CRUD operations for the **Account** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Emails
-    * const emails = await prisma.email.findMany()
+    * // Fetch zero or more Accounts
+    * const accounts = await prisma.account.findMany()
     * ```
     */
-  get email(): Prisma.EmailDelegate<ExtArgs, ClientOptions>;
+  get account(): Prisma.AccountDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.externalLinks`: Exposes CRUD operations for the **ExternalLinks** model.
@@ -734,7 +734,7 @@ export namespace Prisma {
     User: 'User',
     Role: 'Role',
     Permission: 'Permission',
-    Email: 'Email',
+    Account: 'Account',
     ExternalLinks: 'ExternalLinks',
     Articles: 'Articles',
     InstitutionInstance: 'InstitutionInstance',
@@ -758,7 +758,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "role" | "permission" | "email" | "externalLinks" | "articles" | "institutionInstance" | "institutionInstanceModule" | "institutionInstanceModuleType"
+      modelProps: "user" | "role" | "permission" | "account" | "externalLinks" | "articles" | "institutionInstance" | "institutionInstanceModule" | "institutionInstanceModuleType"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -984,77 +984,77 @@ export namespace Prisma {
           }
         }
       }
-      Email: {
-        payload: Prisma.$EmailPayload<ExtArgs>
-        fields: Prisma.EmailFieldRefs
+      Account: {
+        payload: Prisma.$AccountPayload<ExtArgs>
+        fields: Prisma.AccountFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.EmailFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload> | null
+            args: Prisma.AccountFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.EmailFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>
+            args: Prisma.AccountFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           findFirst: {
-            args: Prisma.EmailFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload> | null
+            args: Prisma.AccountFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.EmailFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>
+            args: Prisma.AccountFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           findMany: {
-            args: Prisma.EmailFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>[]
+            args: Prisma.AccountFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
           }
           create: {
-            args: Prisma.EmailCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>
+            args: Prisma.AccountCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           createMany: {
-            args: Prisma.EmailCreateManyArgs<ExtArgs>
+            args: Prisma.AccountCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.EmailCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>[]
+            args: Prisma.AccountCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
           }
           delete: {
-            args: Prisma.EmailDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>
+            args: Prisma.AccountDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           update: {
-            args: Prisma.EmailUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>
+            args: Prisma.AccountUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           deleteMany: {
-            args: Prisma.EmailDeleteManyArgs<ExtArgs>
+            args: Prisma.AccountDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.EmailUpdateManyArgs<ExtArgs>
+            args: Prisma.AccountUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.EmailUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>[]
+            args: Prisma.AccountUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
           }
           upsert: {
-            args: Prisma.EmailUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailPayload>
+            args: Prisma.AccountUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
           }
           aggregate: {
-            args: Prisma.EmailAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEmail>
+            args: Prisma.AccountAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAccount>
           }
           groupBy: {
-            args: Prisma.EmailGroupByArgs<ExtArgs>
-            result: $Utils.Optional<EmailGroupByOutputType>[]
+            args: Prisma.AccountGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AccountGroupByOutputType>[]
           }
           count: {
-            args: Prisma.EmailCountArgs<ExtArgs>
-            result: $Utils.Optional<EmailCountAggregateOutputType> | number
+            args: Prisma.AccountCountArgs<ExtArgs>
+            result: $Utils.Optional<AccountCountAggregateOutputType> | number
           }
         }
       }
@@ -1515,7 +1515,7 @@ export namespace Prisma {
     user?: UserOmit
     role?: RoleOmit
     permission?: PermissionOmit
-    email?: EmailOmit
+    account?: AccountOmit
     externalLinks?: ExternalLinksOmit
     articles?: ArticlesOmit
     institutionInstance?: InstitutionInstanceOmit
@@ -1615,11 +1615,11 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    emails: number
+    accounts: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    emails?: boolean | UserCountOutputTypeCountEmailsArgs
+    accounts?: boolean | UserCountOutputTypeCountAccountsArgs
   }
 
   // Custom InputTypes
@@ -1636,8 +1636,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountEmailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EmailWhereInput
+  export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountWhereInput
   }
 
 
@@ -1766,11 +1766,11 @@ export namespace Prisma {
    */
 
   export type InstitutionInstanceModuleTypeCountOutputType = {
-    InstitutionInstanceModule: number
+    modules: number
   }
 
   export type InstitutionInstanceModuleTypeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    InstitutionInstanceModule?: boolean | InstitutionInstanceModuleTypeCountOutputTypeCountInstitutionInstanceModuleArgs
+    modules?: boolean | InstitutionInstanceModuleTypeCountOutputTypeCountModulesArgs
   }
 
   // Custom InputTypes
@@ -1787,7 +1787,7 @@ export namespace Prisma {
   /**
    * InstitutionInstanceModuleTypeCountOutputType without action
    */
-  export type InstitutionInstanceModuleTypeCountOutputTypeCountInstitutionInstanceModuleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InstitutionInstanceModuleTypeCountOutputTypeCountModulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InstitutionInstanceModuleWhereInput
   }
 
@@ -1984,7 +1984,7 @@ export namespace Prisma {
     refreshToken?: boolean
     roleSlug?: boolean
     instanceId?: boolean
-    emails?: boolean | User$emailsArgs<ExtArgs>
+    accounts?: boolean | User$accountsArgs<ExtArgs>
     role?: boolean | RoleDefaultArgs<ExtArgs>
     instance?: boolean | User$instanceArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2029,7 +2029,7 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "firstName" | "lastName" | "avatarUrl" | "refreshToken" | "roleSlug" | "instanceId", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    emails?: boolean | User$emailsArgs<ExtArgs>
+    accounts?: boolean | User$accountsArgs<ExtArgs>
     role?: boolean | RoleDefaultArgs<ExtArgs>
     instance?: boolean | User$instanceArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2046,7 +2046,7 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      emails: Prisma.$EmailPayload<ExtArgs>[]
+      accounts: Prisma.$AccountPayload<ExtArgs>[]
       role: Prisma.$RolePayload<ExtArgs>
       instance: Prisma.$InstitutionInstancePayload<ExtArgs> | null
     }
@@ -2453,7 +2453,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    emails<T extends User$emailsArgs<ExtArgs> = {}>(args?: Subset<T, User$emailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     role<T extends RoleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoleDefaultArgs<ExtArgs>>): Prisma__RoleClient<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     instance<T extends User$instanceArgs<ExtArgs> = {}>(args?: Subset<T, User$instanceArgs<ExtArgs>>): Prisma__InstitutionInstanceClient<$Result.GetResult<Prisma.$InstitutionInstancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
@@ -2889,27 +2889,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.emails
+   * User.accounts
    */
-  export type User$emailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$accountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
-    where?: EmailWhereInput
-    orderBy?: EmailOrderByWithRelationInput | EmailOrderByWithRelationInput[]
-    cursor?: EmailWhereUniqueInput
+    include?: AccountInclude<ExtArgs> | null
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    cursor?: AccountWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: EmailScalarFieldEnum | EmailScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
@@ -5067,16 +5067,16 @@ export namespace Prisma {
 
 
   /**
-   * Model Email
+   * Model Account
    */
 
-  export type AggregateEmail = {
-    _count: EmailCountAggregateOutputType | null
-    _min: EmailMinAggregateOutputType | null
-    _max: EmailMaxAggregateOutputType | null
+  export type AggregateAccount = {
+    _count: AccountCountAggregateOutputType | null
+    _min: AccountMinAggregateOutputType | null
+    _max: AccountMaxAggregateOutputType | null
   }
 
-  export type EmailMinAggregateOutputType = {
+  export type AccountMinAggregateOutputType = {
     email: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -5086,7 +5086,7 @@ export namespace Prisma {
     userId: string | null
   }
 
-  export type EmailMaxAggregateOutputType = {
+  export type AccountMaxAggregateOutputType = {
     email: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -5096,7 +5096,7 @@ export namespace Prisma {
     userId: string | null
   }
 
-  export type EmailCountAggregateOutputType = {
+  export type AccountCountAggregateOutputType = {
     email: number
     createdAt: number
     updatedAt: number
@@ -5108,7 +5108,7 @@ export namespace Prisma {
   }
 
 
-  export type EmailMinAggregateInputType = {
+  export type AccountMinAggregateInputType = {
     email?: true
     createdAt?: true
     updatedAt?: true
@@ -5118,7 +5118,7 @@ export namespace Prisma {
     userId?: true
   }
 
-  export type EmailMaxAggregateInputType = {
+  export type AccountMaxAggregateInputType = {
     email?: true
     createdAt?: true
     updatedAt?: true
@@ -5128,7 +5128,7 @@ export namespace Prisma {
     userId?: true
   }
 
-  export type EmailCountAggregateInputType = {
+  export type AccountCountAggregateInputType = {
     email?: true
     createdAt?: true
     updatedAt?: true
@@ -5139,79 +5139,79 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type EmailAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Email to aggregate.
+     * Filter which Account to aggregate.
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Emails to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: EmailOrderByWithRelationInput | EmailOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: EmailWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Emails from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Emails.
+     * Skip the first `n` Accounts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Emails
+     * Count returned Accounts
     **/
-    _count?: true | EmailCountAggregateInputType
+    _count?: true | AccountCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: EmailMinAggregateInputType
+    _min?: AccountMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: EmailMaxAggregateInputType
+    _max?: AccountMaxAggregateInputType
   }
 
-  export type GetEmailAggregateType<T extends EmailAggregateArgs> = {
-        [P in keyof T & keyof AggregateEmail]: P extends '_count' | 'count'
+  export type GetAccountAggregateType<T extends AccountAggregateArgs> = {
+        [P in keyof T & keyof AggregateAccount]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateEmail[P]>
-      : GetScalarType<T[P], AggregateEmail[P]>
+        : GetScalarType<T[P], AggregateAccount[P]>
+      : GetScalarType<T[P], AggregateAccount[P]>
   }
 
 
 
 
-  export type EmailGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EmailWhereInput
-    orderBy?: EmailOrderByWithAggregationInput | EmailOrderByWithAggregationInput[]
-    by: EmailScalarFieldEnum[] | EmailScalarFieldEnum
-    having?: EmailScalarWhereWithAggregatesInput
+  export type AccountGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByWithAggregationInput | AccountOrderByWithAggregationInput[]
+    by: AccountScalarFieldEnum[] | AccountScalarFieldEnum
+    having?: AccountScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: EmailCountAggregateInputType | true
-    _min?: EmailMinAggregateInputType
-    _max?: EmailMaxAggregateInputType
+    _count?: AccountCountAggregateInputType | true
+    _min?: AccountMinAggregateInputType
+    _max?: AccountMaxAggregateInputType
   }
 
-  export type EmailGroupByOutputType = {
+  export type AccountGroupByOutputType = {
     email: string
     createdAt: Date
     updatedAt: Date
@@ -5219,26 +5219,26 @@ export namespace Prisma {
     googleRefreshToken: string | null
     googleEmailVerified: boolean
     userId: string
-    _count: EmailCountAggregateOutputType | null
-    _min: EmailMinAggregateOutputType | null
-    _max: EmailMaxAggregateOutputType | null
+    _count: AccountCountAggregateOutputType | null
+    _min: AccountMinAggregateOutputType | null
+    _max: AccountMaxAggregateOutputType | null
   }
 
-  type GetEmailGroupByPayload<T extends EmailGroupByArgs> = Prisma.PrismaPromise<
+  type GetAccountGroupByPayload<T extends AccountGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<EmailGroupByOutputType, T['by']> &
+      PickEnumerable<AccountGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof EmailGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof AccountGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], EmailGroupByOutputType[P]>
-            : GetScalarType<T[P], EmailGroupByOutputType[P]>
+              : GetScalarType<T[P], AccountGroupByOutputType[P]>
+            : GetScalarType<T[P], AccountGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type EmailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AccountSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5247,9 +5247,9 @@ export namespace Prisma {
     googleEmailVerified?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["email"]>
+  }, ExtArgs["result"]["account"]>
 
-  export type EmailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AccountSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5258,9 +5258,9 @@ export namespace Prisma {
     googleEmailVerified?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["email"]>
+  }, ExtArgs["result"]["account"]>
 
-  export type EmailSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AccountSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5269,9 +5269,9 @@ export namespace Prisma {
     googleEmailVerified?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["email"]>
+  }, ExtArgs["result"]["account"]>
 
-  export type EmailSelectScalar = {
+  export type AccountSelectScalar = {
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5281,19 +5281,19 @@ export namespace Prisma {
     userId?: boolean
   }
 
-  export type EmailOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"email" | "createdAt" | "updatedAt" | "googleAccessToken" | "googleRefreshToken" | "googleEmailVerified" | "userId", ExtArgs["result"]["email"]>
-  export type EmailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"email" | "createdAt" | "updatedAt" | "googleAccessToken" | "googleRefreshToken" | "googleEmailVerified" | "userId", ExtArgs["result"]["account"]>
+  export type AccountInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type EmailIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type EmailIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $EmailPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Email"
+  export type $AccountPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Account"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
     }
@@ -5305,136 +5305,136 @@ export namespace Prisma {
       googleRefreshToken: string | null
       googleEmailVerified: boolean
       userId: string
-    }, ExtArgs["result"]["email"]>
+    }, ExtArgs["result"]["account"]>
     composites: {}
   }
 
-  type EmailGetPayload<S extends boolean | null | undefined | EmailDefaultArgs> = $Result.GetResult<Prisma.$EmailPayload, S>
+  type AccountGetPayload<S extends boolean | null | undefined | AccountDefaultArgs> = $Result.GetResult<Prisma.$AccountPayload, S>
 
-  type EmailCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<EmailFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: EmailCountAggregateInputType | true
+  type AccountCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AccountCountAggregateInputType | true
     }
 
-  export interface EmailDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Email'], meta: { name: 'Email' } }
+  export interface AccountDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Account'], meta: { name: 'Account' } }
     /**
-     * Find zero or one Email that matches the filter.
-     * @param {EmailFindUniqueArgs} args - Arguments to find a Email
+     * Find zero or one Account that matches the filter.
+     * @param {AccountFindUniqueArgs} args - Arguments to find a Account
      * @example
-     * // Get one Email
-     * const email = await prisma.email.findUnique({
+     * // Get one Account
+     * const account = await prisma.account.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends EmailFindUniqueArgs>(args: SelectSubset<T, EmailFindUniqueArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends AccountFindUniqueArgs>(args: SelectSubset<T, AccountFindUniqueArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Email that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Account that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {EmailFindUniqueOrThrowArgs} args - Arguments to find a Email
+     * @param {AccountFindUniqueOrThrowArgs} args - Arguments to find a Account
      * @example
-     * // Get one Email
-     * const email = await prisma.email.findUniqueOrThrow({
+     * // Get one Account
+     * const account = await prisma.account.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends EmailFindUniqueOrThrowArgs>(args: SelectSubset<T, EmailFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends AccountFindUniqueOrThrowArgs>(args: SelectSubset<T, AccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Email that matches the filter.
+     * Find the first Account that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailFindFirstArgs} args - Arguments to find a Email
+     * @param {AccountFindFirstArgs} args - Arguments to find a Account
      * @example
-     * // Get one Email
-     * const email = await prisma.email.findFirst({
+     * // Get one Account
+     * const account = await prisma.account.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends EmailFindFirstArgs>(args?: SelectSubset<T, EmailFindFirstArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends AccountFindFirstArgs>(args?: SelectSubset<T, AccountFindFirstArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Email that matches the filter or
+     * Find the first Account that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailFindFirstOrThrowArgs} args - Arguments to find a Email
+     * @param {AccountFindFirstOrThrowArgs} args - Arguments to find a Account
      * @example
-     * // Get one Email
-     * const email = await prisma.email.findFirstOrThrow({
+     * // Get one Account
+     * const account = await prisma.account.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends EmailFindFirstOrThrowArgs>(args?: SelectSubset<T, EmailFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends AccountFindFirstOrThrowArgs>(args?: SelectSubset<T, AccountFindFirstOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Emails that matches the filter.
+     * Find zero or more Accounts that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {AccountFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Emails
-     * const emails = await prisma.email.findMany()
+     * // Get all Accounts
+     * const accounts = await prisma.account.findMany()
      * 
-     * // Get first 10 Emails
-     * const emails = await prisma.email.findMany({ take: 10 })
+     * // Get first 10 Accounts
+     * const accounts = await prisma.account.findMany({ take: 10 })
      * 
      * // Only select the `email`
-     * const emailWithEmailOnly = await prisma.email.findMany({ select: { email: true } })
+     * const accountWithEmailOnly = await prisma.account.findMany({ select: { email: true } })
      * 
      */
-    findMany<T extends EmailFindManyArgs>(args?: SelectSubset<T, EmailFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends AccountFindManyArgs>(args?: SelectSubset<T, AccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Email.
-     * @param {EmailCreateArgs} args - Arguments to create a Email.
+     * Create a Account.
+     * @param {AccountCreateArgs} args - Arguments to create a Account.
      * @example
-     * // Create one Email
-     * const Email = await prisma.email.create({
+     * // Create one Account
+     * const Account = await prisma.account.create({
      *   data: {
-     *     // ... data to create a Email
+     *     // ... data to create a Account
      *   }
      * })
      * 
      */
-    create<T extends EmailCreateArgs>(args: SelectSubset<T, EmailCreateArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends AccountCreateArgs>(args: SelectSubset<T, AccountCreateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Emails.
-     * @param {EmailCreateManyArgs} args - Arguments to create many Emails.
+     * Create many Accounts.
+     * @param {AccountCreateManyArgs} args - Arguments to create many Accounts.
      * @example
-     * // Create many Emails
-     * const email = await prisma.email.createMany({
+     * // Create many Accounts
+     * const account = await prisma.account.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends EmailCreateManyArgs>(args?: SelectSubset<T, EmailCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends AccountCreateManyArgs>(args?: SelectSubset<T, AccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Emails and returns the data saved in the database.
-     * @param {EmailCreateManyAndReturnArgs} args - Arguments to create many Emails.
+     * Create many Accounts and returns the data saved in the database.
+     * @param {AccountCreateManyAndReturnArgs} args - Arguments to create many Accounts.
      * @example
-     * // Create many Emails
-     * const email = await prisma.email.createManyAndReturn({
+     * // Create many Accounts
+     * const account = await prisma.account.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Emails and only return the `email`
-     * const emailWithEmailOnly = await prisma.email.createManyAndReturn({
+     * // Create many Accounts and only return the `email`
+     * const accountWithEmailOnly = await prisma.account.createManyAndReturn({
      *   select: { email: true },
      *   data: [
      *     // ... provide data here
@@ -5444,28 +5444,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends EmailCreateManyAndReturnArgs>(args?: SelectSubset<T, EmailCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends AccountCreateManyAndReturnArgs>(args?: SelectSubset<T, AccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Email.
-     * @param {EmailDeleteArgs} args - Arguments to delete one Email.
+     * Delete a Account.
+     * @param {AccountDeleteArgs} args - Arguments to delete one Account.
      * @example
-     * // Delete one Email
-     * const Email = await prisma.email.delete({
+     * // Delete one Account
+     * const Account = await prisma.account.delete({
      *   where: {
-     *     // ... filter to delete one Email
+     *     // ... filter to delete one Account
      *   }
      * })
      * 
      */
-    delete<T extends EmailDeleteArgs>(args: SelectSubset<T, EmailDeleteArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends AccountDeleteArgs>(args: SelectSubset<T, AccountDeleteArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Email.
-     * @param {EmailUpdateArgs} args - Arguments to update one Email.
+     * Update one Account.
+     * @param {AccountUpdateArgs} args - Arguments to update one Account.
      * @example
-     * // Update one Email
-     * const email = await prisma.email.update({
+     * // Update one Account
+     * const account = await prisma.account.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5475,30 +5475,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends EmailUpdateArgs>(args: SelectSubset<T, EmailUpdateArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends AccountUpdateArgs>(args: SelectSubset<T, AccountUpdateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Emails.
-     * @param {EmailDeleteManyArgs} args - Arguments to filter Emails to delete.
+     * Delete zero or more Accounts.
+     * @param {AccountDeleteManyArgs} args - Arguments to filter Accounts to delete.
      * @example
-     * // Delete a few Emails
-     * const { count } = await prisma.email.deleteMany({
+     * // Delete a few Accounts
+     * const { count } = await prisma.account.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends EmailDeleteManyArgs>(args?: SelectSubset<T, EmailDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends AccountDeleteManyArgs>(args?: SelectSubset<T, AccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Emails.
+     * Update zero or more Accounts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {AccountUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Emails
-     * const email = await prisma.email.updateMany({
+     * // Update many Accounts
+     * const account = await prisma.account.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5508,14 +5508,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends EmailUpdateManyArgs>(args: SelectSubset<T, EmailUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends AccountUpdateManyArgs>(args: SelectSubset<T, AccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Emails and returns the data updated in the database.
-     * @param {EmailUpdateManyAndReturnArgs} args - Arguments to update many Emails.
+     * Update zero or more Accounts and returns the data updated in the database.
+     * @param {AccountUpdateManyAndReturnArgs} args - Arguments to update many Accounts.
      * @example
-     * // Update many Emails
-     * const email = await prisma.email.updateManyAndReturn({
+     * // Update many Accounts
+     * const account = await prisma.account.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5524,8 +5524,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Emails and only return the `email`
-     * const emailWithEmailOnly = await prisma.email.updateManyAndReturn({
+     * // Update zero or more Accounts and only return the `email`
+     * const accountWithEmailOnly = await prisma.account.updateManyAndReturn({
      *   select: { email: true },
      *   where: {
      *     // ... provide filter here
@@ -5538,56 +5538,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends EmailUpdateManyAndReturnArgs>(args: SelectSubset<T, EmailUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends AccountUpdateManyAndReturnArgs>(args: SelectSubset<T, AccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Email.
-     * @param {EmailUpsertArgs} args - Arguments to update or create a Email.
+     * Create or update one Account.
+     * @param {AccountUpsertArgs} args - Arguments to update or create a Account.
      * @example
-     * // Update or create a Email
-     * const email = await prisma.email.upsert({
+     * // Update or create a Account
+     * const account = await prisma.account.upsert({
      *   create: {
-     *     // ... data to create a Email
+     *     // ... data to create a Account
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Email we want to update
+     *     // ... the filter for the Account we want to update
      *   }
      * })
      */
-    upsert<T extends EmailUpsertArgs>(args: SelectSubset<T, EmailUpsertArgs<ExtArgs>>): Prisma__EmailClient<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends AccountUpsertArgs>(args: SelectSubset<T, AccountUpsertArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Emails.
+     * Count the number of Accounts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailCountArgs} args - Arguments to filter Emails to count.
+     * @param {AccountCountArgs} args - Arguments to filter Accounts to count.
      * @example
-     * // Count the number of Emails
-     * const count = await prisma.email.count({
+     * // Count the number of Accounts
+     * const count = await prisma.account.count({
      *   where: {
-     *     // ... the filter for the Emails we want to count
+     *     // ... the filter for the Accounts we want to count
      *   }
      * })
     **/
-    count<T extends EmailCountArgs>(
-      args?: Subset<T, EmailCountArgs>,
+    count<T extends AccountCountArgs>(
+      args?: Subset<T, AccountCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], EmailCountAggregateOutputType>
+          : GetScalarType<T['select'], AccountCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Email.
+     * Allows you to perform aggregations operations on a Account.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {AccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -5607,13 +5607,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends EmailAggregateArgs>(args: Subset<T, EmailAggregateArgs>): Prisma.PrismaPromise<GetEmailAggregateType<T>>
+    aggregate<T extends AccountAggregateArgs>(args: Subset<T, AccountAggregateArgs>): Prisma.PrismaPromise<GetAccountAggregateType<T>>
 
     /**
-     * Group by Email.
+     * Group by Account.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailGroupByArgs} args - Group by arguments.
+     * @param {AccountGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5628,14 +5628,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends EmailGroupByArgs,
+      T extends AccountGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: EmailGroupByArgs['orderBy'] }
-        : { orderBy?: EmailGroupByArgs['orderBy'] },
+        ? { orderBy: AccountGroupByArgs['orderBy'] }
+        : { orderBy?: AccountGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5684,20 +5684,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, EmailGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmailGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, AccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Email model
+   * Fields of the Account model
    */
-  readonly fields: EmailFieldRefs;
+  readonly fields: AccountFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Email.
+   * The delegate class that acts as a "Promise-like" for Account.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__EmailClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__AccountClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -5726,427 +5726,427 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Email model
+   * Fields of the Account model
    */
-  interface EmailFieldRefs {
-    readonly email: FieldRef<"Email", 'String'>
-    readonly createdAt: FieldRef<"Email", 'DateTime'>
-    readonly updatedAt: FieldRef<"Email", 'DateTime'>
-    readonly googleAccessToken: FieldRef<"Email", 'String'>
-    readonly googleRefreshToken: FieldRef<"Email", 'String'>
-    readonly googleEmailVerified: FieldRef<"Email", 'Boolean'>
-    readonly userId: FieldRef<"Email", 'String'>
+  interface AccountFieldRefs {
+    readonly email: FieldRef<"Account", 'String'>
+    readonly createdAt: FieldRef<"Account", 'DateTime'>
+    readonly updatedAt: FieldRef<"Account", 'DateTime'>
+    readonly googleAccessToken: FieldRef<"Account", 'String'>
+    readonly googleRefreshToken: FieldRef<"Account", 'String'>
+    readonly googleEmailVerified: FieldRef<"Account", 'Boolean'>
+    readonly userId: FieldRef<"Account", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Email findUnique
+   * Account findUnique
    */
-  export type EmailFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which Email to fetch.
+     * Filter, which Account to fetch.
      */
-    where: EmailWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * Email findUniqueOrThrow
+   * Account findUniqueOrThrow
    */
-  export type EmailFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which Email to fetch.
+     * Filter, which Account to fetch.
      */
-    where: EmailWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * Email findFirst
+   * Account findFirst
    */
-  export type EmailFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which Email to fetch.
+     * Filter, which Account to fetch.
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Emails to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: EmailOrderByWithRelationInput | EmailOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Emails.
+     * Sets the position for searching for Accounts.
      */
-    cursor?: EmailWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Emails from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Emails.
+     * Skip the first `n` Accounts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Emails.
+     * Filter by unique combinations of Accounts.
      */
-    distinct?: EmailScalarFieldEnum | EmailScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
-   * Email findFirstOrThrow
+   * Account findFirstOrThrow
    */
-  export type EmailFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which Email to fetch.
+     * Filter, which Account to fetch.
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Emails to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: EmailOrderByWithRelationInput | EmailOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Emails.
+     * Sets the position for searching for Accounts.
      */
-    cursor?: EmailWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Emails from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Emails.
+     * Skip the first `n` Accounts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Emails.
+     * Filter by unique combinations of Accounts.
      */
-    distinct?: EmailScalarFieldEnum | EmailScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
-   * Email findMany
+   * Account findMany
    */
-  export type EmailFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter, which Emails to fetch.
+     * Filter, which Accounts to fetch.
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Emails to fetch.
+     * Determine the order of Accounts to fetch.
      */
-    orderBy?: EmailOrderByWithRelationInput | EmailOrderByWithRelationInput[]
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Emails.
+     * Sets the position for listing Accounts.
      */
-    cursor?: EmailWhereUniqueInput
+    cursor?: AccountWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Emails from the position of the cursor.
+     * Take `±n` Accounts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Emails.
+     * Skip the first `n` Accounts.
      */
     skip?: number
-    distinct?: EmailScalarFieldEnum | EmailScalarFieldEnum[]
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
   }
 
   /**
-   * Email create
+   * Account create
    */
-  export type EmailCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * The data needed to create a Email.
+     * The data needed to create a Account.
      */
-    data: XOR<EmailCreateInput, EmailUncheckedCreateInput>
+    data: XOR<AccountCreateInput, AccountUncheckedCreateInput>
   }
 
   /**
-   * Email createMany
+   * Account createMany
    */
-  export type EmailCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Emails.
+     * The data used to create many Accounts.
      */
-    data: EmailCreateManyInput | EmailCreateManyInput[]
+    data: AccountCreateManyInput | AccountCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Email createManyAndReturn
+   * Account createManyAndReturn
    */
-  export type EmailCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelectCreateManyAndReturn<ExtArgs> | null
+    select?: AccountSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
-     * The data used to create many Emails.
+     * The data used to create many Accounts.
      */
-    data: EmailCreateManyInput | EmailCreateManyInput[]
+    data: AccountCreateManyInput | AccountCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: AccountIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Email update
+   * Account update
    */
-  export type EmailUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * The data needed to update a Email.
+     * The data needed to update a Account.
      */
-    data: XOR<EmailUpdateInput, EmailUncheckedUpdateInput>
+    data: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
     /**
-     * Choose, which Email to update.
+     * Choose, which Account to update.
      */
-    where: EmailWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * Email updateMany
+   * Account updateMany
    */
-  export type EmailUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Emails.
+     * The data used to update Accounts.
      */
-    data: XOR<EmailUpdateManyMutationInput, EmailUncheckedUpdateManyInput>
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
     /**
-     * Filter which Emails to update
+     * Filter which Accounts to update
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
-     * Limit how many Emails to update.
+     * Limit how many Accounts to update.
      */
     limit?: number
   }
 
   /**
-   * Email updateManyAndReturn
+   * Account updateManyAndReturn
    */
-  export type EmailUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: AccountSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
-     * The data used to update Emails.
+     * The data used to update Accounts.
      */
-    data: XOR<EmailUpdateManyMutationInput, EmailUncheckedUpdateManyInput>
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
     /**
-     * Filter which Emails to update
+     * Filter which Accounts to update
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
-     * Limit how many Emails to update.
+     * Limit how many Accounts to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: AccountIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Email upsert
+   * Account upsert
    */
-  export type EmailUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * The filter to search for the Email to update in case it exists.
+     * The filter to search for the Account to update in case it exists.
      */
-    where: EmailWhereUniqueInput
+    where: AccountWhereUniqueInput
     /**
-     * In case the Email found by the `where` argument doesn't exist, create a new Email with this data.
+     * In case the Account found by the `where` argument doesn't exist, create a new Account with this data.
      */
-    create: XOR<EmailCreateInput, EmailUncheckedCreateInput>
+    create: XOR<AccountCreateInput, AccountUncheckedCreateInput>
     /**
-     * In case the Email was found with the provided `where` argument, update it with this data.
+     * In case the Account was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<EmailUpdateInput, EmailUncheckedUpdateInput>
+    update: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
   }
 
   /**
-   * Email delete
+   * Account delete
    */
-  export type EmailDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
     /**
-     * Filter which Email to delete.
+     * Filter which Account to delete.
      */
-    where: EmailWhereUniqueInput
+    where: AccountWhereUniqueInput
   }
 
   /**
-   * Email deleteMany
+   * Account deleteMany
    */
-  export type EmailDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Emails to delete
+     * Filter which Accounts to delete
      */
-    where?: EmailWhereInput
+    where?: AccountWhereInput
     /**
-     * Limit how many Emails to delete.
+     * Limit how many Accounts to delete.
      */
     limit?: number
   }
 
   /**
-   * Email without action
+   * Account without action
    */
-  export type EmailDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AccountDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Email
+     * Select specific fields to fetch from the Account
      */
-    select?: EmailSelect<ExtArgs> | null
+    select?: AccountSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Email
+     * Omit specific fields from the Account
      */
-    omit?: EmailOmit<ExtArgs> | null
+    omit?: AccountOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmailInclude<ExtArgs> | null
+    include?: AccountInclude<ExtArgs> | null
   }
 
 
@@ -9455,7 +9455,7 @@ export namespace Prisma {
     expectedMajorVersion: number | null
     expectedMinorVersion: number | null
     instanceId: string | null
-    typeId: string | null
+    typeSlug: string | null
   }
 
   export type InstitutionInstanceModuleMaxAggregateOutputType = {
@@ -9469,7 +9469,7 @@ export namespace Prisma {
     expectedMajorVersion: number | null
     expectedMinorVersion: number | null
     instanceId: string | null
-    typeId: string | null
+    typeSlug: string | null
   }
 
   export type InstitutionInstanceModuleCountAggregateOutputType = {
@@ -9483,7 +9483,7 @@ export namespace Prisma {
     expectedMajorVersion: number
     expectedMinorVersion: number
     instanceId: number
-    typeId: number
+    typeSlug: number
     _all: number
   }
 
@@ -9509,7 +9509,7 @@ export namespace Prisma {
     expectedMajorVersion?: true
     expectedMinorVersion?: true
     instanceId?: true
-    typeId?: true
+    typeSlug?: true
   }
 
   export type InstitutionInstanceModuleMaxAggregateInputType = {
@@ -9523,7 +9523,7 @@ export namespace Prisma {
     expectedMajorVersion?: true
     expectedMinorVersion?: true
     instanceId?: true
-    typeId?: true
+    typeSlug?: true
   }
 
   export type InstitutionInstanceModuleCountAggregateInputType = {
@@ -9537,7 +9537,7 @@ export namespace Prisma {
     expectedMajorVersion?: true
     expectedMinorVersion?: true
     instanceId?: true
-    typeId?: true
+    typeSlug?: true
     _all?: true
   }
 
@@ -9638,7 +9638,7 @@ export namespace Prisma {
     expectedMajorVersion: number
     expectedMinorVersion: number
     instanceId: string
-    typeId: string
+    typeSlug: string
     _count: InstitutionInstanceModuleCountAggregateOutputType | null
     _avg: InstitutionInstanceModuleAvgAggregateOutputType | null
     _sum: InstitutionInstanceModuleSumAggregateOutputType | null
@@ -9671,7 +9671,7 @@ export namespace Prisma {
     expectedMajorVersion?: boolean
     expectedMinorVersion?: boolean
     instanceId?: boolean
-    typeId?: boolean
+    typeSlug?: boolean
     instance?: boolean | InstitutionInstanceDefaultArgs<ExtArgs>
     type?: boolean | InstitutionInstanceModuleTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["institutionInstanceModule"]>
@@ -9687,7 +9687,7 @@ export namespace Prisma {
     expectedMajorVersion?: boolean
     expectedMinorVersion?: boolean
     instanceId?: boolean
-    typeId?: boolean
+    typeSlug?: boolean
     instance?: boolean | InstitutionInstanceDefaultArgs<ExtArgs>
     type?: boolean | InstitutionInstanceModuleTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["institutionInstanceModule"]>
@@ -9703,7 +9703,7 @@ export namespace Prisma {
     expectedMajorVersion?: boolean
     expectedMinorVersion?: boolean
     instanceId?: boolean
-    typeId?: boolean
+    typeSlug?: boolean
     instance?: boolean | InstitutionInstanceDefaultArgs<ExtArgs>
     type?: boolean | InstitutionInstanceModuleTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["institutionInstanceModule"]>
@@ -9719,10 +9719,10 @@ export namespace Prisma {
     expectedMajorVersion?: boolean
     expectedMinorVersion?: boolean
     instanceId?: boolean
-    typeId?: boolean
+    typeSlug?: boolean
   }
 
-  export type InstitutionInstanceModuleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "baseURL" | "isEnabled" | "status" | "apiKey" | "expectedMajorVersion" | "expectedMinorVersion" | "instanceId" | "typeId", ExtArgs["result"]["institutionInstanceModule"]>
+  export type InstitutionInstanceModuleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "baseURL" | "isEnabled" | "status" | "apiKey" | "expectedMajorVersion" | "expectedMinorVersion" | "instanceId" | "typeSlug", ExtArgs["result"]["institutionInstanceModule"]>
   export type InstitutionInstanceModuleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     instance?: boolean | InstitutionInstanceDefaultArgs<ExtArgs>
     type?: boolean | InstitutionInstanceModuleTypeDefaultArgs<ExtArgs>
@@ -9753,7 +9753,7 @@ export namespace Prisma {
       expectedMajorVersion: number
       expectedMinorVersion: number
       instanceId: string
-      typeId: string
+      typeSlug: string
     }, ExtArgs["result"]["institutionInstanceModule"]>
     composites: {}
   }
@@ -10189,7 +10189,7 @@ export namespace Prisma {
     readonly expectedMajorVersion: FieldRef<"InstitutionInstanceModule", 'Int'>
     readonly expectedMinorVersion: FieldRef<"InstitutionInstanceModule", 'Int'>
     readonly instanceId: FieldRef<"InstitutionInstanceModule", 'String'>
-    readonly typeId: FieldRef<"InstitutionInstanceModule", 'String'>
+    readonly typeSlug: FieldRef<"InstitutionInstanceModule", 'String'>
   }
     
 
@@ -10615,41 +10615,41 @@ export namespace Prisma {
   }
 
   export type InstitutionInstanceModuleTypeMinAggregateOutputType = {
-    id: string | null
     slug: string | null
     name: string | null
+    description: string | null
   }
 
   export type InstitutionInstanceModuleTypeMaxAggregateOutputType = {
-    id: string | null
     slug: string | null
     name: string | null
+    description: string | null
   }
 
   export type InstitutionInstanceModuleTypeCountAggregateOutputType = {
-    id: number
     slug: number
     name: number
+    description: number
     _all: number
   }
 
 
   export type InstitutionInstanceModuleTypeMinAggregateInputType = {
-    id?: true
     slug?: true
     name?: true
+    description?: true
   }
 
   export type InstitutionInstanceModuleTypeMaxAggregateInputType = {
-    id?: true
     slug?: true
     name?: true
+    description?: true
   }
 
   export type InstitutionInstanceModuleTypeCountAggregateInputType = {
-    id?: true
     slug?: true
     name?: true
+    description?: true
     _all?: true
   }
 
@@ -10726,9 +10726,9 @@ export namespace Prisma {
   }
 
   export type InstitutionInstanceModuleTypeGroupByOutputType = {
-    id: string
     slug: string
     name: string
+    description: string | null
     _count: InstitutionInstanceModuleTypeCountAggregateOutputType | null
     _min: InstitutionInstanceModuleTypeMinAggregateOutputType | null
     _max: InstitutionInstanceModuleTypeMaxAggregateOutputType | null
@@ -10749,34 +10749,34 @@ export namespace Prisma {
 
 
   export type InstitutionInstanceModuleTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     slug?: boolean
     name?: boolean
-    InstitutionInstanceModule?: boolean | InstitutionInstanceModuleType$InstitutionInstanceModuleArgs<ExtArgs>
+    description?: boolean
+    modules?: boolean | InstitutionInstanceModuleType$modulesArgs<ExtArgs>
     _count?: boolean | InstitutionInstanceModuleTypeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["institutionInstanceModuleType"]>
 
   export type InstitutionInstanceModuleTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     slug?: boolean
     name?: boolean
+    description?: boolean
   }, ExtArgs["result"]["institutionInstanceModuleType"]>
 
   export type InstitutionInstanceModuleTypeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     slug?: boolean
     name?: boolean
+    description?: boolean
   }, ExtArgs["result"]["institutionInstanceModuleType"]>
 
   export type InstitutionInstanceModuleTypeSelectScalar = {
-    id?: boolean
     slug?: boolean
     name?: boolean
+    description?: boolean
   }
 
-  export type InstitutionInstanceModuleTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "name", ExtArgs["result"]["institutionInstanceModuleType"]>
+  export type InstitutionInstanceModuleTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"slug" | "name" | "description", ExtArgs["result"]["institutionInstanceModuleType"]>
   export type InstitutionInstanceModuleTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    InstitutionInstanceModule?: boolean | InstitutionInstanceModuleType$InstitutionInstanceModuleArgs<ExtArgs>
+    modules?: boolean | InstitutionInstanceModuleType$modulesArgs<ExtArgs>
     _count?: boolean | InstitutionInstanceModuleTypeCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type InstitutionInstanceModuleTypeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -10785,12 +10785,12 @@ export namespace Prisma {
   export type $InstitutionInstanceModuleTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "InstitutionInstanceModuleType"
     objects: {
-      InstitutionInstanceModule: Prisma.$InstitutionInstanceModulePayload<ExtArgs>[]
+      modules: Prisma.$InstitutionInstanceModulePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
       slug: string
       name: string
+      description: string | null
     }, ExtArgs["result"]["institutionInstanceModuleType"]>
     composites: {}
   }
@@ -10874,8 +10874,8 @@ export namespace Prisma {
      * // Get first 10 InstitutionInstanceModuleTypes
      * const institutionInstanceModuleTypes = await prisma.institutionInstanceModuleType.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const institutionInstanceModuleTypeWithIdOnly = await prisma.institutionInstanceModuleType.findMany({ select: { id: true } })
+     * // Only select the `slug`
+     * const institutionInstanceModuleTypeWithSlugOnly = await prisma.institutionInstanceModuleType.findMany({ select: { slug: true } })
      * 
      */
     findMany<T extends InstitutionInstanceModuleTypeFindManyArgs>(args?: SelectSubset<T, InstitutionInstanceModuleTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InstitutionInstanceModuleTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -10919,9 +10919,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many InstitutionInstanceModuleTypes and only return the `id`
-     * const institutionInstanceModuleTypeWithIdOnly = await prisma.institutionInstanceModuleType.createManyAndReturn({
-     *   select: { id: true },
+     * // Create many InstitutionInstanceModuleTypes and only return the `slug`
+     * const institutionInstanceModuleTypeWithSlugOnly = await prisma.institutionInstanceModuleType.createManyAndReturn({
+     *   select: { slug: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -11010,9 +11010,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more InstitutionInstanceModuleTypes and only return the `id`
-     * const institutionInstanceModuleTypeWithIdOnly = await prisma.institutionInstanceModuleType.updateManyAndReturn({
-     *   select: { id: true },
+     * // Update zero or more InstitutionInstanceModuleTypes and only return the `slug`
+     * const institutionInstanceModuleTypeWithSlugOnly = await prisma.institutionInstanceModuleType.updateManyAndReturn({
+     *   select: { slug: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11185,7 +11185,7 @@ export namespace Prisma {
    */
   export interface Prisma__InstitutionInstanceModuleTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    InstitutionInstanceModule<T extends InstitutionInstanceModuleType$InstitutionInstanceModuleArgs<ExtArgs> = {}>(args?: Subset<T, InstitutionInstanceModuleType$InstitutionInstanceModuleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InstitutionInstanceModulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    modules<T extends InstitutionInstanceModuleType$modulesArgs<ExtArgs> = {}>(args?: Subset<T, InstitutionInstanceModuleType$modulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InstitutionInstanceModulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11215,9 +11215,9 @@ export namespace Prisma {
    * Fields of the InstitutionInstanceModuleType model
    */
   interface InstitutionInstanceModuleTypeFieldRefs {
-    readonly id: FieldRef<"InstitutionInstanceModuleType", 'String'>
     readonly slug: FieldRef<"InstitutionInstanceModuleType", 'String'>
     readonly name: FieldRef<"InstitutionInstanceModuleType", 'String'>
+    readonly description: FieldRef<"InstitutionInstanceModuleType", 'String'>
   }
     
 
@@ -11606,9 +11606,9 @@ export namespace Prisma {
   }
 
   /**
-   * InstitutionInstanceModuleType.InstitutionInstanceModule
+   * InstitutionInstanceModuleType.modules
    */
-  export type InstitutionInstanceModuleType$InstitutionInstanceModuleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InstitutionInstanceModuleType$modulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the InstitutionInstanceModule
      */
@@ -11694,7 +11694,7 @@ export namespace Prisma {
   export type PermissionScalarFieldEnum = (typeof PermissionScalarFieldEnum)[keyof typeof PermissionScalarFieldEnum]
 
 
-  export const EmailScalarFieldEnum: {
+  export const AccountScalarFieldEnum: {
     email: 'email',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -11704,7 +11704,7 @@ export namespace Prisma {
     userId: 'userId'
   };
 
-  export type EmailScalarFieldEnum = (typeof EmailScalarFieldEnum)[keyof typeof EmailScalarFieldEnum]
+  export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
 
 
   export const ExternalLinksScalarFieldEnum: {
@@ -11757,16 +11757,16 @@ export namespace Prisma {
     expectedMajorVersion: 'expectedMajorVersion',
     expectedMinorVersion: 'expectedMinorVersion',
     instanceId: 'instanceId',
-    typeId: 'typeId'
+    typeSlug: 'typeSlug'
   };
 
   export type InstitutionInstanceModuleScalarFieldEnum = (typeof InstitutionInstanceModuleScalarFieldEnum)[keyof typeof InstitutionInstanceModuleScalarFieldEnum]
 
 
   export const InstitutionInstanceModuleTypeScalarFieldEnum: {
-    id: 'id',
     slug: 'slug',
-    name: 'name'
+    name: 'name',
+    description: 'description'
   };
 
   export type InstitutionInstanceModuleTypeScalarFieldEnum = (typeof InstitutionInstanceModuleTypeScalarFieldEnum)[keyof typeof InstitutionInstanceModuleTypeScalarFieldEnum]
@@ -11893,7 +11893,7 @@ export namespace Prisma {
     refreshToken?: StringNullableFilter<"User"> | string | null
     roleSlug?: StringFilter<"User"> | string
     instanceId?: StringNullableFilter<"User"> | string | null
-    emails?: EmailListRelationFilter
+    accounts?: AccountListRelationFilter
     role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
     instance?: XOR<InstitutionInstanceNullableScalarRelationFilter, InstitutionInstanceWhereInput> | null
   }
@@ -11907,7 +11907,7 @@ export namespace Prisma {
     refreshToken?: SortOrderInput | SortOrder
     roleSlug?: SortOrder
     instanceId?: SortOrderInput | SortOrder
-    emails?: EmailOrderByRelationAggregateInput
+    accounts?: AccountOrderByRelationAggregateInput
     role?: RoleOrderByWithRelationInput
     instance?: InstitutionInstanceOrderByWithRelationInput
   }
@@ -11924,7 +11924,7 @@ export namespace Prisma {
     refreshToken?: StringNullableFilter<"User"> | string | null
     roleSlug?: StringFilter<"User"> | string
     instanceId?: StringNullableFilter<"User"> | string | null
-    emails?: EmailListRelationFilter
+    accounts?: AccountListRelationFilter
     role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
     instance?: XOR<InstitutionInstanceNullableScalarRelationFilter, InstitutionInstanceWhereInput> | null
   }, "id">
@@ -12050,21 +12050,21 @@ export namespace Prisma {
     description?: StringWithAggregatesFilter<"Permission"> | string
   }
 
-  export type EmailWhereInput = {
-    AND?: EmailWhereInput | EmailWhereInput[]
-    OR?: EmailWhereInput[]
-    NOT?: EmailWhereInput | EmailWhereInput[]
-    email?: StringFilter<"Email"> | string
-    createdAt?: DateTimeFilter<"Email"> | Date | string
-    updatedAt?: DateTimeFilter<"Email"> | Date | string
-    googleAccessToken?: StringNullableFilter<"Email"> | string | null
-    googleRefreshToken?: StringNullableFilter<"Email"> | string | null
-    googleEmailVerified?: BoolFilter<"Email"> | boolean
-    userId?: StringFilter<"Email"> | string
+  export type AccountWhereInput = {
+    AND?: AccountWhereInput | AccountWhereInput[]
+    OR?: AccountWhereInput[]
+    NOT?: AccountWhereInput | AccountWhereInput[]
+    email?: StringFilter<"Account"> | string
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    googleAccessToken?: StringNullableFilter<"Account"> | string | null
+    googleRefreshToken?: StringNullableFilter<"Account"> | string | null
+    googleEmailVerified?: BoolFilter<"Account"> | boolean
+    userId?: StringFilter<"Account"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type EmailOrderByWithRelationInput = {
+  export type AccountOrderByWithRelationInput = {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12075,21 +12075,21 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
   }
 
-  export type EmailWhereUniqueInput = Prisma.AtLeast<{
+  export type AccountWhereUniqueInput = Prisma.AtLeast<{
     email?: string
-    AND?: EmailWhereInput | EmailWhereInput[]
-    OR?: EmailWhereInput[]
-    NOT?: EmailWhereInput | EmailWhereInput[]
-    createdAt?: DateTimeFilter<"Email"> | Date | string
-    updatedAt?: DateTimeFilter<"Email"> | Date | string
-    googleAccessToken?: StringNullableFilter<"Email"> | string | null
-    googleRefreshToken?: StringNullableFilter<"Email"> | string | null
-    googleEmailVerified?: BoolFilter<"Email"> | boolean
-    userId?: StringFilter<"Email"> | string
+    AND?: AccountWhereInput | AccountWhereInput[]
+    OR?: AccountWhereInput[]
+    NOT?: AccountWhereInput | AccountWhereInput[]
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    googleAccessToken?: StringNullableFilter<"Account"> | string | null
+    googleRefreshToken?: StringNullableFilter<"Account"> | string | null
+    googleEmailVerified?: BoolFilter<"Account"> | boolean
+    userId?: StringFilter<"Account"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "email" | "email">
 
-  export type EmailOrderByWithAggregationInput = {
+  export type AccountOrderByWithAggregationInput = {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12097,22 +12097,22 @@ export namespace Prisma {
     googleRefreshToken?: SortOrderInput | SortOrder
     googleEmailVerified?: SortOrder
     userId?: SortOrder
-    _count?: EmailCountOrderByAggregateInput
-    _max?: EmailMaxOrderByAggregateInput
-    _min?: EmailMinOrderByAggregateInput
+    _count?: AccountCountOrderByAggregateInput
+    _max?: AccountMaxOrderByAggregateInput
+    _min?: AccountMinOrderByAggregateInput
   }
 
-  export type EmailScalarWhereWithAggregatesInput = {
-    AND?: EmailScalarWhereWithAggregatesInput | EmailScalarWhereWithAggregatesInput[]
-    OR?: EmailScalarWhereWithAggregatesInput[]
-    NOT?: EmailScalarWhereWithAggregatesInput | EmailScalarWhereWithAggregatesInput[]
-    email?: StringWithAggregatesFilter<"Email"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Email"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Email"> | Date | string
-    googleAccessToken?: StringNullableWithAggregatesFilter<"Email"> | string | null
-    googleRefreshToken?: StringNullableWithAggregatesFilter<"Email"> | string | null
-    googleEmailVerified?: BoolWithAggregatesFilter<"Email"> | boolean
-    userId?: StringWithAggregatesFilter<"Email"> | string
+  export type AccountScalarWhereWithAggregatesInput = {
+    AND?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
+    OR?: AccountScalarWhereWithAggregatesInput[]
+    NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
+    email?: StringWithAggregatesFilter<"Account"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
+    googleAccessToken?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    googleRefreshToken?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    googleEmailVerified?: BoolWithAggregatesFilter<"Account"> | boolean
+    userId?: StringWithAggregatesFilter<"Account"> | string
   }
 
   export type ExternalLinksWhereInput = {
@@ -12327,7 +12327,7 @@ export namespace Prisma {
     expectedMajorVersion?: IntFilter<"InstitutionInstanceModule"> | number
     expectedMinorVersion?: IntFilter<"InstitutionInstanceModule"> | number
     instanceId?: StringFilter<"InstitutionInstanceModule"> | string
-    typeId?: StringFilter<"InstitutionInstanceModule"> | string
+    typeSlug?: StringFilter<"InstitutionInstanceModule"> | string
     instance?: XOR<InstitutionInstanceScalarRelationFilter, InstitutionInstanceWhereInput>
     type?: XOR<InstitutionInstanceModuleTypeScalarRelationFilter, InstitutionInstanceModuleTypeWhereInput>
   }
@@ -12343,14 +12343,14 @@ export namespace Prisma {
     expectedMajorVersion?: SortOrder
     expectedMinorVersion?: SortOrder
     instanceId?: SortOrder
-    typeId?: SortOrder
+    typeSlug?: SortOrder
     instance?: InstitutionInstanceOrderByWithRelationInput
     type?: InstitutionInstanceModuleTypeOrderByWithRelationInput
   }
 
   export type InstitutionInstanceModuleWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    instanceId_typeId?: InstitutionInstanceModuleInstanceIdTypeIdCompoundUniqueInput
+    instanceId_typeSlug?: InstitutionInstanceModuleInstanceIdTypeSlugCompoundUniqueInput
     AND?: InstitutionInstanceModuleWhereInput | InstitutionInstanceModuleWhereInput[]
     OR?: InstitutionInstanceModuleWhereInput[]
     NOT?: InstitutionInstanceModuleWhereInput | InstitutionInstanceModuleWhereInput[]
@@ -12363,10 +12363,10 @@ export namespace Prisma {
     expectedMajorVersion?: IntFilter<"InstitutionInstanceModule"> | number
     expectedMinorVersion?: IntFilter<"InstitutionInstanceModule"> | number
     instanceId?: StringFilter<"InstitutionInstanceModule"> | string
-    typeId?: StringFilter<"InstitutionInstanceModule"> | string
+    typeSlug?: StringFilter<"InstitutionInstanceModule"> | string
     instance?: XOR<InstitutionInstanceScalarRelationFilter, InstitutionInstanceWhereInput>
     type?: XOR<InstitutionInstanceModuleTypeScalarRelationFilter, InstitutionInstanceModuleTypeWhereInput>
-  }, "id" | "instanceId_typeId">
+  }, "id" | "instanceId_typeSlug">
 
   export type InstitutionInstanceModuleOrderByWithAggregationInput = {
     id?: SortOrder
@@ -12379,7 +12379,7 @@ export namespace Prisma {
     expectedMajorVersion?: SortOrder
     expectedMinorVersion?: SortOrder
     instanceId?: SortOrder
-    typeId?: SortOrder
+    typeSlug?: SortOrder
     _count?: InstitutionInstanceModuleCountOrderByAggregateInput
     _avg?: InstitutionInstanceModuleAvgOrderByAggregateInput
     _max?: InstitutionInstanceModuleMaxOrderByAggregateInput
@@ -12401,40 +12401,40 @@ export namespace Prisma {
     expectedMajorVersion?: IntWithAggregatesFilter<"InstitutionInstanceModule"> | number
     expectedMinorVersion?: IntWithAggregatesFilter<"InstitutionInstanceModule"> | number
     instanceId?: StringWithAggregatesFilter<"InstitutionInstanceModule"> | string
-    typeId?: StringWithAggregatesFilter<"InstitutionInstanceModule"> | string
+    typeSlug?: StringWithAggregatesFilter<"InstitutionInstanceModule"> | string
   }
 
   export type InstitutionInstanceModuleTypeWhereInput = {
     AND?: InstitutionInstanceModuleTypeWhereInput | InstitutionInstanceModuleTypeWhereInput[]
     OR?: InstitutionInstanceModuleTypeWhereInput[]
     NOT?: InstitutionInstanceModuleTypeWhereInput | InstitutionInstanceModuleTypeWhereInput[]
-    id?: StringFilter<"InstitutionInstanceModuleType"> | string
     slug?: StringFilter<"InstitutionInstanceModuleType"> | string
     name?: StringFilter<"InstitutionInstanceModuleType"> | string
-    InstitutionInstanceModule?: InstitutionInstanceModuleListRelationFilter
+    description?: StringNullableFilter<"InstitutionInstanceModuleType"> | string | null
+    modules?: InstitutionInstanceModuleListRelationFilter
   }
 
   export type InstitutionInstanceModuleTypeOrderByWithRelationInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
-    InstitutionInstanceModule?: InstitutionInstanceModuleOrderByRelationAggregateInput
+    description?: SortOrderInput | SortOrder
+    modules?: InstitutionInstanceModuleOrderByRelationAggregateInput
   }
 
   export type InstitutionInstanceModuleTypeWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
     slug?: string
     AND?: InstitutionInstanceModuleTypeWhereInput | InstitutionInstanceModuleTypeWhereInput[]
     OR?: InstitutionInstanceModuleTypeWhereInput[]
     NOT?: InstitutionInstanceModuleTypeWhereInput | InstitutionInstanceModuleTypeWhereInput[]
     name?: StringFilter<"InstitutionInstanceModuleType"> | string
-    InstitutionInstanceModule?: InstitutionInstanceModuleListRelationFilter
-  }, "id" | "slug">
+    description?: StringNullableFilter<"InstitutionInstanceModuleType"> | string | null
+    modules?: InstitutionInstanceModuleListRelationFilter
+  }, "slug">
 
   export type InstitutionInstanceModuleTypeOrderByWithAggregationInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: InstitutionInstanceModuleTypeCountOrderByAggregateInput
     _max?: InstitutionInstanceModuleTypeMaxOrderByAggregateInput
     _min?: InstitutionInstanceModuleTypeMinOrderByAggregateInput
@@ -12444,9 +12444,9 @@ export namespace Prisma {
     AND?: InstitutionInstanceModuleTypeScalarWhereWithAggregatesInput | InstitutionInstanceModuleTypeScalarWhereWithAggregatesInput[]
     OR?: InstitutionInstanceModuleTypeScalarWhereWithAggregatesInput[]
     NOT?: InstitutionInstanceModuleTypeScalarWhereWithAggregatesInput | InstitutionInstanceModuleTypeScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"InstitutionInstanceModuleType"> | string
     slug?: StringWithAggregatesFilter<"InstitutionInstanceModuleType"> | string
     name?: StringWithAggregatesFilter<"InstitutionInstanceModuleType"> | string
+    description?: StringNullableWithAggregatesFilter<"InstitutionInstanceModuleType"> | string | null
   }
 
   export type UserCreateInput = {
@@ -12456,7 +12456,7 @@ export namespace Prisma {
     lastName?: string | null
     avatarUrl?: string | null
     refreshToken?: string | null
-    emails?: EmailCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
     role: RoleCreateNestedOneWithoutUserInput
     instance?: InstitutionInstanceCreateNestedOneWithoutUserInput
   }
@@ -12470,7 +12470,7 @@ export namespace Prisma {
     refreshToken?: string | null
     roleSlug: string
     instanceId?: string | null
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -12480,7 +12480,7 @@ export namespace Prisma {
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
-    emails?: EmailUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
     role?: RoleUpdateOneRequiredWithoutUserNestedInput
     instance?: InstitutionInstanceUpdateOneWithoutUserNestedInput
   }
@@ -12494,7 +12494,7 @@ export namespace Prisma {
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     roleSlug?: StringFieldUpdateOperationsInput | string
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -12624,17 +12624,17 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
   }
 
-  export type EmailCreateInput = {
+  export type AccountCreateInput = {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
     googleAccessToken?: string | null
     googleRefreshToken?: string | null
     googleEmailVerified?: boolean
-    user: UserCreateNestedOneWithoutEmailsInput
+    user: UserCreateNestedOneWithoutAccountsInput
   }
 
-  export type EmailUncheckedCreateInput = {
+  export type AccountUncheckedCreateInput = {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12644,17 +12644,17 @@ export namespace Prisma {
     userId: string
   }
 
-  export type EmailUpdateInput = {
+  export type AccountUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     googleAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     googleRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     googleEmailVerified?: BoolFieldUpdateOperationsInput | boolean
-    user?: UserUpdateOneRequiredWithoutEmailsNestedInput
+    user?: UserUpdateOneRequiredWithoutAccountsNestedInput
   }
 
-  export type EmailUncheckedUpdateInput = {
+  export type AccountUncheckedUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12664,7 +12664,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type EmailCreateManyInput = {
+  export type AccountCreateManyInput = {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12674,7 +12674,7 @@ export namespace Prisma {
     userId: string
   }
 
-  export type EmailUpdateManyMutationInput = {
+  export type AccountUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12683,7 +12683,7 @@ export namespace Prisma {
     googleEmailVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type EmailUncheckedUpdateManyInput = {
+  export type AccountUncheckedUpdateManyInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12925,7 +12925,7 @@ export namespace Prisma {
     expectedMajorVersion: number
     expectedMinorVersion: number
     instance: InstitutionInstanceCreateNestedOneWithoutModulesInput
-    type: InstitutionInstanceModuleTypeCreateNestedOneWithoutInstitutionInstanceModuleInput
+    type: InstitutionInstanceModuleTypeCreateNestedOneWithoutModulesInput
   }
 
   export type InstitutionInstanceModuleUncheckedCreateInput = {
@@ -12939,7 +12939,7 @@ export namespace Prisma {
     expectedMajorVersion: number
     expectedMinorVersion: number
     instanceId: string
-    typeId: string
+    typeSlug: string
   }
 
   export type InstitutionInstanceModuleUpdateInput = {
@@ -12953,7 +12953,7 @@ export namespace Prisma {
     expectedMajorVersion?: IntFieldUpdateOperationsInput | number
     expectedMinorVersion?: IntFieldUpdateOperationsInput | number
     instance?: InstitutionInstanceUpdateOneRequiredWithoutModulesNestedInput
-    type?: InstitutionInstanceModuleTypeUpdateOneRequiredWithoutInstitutionInstanceModuleNestedInput
+    type?: InstitutionInstanceModuleTypeUpdateOneRequiredWithoutModulesNestedInput
   }
 
   export type InstitutionInstanceModuleUncheckedUpdateInput = {
@@ -12967,7 +12967,7 @@ export namespace Prisma {
     expectedMajorVersion?: IntFieldUpdateOperationsInput | number
     expectedMinorVersion?: IntFieldUpdateOperationsInput | number
     instanceId?: StringFieldUpdateOperationsInput | string
-    typeId?: StringFieldUpdateOperationsInput | string
+    typeSlug?: StringFieldUpdateOperationsInput | string
   }
 
   export type InstitutionInstanceModuleCreateManyInput = {
@@ -12981,7 +12981,7 @@ export namespace Prisma {
     expectedMajorVersion: number
     expectedMinorVersion: number
     instanceId: string
-    typeId: string
+    typeSlug: string
   }
 
   export type InstitutionInstanceModuleUpdateManyMutationInput = {
@@ -13007,53 +13007,53 @@ export namespace Prisma {
     expectedMajorVersion?: IntFieldUpdateOperationsInput | number
     expectedMinorVersion?: IntFieldUpdateOperationsInput | number
     instanceId?: StringFieldUpdateOperationsInput | string
-    typeId?: StringFieldUpdateOperationsInput | string
+    typeSlug?: StringFieldUpdateOperationsInput | string
   }
 
   export type InstitutionInstanceModuleTypeCreateInput = {
-    id?: string
     slug: string
     name: string
-    InstitutionInstanceModule?: InstitutionInstanceModuleCreateNestedManyWithoutTypeInput
+    description?: string | null
+    modules?: InstitutionInstanceModuleCreateNestedManyWithoutTypeInput
   }
 
   export type InstitutionInstanceModuleTypeUncheckedCreateInput = {
-    id?: string
     slug: string
     name: string
-    InstitutionInstanceModule?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutTypeInput
+    description?: string | null
+    modules?: InstitutionInstanceModuleUncheckedCreateNestedManyWithoutTypeInput
   }
 
   export type InstitutionInstanceModuleTypeUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    InstitutionInstanceModule?: InstitutionInstanceModuleUpdateManyWithoutTypeNestedInput
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    modules?: InstitutionInstanceModuleUpdateManyWithoutTypeNestedInput
   }
 
   export type InstitutionInstanceModuleTypeUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    InstitutionInstanceModule?: InstitutionInstanceModuleUncheckedUpdateManyWithoutTypeNestedInput
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    modules?: InstitutionInstanceModuleUncheckedUpdateManyWithoutTypeNestedInput
   }
 
   export type InstitutionInstanceModuleTypeCreateManyInput = {
-    id?: string
     slug: string
     name: string
+    description?: string | null
   }
 
   export type InstitutionInstanceModuleTypeUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type InstitutionInstanceModuleTypeUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -13097,10 +13097,10 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EmailListRelationFilter = {
-    every?: EmailWhereInput
-    some?: EmailWhereInput
-    none?: EmailWhereInput
+  export type AccountListRelationFilter = {
+    every?: AccountWhereInput
+    some?: AccountWhereInput
+    none?: AccountWhereInput
   }
 
   export type RoleScalarRelationFilter = {
@@ -13118,7 +13118,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type EmailOrderByRelationAggregateInput = {
+  export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13281,7 +13281,7 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type EmailCountOrderByAggregateInput = {
+  export type AccountCountOrderByAggregateInput = {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13291,7 +13291,7 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type EmailMaxOrderByAggregateInput = {
+  export type AccountMaxOrderByAggregateInput = {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13301,7 +13301,7 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type EmailMinOrderByAggregateInput = {
+  export type AccountMinOrderByAggregateInput = {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13498,9 +13498,9 @@ export namespace Prisma {
     isNot?: InstitutionInstanceModuleTypeWhereInput
   }
 
-  export type InstitutionInstanceModuleInstanceIdTypeIdCompoundUniqueInput = {
+  export type InstitutionInstanceModuleInstanceIdTypeSlugCompoundUniqueInput = {
     instanceId: string
-    typeId: string
+    typeSlug: string
   }
 
   export type InstitutionInstanceModuleCountOrderByAggregateInput = {
@@ -13514,7 +13514,7 @@ export namespace Prisma {
     expectedMajorVersion?: SortOrder
     expectedMinorVersion?: SortOrder
     instanceId?: SortOrder
-    typeId?: SortOrder
+    typeSlug?: SortOrder
   }
 
   export type InstitutionInstanceModuleAvgOrderByAggregateInput = {
@@ -13533,7 +13533,7 @@ export namespace Prisma {
     expectedMajorVersion?: SortOrder
     expectedMinorVersion?: SortOrder
     instanceId?: SortOrder
-    typeId?: SortOrder
+    typeSlug?: SortOrder
   }
 
   export type InstitutionInstanceModuleMinOrderByAggregateInput = {
@@ -13547,7 +13547,7 @@ export namespace Prisma {
     expectedMajorVersion?: SortOrder
     expectedMinorVersion?: SortOrder
     instanceId?: SortOrder
-    typeId?: SortOrder
+    typeSlug?: SortOrder
   }
 
   export type InstitutionInstanceModuleSumOrderByAggregateInput = {
@@ -13572,28 +13572,28 @@ export namespace Prisma {
   }
 
   export type InstitutionInstanceModuleTypeCountOrderByAggregateInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
+    description?: SortOrder
   }
 
   export type InstitutionInstanceModuleTypeMaxOrderByAggregateInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
+    description?: SortOrder
   }
 
   export type InstitutionInstanceModuleTypeMinOrderByAggregateInput = {
-    id?: SortOrder
     slug?: SortOrder
     name?: SortOrder
+    description?: SortOrder
   }
 
-  export type EmailCreateNestedManyWithoutUserInput = {
-    create?: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput> | EmailCreateWithoutUserInput[] | EmailUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: EmailCreateOrConnectWithoutUserInput | EmailCreateOrConnectWithoutUserInput[]
-    createMany?: EmailCreateManyUserInputEnvelope
-    connect?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
+  export type AccountCreateNestedManyWithoutUserInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
   export type RoleCreateNestedOneWithoutUserInput = {
@@ -13608,11 +13608,11 @@ export namespace Prisma {
     connect?: InstitutionInstanceWhereUniqueInput
   }
 
-  export type EmailUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput> | EmailCreateWithoutUserInput[] | EmailUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: EmailCreateOrConnectWithoutUserInput | EmailCreateOrConnectWithoutUserInput[]
-    createMany?: EmailCreateManyUserInputEnvelope
-    connect?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
+  export type AccountUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -13627,18 +13627,18 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type EmailUpdateManyWithoutUserNestedInput = {
-    create?: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput> | EmailCreateWithoutUserInput[] | EmailUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: EmailCreateOrConnectWithoutUserInput | EmailCreateOrConnectWithoutUserInput[]
-    upsert?: EmailUpsertWithWhereUniqueWithoutUserInput | EmailUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: EmailCreateManyUserInputEnvelope
-    set?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    disconnect?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    delete?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    connect?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    update?: EmailUpdateWithWhereUniqueWithoutUserInput | EmailUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: EmailUpdateManyWithWhereWithoutUserInput | EmailUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: EmailScalarWhereInput | EmailScalarWhereInput[]
+  export type AccountUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    upsert?: AccountUpsertWithWhereUniqueWithoutUserInput | AccountUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    set?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    disconnect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    delete?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
   export type RoleUpdateOneRequiredWithoutUserNestedInput = {
@@ -13659,18 +13659,18 @@ export namespace Prisma {
     update?: XOR<XOR<InstitutionInstanceUpdateToOneWithWhereWithoutUserInput, InstitutionInstanceUpdateWithoutUserInput>, InstitutionInstanceUncheckedUpdateWithoutUserInput>
   }
 
-  export type EmailUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput> | EmailCreateWithoutUserInput[] | EmailUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: EmailCreateOrConnectWithoutUserInput | EmailCreateOrConnectWithoutUserInput[]
-    upsert?: EmailUpsertWithWhereUniqueWithoutUserInput | EmailUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: EmailCreateManyUserInputEnvelope
-    set?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    disconnect?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    delete?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    connect?: EmailWhereUniqueInput | EmailWhereUniqueInput[]
-    update?: EmailUpdateWithWhereUniqueWithoutUserInput | EmailUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: EmailUpdateManyWithWhereWithoutUserInput | EmailUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: EmailScalarWhereInput | EmailScalarWhereInput[]
+  export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    upsert?: AccountUpsertWithWhereUniqueWithoutUserInput | AccountUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    set?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    disconnect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    delete?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
   export type UserCreateNestedManyWithoutRoleInput = {
@@ -13791,9 +13791,9 @@ export namespace Prisma {
     deleteMany?: RoleScalarWhereInput | RoleScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutEmailsInput = {
-    create?: XOR<UserCreateWithoutEmailsInput, UserUncheckedCreateWithoutEmailsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutEmailsInput
+  export type UserCreateNestedOneWithoutAccountsInput = {
+    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
     connect?: UserWhereUniqueInput
   }
 
@@ -13801,12 +13801,12 @@ export namespace Prisma {
     set?: boolean
   }
 
-  export type UserUpdateOneRequiredWithoutEmailsNestedInput = {
-    create?: XOR<UserCreateWithoutEmailsInput, UserUncheckedCreateWithoutEmailsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutEmailsInput
-    upsert?: UserUpsertWithoutEmailsInput
+  export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
+    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
+    upsert?: UserUpsertWithoutAccountsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutEmailsInput, UserUpdateWithoutEmailsInput>, UserUncheckedUpdateWithoutEmailsInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
   }
 
   export type InstitutionInstanceCreateNestedOneWithoutExternalLinksInput = {
@@ -13974,9 +13974,9 @@ export namespace Prisma {
     connect?: InstitutionInstanceWhereUniqueInput
   }
 
-  export type InstitutionInstanceModuleTypeCreateNestedOneWithoutInstitutionInstanceModuleInput = {
-    create?: XOR<InstitutionInstanceModuleTypeCreateWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutInstitutionInstanceModuleInput>
-    connectOrCreate?: InstitutionInstanceModuleTypeCreateOrConnectWithoutInstitutionInstanceModuleInput
+  export type InstitutionInstanceModuleTypeCreateNestedOneWithoutModulesInput = {
+    create?: XOR<InstitutionInstanceModuleTypeCreateWithoutModulesInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutModulesInput>
+    connectOrCreate?: InstitutionInstanceModuleTypeCreateOrConnectWithoutModulesInput
     connect?: InstitutionInstanceModuleTypeWhereUniqueInput
   }
 
@@ -13996,12 +13996,12 @@ export namespace Prisma {
     update?: XOR<XOR<InstitutionInstanceUpdateToOneWithWhereWithoutModulesInput, InstitutionInstanceUpdateWithoutModulesInput>, InstitutionInstanceUncheckedUpdateWithoutModulesInput>
   }
 
-  export type InstitutionInstanceModuleTypeUpdateOneRequiredWithoutInstitutionInstanceModuleNestedInput = {
-    create?: XOR<InstitutionInstanceModuleTypeCreateWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutInstitutionInstanceModuleInput>
-    connectOrCreate?: InstitutionInstanceModuleTypeCreateOrConnectWithoutInstitutionInstanceModuleInput
-    upsert?: InstitutionInstanceModuleTypeUpsertWithoutInstitutionInstanceModuleInput
+  export type InstitutionInstanceModuleTypeUpdateOneRequiredWithoutModulesNestedInput = {
+    create?: XOR<InstitutionInstanceModuleTypeCreateWithoutModulesInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutModulesInput>
+    connectOrCreate?: InstitutionInstanceModuleTypeCreateOrConnectWithoutModulesInput
+    upsert?: InstitutionInstanceModuleTypeUpsertWithoutModulesInput
     connect?: InstitutionInstanceModuleTypeWhereUniqueInput
-    update?: XOR<XOR<InstitutionInstanceModuleTypeUpdateToOneWithWhereWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUpdateWithoutInstitutionInstanceModuleInput>, InstitutionInstanceModuleTypeUncheckedUpdateWithoutInstitutionInstanceModuleInput>
+    update?: XOR<XOR<InstitutionInstanceModuleTypeUpdateToOneWithWhereWithoutModulesInput, InstitutionInstanceModuleTypeUpdateWithoutModulesInput>, InstitutionInstanceModuleTypeUncheckedUpdateWithoutModulesInput>
   }
 
   export type InstitutionInstanceModuleCreateNestedManyWithoutTypeInput = {
@@ -14237,7 +14237,7 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type EmailCreateWithoutUserInput = {
+  export type AccountCreateWithoutUserInput = {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14246,7 +14246,7 @@ export namespace Prisma {
     googleEmailVerified?: boolean
   }
 
-  export type EmailUncheckedCreateWithoutUserInput = {
+  export type AccountUncheckedCreateWithoutUserInput = {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14255,13 +14255,13 @@ export namespace Prisma {
     googleEmailVerified?: boolean
   }
 
-  export type EmailCreateOrConnectWithoutUserInput = {
-    where: EmailWhereUniqueInput
-    create: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput>
+  export type AccountCreateOrConnectWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
   }
 
-  export type EmailCreateManyUserInputEnvelope = {
-    data: EmailCreateManyUserInput | EmailCreateManyUserInput[]
+  export type AccountCreateManyUserInputEnvelope = {
+    data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -14309,33 +14309,33 @@ export namespace Prisma {
     create: XOR<InstitutionInstanceCreateWithoutUserInput, InstitutionInstanceUncheckedCreateWithoutUserInput>
   }
 
-  export type EmailUpsertWithWhereUniqueWithoutUserInput = {
-    where: EmailWhereUniqueInput
-    update: XOR<EmailUpdateWithoutUserInput, EmailUncheckedUpdateWithoutUserInput>
-    create: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput>
+  export type AccountUpsertWithWhereUniqueWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
+    create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
   }
 
-  export type EmailUpdateWithWhereUniqueWithoutUserInput = {
-    where: EmailWhereUniqueInput
-    data: XOR<EmailUpdateWithoutUserInput, EmailUncheckedUpdateWithoutUserInput>
+  export type AccountUpdateWithWhereUniqueWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    data: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
   }
 
-  export type EmailUpdateManyWithWhereWithoutUserInput = {
-    where: EmailScalarWhereInput
-    data: XOR<EmailUpdateManyMutationInput, EmailUncheckedUpdateManyWithoutUserInput>
+  export type AccountUpdateManyWithWhereWithoutUserInput = {
+    where: AccountScalarWhereInput
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type EmailScalarWhereInput = {
-    AND?: EmailScalarWhereInput | EmailScalarWhereInput[]
-    OR?: EmailScalarWhereInput[]
-    NOT?: EmailScalarWhereInput | EmailScalarWhereInput[]
-    email?: StringFilter<"Email"> | string
-    createdAt?: DateTimeFilter<"Email"> | Date | string
-    updatedAt?: DateTimeFilter<"Email"> | Date | string
-    googleAccessToken?: StringNullableFilter<"Email"> | string | null
-    googleRefreshToken?: StringNullableFilter<"Email"> | string | null
-    googleEmailVerified?: BoolFilter<"Email"> | boolean
-    userId?: StringFilter<"Email"> | string
+  export type AccountScalarWhereInput = {
+    AND?: AccountScalarWhereInput | AccountScalarWhereInput[]
+    OR?: AccountScalarWhereInput[]
+    NOT?: AccountScalarWhereInput | AccountScalarWhereInput[]
+    email?: StringFilter<"Account"> | string
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    googleAccessToken?: StringNullableFilter<"Account"> | string | null
+    googleRefreshToken?: StringNullableFilter<"Account"> | string | null
+    googleEmailVerified?: BoolFilter<"Account"> | boolean
+    userId?: StringFilter<"Account"> | string
   }
 
   export type RoleUpsertWithoutUserInput = {
@@ -14401,7 +14401,7 @@ export namespace Prisma {
     lastName?: string | null
     avatarUrl?: string | null
     refreshToken?: string | null
-    emails?: EmailCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
     instance?: InstitutionInstanceCreateNestedOneWithoutUserInput
   }
 
@@ -14413,7 +14413,7 @@ export namespace Prisma {
     avatarUrl?: string | null
     refreshToken?: string | null
     instanceId?: string | null
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRoleInput = {
@@ -14542,7 +14542,7 @@ export namespace Prisma {
     description?: StringFilter<"Role"> | string
   }
 
-  export type UserCreateWithoutEmailsInput = {
+  export type UserCreateWithoutAccountsInput = {
     id?: string
     createdAt?: Date | string
     firstName?: string | null
@@ -14553,7 +14553,7 @@ export namespace Prisma {
     instance?: InstitutionInstanceCreateNestedOneWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutEmailsInput = {
+  export type UserUncheckedCreateWithoutAccountsInput = {
     id?: string
     createdAt?: Date | string
     firstName?: string | null
@@ -14564,23 +14564,23 @@ export namespace Prisma {
     instanceId?: string | null
   }
 
-  export type UserCreateOrConnectWithoutEmailsInput = {
+  export type UserCreateOrConnectWithoutAccountsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutEmailsInput, UserUncheckedCreateWithoutEmailsInput>
+    create: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
   }
 
-  export type UserUpsertWithoutEmailsInput = {
-    update: XOR<UserUpdateWithoutEmailsInput, UserUncheckedUpdateWithoutEmailsInput>
-    create: XOR<UserCreateWithoutEmailsInput, UserUncheckedCreateWithoutEmailsInput>
+  export type UserUpsertWithoutAccountsInput = {
+    update: XOR<UserUpdateWithoutAccountsInput, UserUncheckedUpdateWithoutAccountsInput>
+    create: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutEmailsInput = {
+  export type UserUpdateToOneWithWhereWithoutAccountsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutEmailsInput, UserUncheckedUpdateWithoutEmailsInput>
+    data: XOR<UserUpdateWithoutAccountsInput, UserUncheckedUpdateWithoutAccountsInput>
   }
 
-  export type UserUpdateWithoutEmailsInput = {
+  export type UserUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14591,7 +14591,7 @@ export namespace Prisma {
     instance?: InstitutionInstanceUpdateOneWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutEmailsInput = {
+  export type UserUncheckedUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14668,7 +14668,7 @@ export namespace Prisma {
     apiKey?: string | null
     expectedMajorVersion: number
     expectedMinorVersion: number
-    type: InstitutionInstanceModuleTypeCreateNestedOneWithoutInstitutionInstanceModuleInput
+    type: InstitutionInstanceModuleTypeCreateNestedOneWithoutModulesInput
   }
 
   export type InstitutionInstanceModuleUncheckedCreateWithoutInstanceInput = {
@@ -14681,7 +14681,7 @@ export namespace Prisma {
     apiKey?: string | null
     expectedMajorVersion: number
     expectedMinorVersion: number
-    typeId: string
+    typeSlug: string
   }
 
   export type InstitutionInstanceModuleCreateOrConnectWithoutInstanceInput = {
@@ -14701,7 +14701,7 @@ export namespace Prisma {
     lastName?: string | null
     avatarUrl?: string | null
     refreshToken?: string | null
-    emails?: EmailCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
     role: RoleCreateNestedOneWithoutUserInput
   }
 
@@ -14713,7 +14713,7 @@ export namespace Prisma {
     avatarUrl?: string | null
     refreshToken?: string | null
     roleSlug: string
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutInstanceInput = {
@@ -14786,7 +14786,7 @@ export namespace Prisma {
     expectedMajorVersion?: IntFilter<"InstitutionInstanceModule"> | number
     expectedMinorVersion?: IntFilter<"InstitutionInstanceModule"> | number
     instanceId?: StringFilter<"InstitutionInstanceModule"> | string
-    typeId?: StringFilter<"InstitutionInstanceModule"> | string
+    typeSlug?: StringFilter<"InstitutionInstanceModule"> | string
   }
 
   export type UserUpsertWithWhereUniqueWithoutInstanceInput = {
@@ -14860,21 +14860,21 @@ export namespace Prisma {
     create: XOR<InstitutionInstanceCreateWithoutModulesInput, InstitutionInstanceUncheckedCreateWithoutModulesInput>
   }
 
-  export type InstitutionInstanceModuleTypeCreateWithoutInstitutionInstanceModuleInput = {
-    id?: string
+  export type InstitutionInstanceModuleTypeCreateWithoutModulesInput = {
     slug: string
     name: string
+    description?: string | null
   }
 
-  export type InstitutionInstanceModuleTypeUncheckedCreateWithoutInstitutionInstanceModuleInput = {
-    id?: string
+  export type InstitutionInstanceModuleTypeUncheckedCreateWithoutModulesInput = {
     slug: string
     name: string
+    description?: string | null
   }
 
-  export type InstitutionInstanceModuleTypeCreateOrConnectWithoutInstitutionInstanceModuleInput = {
+  export type InstitutionInstanceModuleTypeCreateOrConnectWithoutModulesInput = {
     where: InstitutionInstanceModuleTypeWhereUniqueInput
-    create: XOR<InstitutionInstanceModuleTypeCreateWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutInstitutionInstanceModuleInput>
+    create: XOR<InstitutionInstanceModuleTypeCreateWithoutModulesInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutModulesInput>
   }
 
   export type InstitutionInstanceUpsertWithoutModulesInput = {
@@ -14908,27 +14908,27 @@ export namespace Prisma {
     externalLinks?: ExternalLinksUncheckedUpdateManyWithoutInstitutionInstanceNestedInput
   }
 
-  export type InstitutionInstanceModuleTypeUpsertWithoutInstitutionInstanceModuleInput = {
-    update: XOR<InstitutionInstanceModuleTypeUpdateWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUncheckedUpdateWithoutInstitutionInstanceModuleInput>
-    create: XOR<InstitutionInstanceModuleTypeCreateWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutInstitutionInstanceModuleInput>
+  export type InstitutionInstanceModuleTypeUpsertWithoutModulesInput = {
+    update: XOR<InstitutionInstanceModuleTypeUpdateWithoutModulesInput, InstitutionInstanceModuleTypeUncheckedUpdateWithoutModulesInput>
+    create: XOR<InstitutionInstanceModuleTypeCreateWithoutModulesInput, InstitutionInstanceModuleTypeUncheckedCreateWithoutModulesInput>
     where?: InstitutionInstanceModuleTypeWhereInput
   }
 
-  export type InstitutionInstanceModuleTypeUpdateToOneWithWhereWithoutInstitutionInstanceModuleInput = {
+  export type InstitutionInstanceModuleTypeUpdateToOneWithWhereWithoutModulesInput = {
     where?: InstitutionInstanceModuleTypeWhereInput
-    data: XOR<InstitutionInstanceModuleTypeUpdateWithoutInstitutionInstanceModuleInput, InstitutionInstanceModuleTypeUncheckedUpdateWithoutInstitutionInstanceModuleInput>
+    data: XOR<InstitutionInstanceModuleTypeUpdateWithoutModulesInput, InstitutionInstanceModuleTypeUncheckedUpdateWithoutModulesInput>
   }
 
-  export type InstitutionInstanceModuleTypeUpdateWithoutInstitutionInstanceModuleInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type InstitutionInstanceModuleTypeUpdateWithoutModulesInput = {
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type InstitutionInstanceModuleTypeUncheckedUpdateWithoutInstitutionInstanceModuleInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type InstitutionInstanceModuleTypeUncheckedUpdateWithoutModulesInput = {
     slug?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type InstitutionInstanceModuleCreateWithoutTypeInput = {
@@ -14983,7 +14983,7 @@ export namespace Prisma {
     data: XOR<InstitutionInstanceModuleUpdateManyMutationInput, InstitutionInstanceModuleUncheckedUpdateManyWithoutTypeInput>
   }
 
-  export type EmailCreateManyUserInput = {
+  export type AccountCreateManyUserInput = {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14992,7 +14992,7 @@ export namespace Prisma {
     googleEmailVerified?: boolean
   }
 
-  export type EmailUpdateWithoutUserInput = {
+  export type AccountUpdateWithoutUserInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15001,7 +15001,7 @@ export namespace Prisma {
     googleEmailVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type EmailUncheckedUpdateWithoutUserInput = {
+  export type AccountUncheckedUpdateWithoutUserInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15010,7 +15010,7 @@ export namespace Prisma {
     googleEmailVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type EmailUncheckedUpdateManyWithoutUserInput = {
+  export type AccountUncheckedUpdateManyWithoutUserInput = {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15036,7 +15036,7 @@ export namespace Prisma {
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
-    emails?: EmailUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
     instance?: InstitutionInstanceUpdateOneWithoutUserNestedInput
   }
 
@@ -15048,7 +15048,7 @@ export namespace Prisma {
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     instanceId?: NullableStringFieldUpdateOperationsInput | string | null
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutRoleInput = {
@@ -15109,7 +15109,7 @@ export namespace Prisma {
     apiKey?: string | null
     expectedMajorVersion: number
     expectedMinorVersion: number
-    typeId: string
+    typeSlug: string
   }
 
   export type UserCreateManyInstanceInput = {
@@ -15142,7 +15142,7 @@ export namespace Prisma {
     apiKey?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMajorVersion?: IntFieldUpdateOperationsInput | number
     expectedMinorVersion?: IntFieldUpdateOperationsInput | number
-    type?: InstitutionInstanceModuleTypeUpdateOneRequiredWithoutInstitutionInstanceModuleNestedInput
+    type?: InstitutionInstanceModuleTypeUpdateOneRequiredWithoutModulesNestedInput
   }
 
   export type InstitutionInstanceModuleUncheckedUpdateWithoutInstanceInput = {
@@ -15155,7 +15155,7 @@ export namespace Prisma {
     apiKey?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMajorVersion?: IntFieldUpdateOperationsInput | number
     expectedMinorVersion?: IntFieldUpdateOperationsInput | number
-    typeId?: StringFieldUpdateOperationsInput | string
+    typeSlug?: StringFieldUpdateOperationsInput | string
   }
 
   export type InstitutionInstanceModuleUncheckedUpdateManyWithoutInstanceInput = {
@@ -15168,7 +15168,7 @@ export namespace Prisma {
     apiKey?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMajorVersion?: IntFieldUpdateOperationsInput | number
     expectedMinorVersion?: IntFieldUpdateOperationsInput | number
-    typeId?: StringFieldUpdateOperationsInput | string
+    typeSlug?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUpdateWithoutInstanceInput = {
@@ -15178,7 +15178,7 @@ export namespace Prisma {
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
-    emails?: EmailUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
     role?: RoleUpdateOneRequiredWithoutUserNestedInput
   }
 
@@ -15190,7 +15190,7 @@ export namespace Prisma {
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     roleSlug?: StringFieldUpdateOperationsInput | string
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutInstanceInput = {
