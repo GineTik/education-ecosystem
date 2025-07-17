@@ -4,7 +4,10 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 
 @Injectable()
 export class ScheduleService {
-  constructor(private readonly prisma: PrismaService, private readonly parserService: ParserService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly parserService: ParserService,
+  ) {}
 
   async getSchedule(groupId: string) {
     const group = await this.prisma.group.findUnique({
@@ -34,11 +37,7 @@ export class ScheduleService {
           (group, index, self) =>
             self.findIndex((t) => t.id === group.id) === index,
         )
-        .map(async (group) => {
-          const result = await this.getSchedule(group.id.toString());
-          console.log(`schedule ${group.id} taken`);
-          return result;
-        }),
+        .map((group) => this.getSchedule(group.id.toString())),
     );
 
     return schedules

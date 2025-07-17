@@ -178,7 +178,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Denis\\Projects\\diplom\\instances\\non-official-nau\\backend\\src\\shared\\prisma\\generated\\prisma",
+      "value": "/home/ds/Projects/diploma/my-diplom/instances/non-official-nau/backend/src/shared/prisma/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -187,12 +187,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Denis\\Projects\\diplom\\instances\\non-official-nau\\backend\\src\\shared\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/ds/Projects/diploma/my-diplom/instances/non-official-nau/backend/src/shared/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -206,7 +206,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {

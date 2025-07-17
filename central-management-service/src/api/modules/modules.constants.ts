@@ -1,0 +1,3 @@
+export const ERROR_CODES = {
+    YOU_HAS_NOT_INSTANCE: "YOU_HAS_NOT_INSTANCE",
+};

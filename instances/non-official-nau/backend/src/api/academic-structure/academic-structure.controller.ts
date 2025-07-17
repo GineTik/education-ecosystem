@@ -25,7 +25,7 @@ export class AcademicStructureController {
       address: "вул. Сім'яновича, 1, м. Київ, 03056, Україна",
       email: "info@nau.edu.ua",
       website: "https://nau.edu.ua",
-    }
+    };
   }
 
   @Get("/about")

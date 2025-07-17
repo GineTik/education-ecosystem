@@ -1,3 +1,9 @@
+# Education ecosystem
+
+## Introduction
+
+- Topic of the project
+
 ## Structure
 
 - see-frontend - student education ecosystem frontend

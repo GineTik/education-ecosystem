@@ -179,7 +179,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Denis\\Projects\\diplom\\instances\\non-official-nau\\backend\\src\\shared\\prisma\\generated\\prisma",
+      "value": "/home/ds/Projects/diploma/my-diplom/instances/non-official-nau/backend/src/shared/prisma/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -188,12 +188,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Denis\\Projects\\diplom\\instances\\non-official-nau\\backend\\src\\shared\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/ds/Projects/diploma/my-diplom/instances/non-official-nau/backend/src/shared/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -207,7 +207,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -256,8 +255,8 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "src/shared/prisma/generated/prisma/query_engine-windows.dll.node")
+path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
+path.join(process.cwd(), "src/shared/prisma/generated/prisma/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "src/shared/prisma/generated/prisma/schema.prisma")
